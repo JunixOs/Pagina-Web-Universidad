@@ -1,5 +1,5 @@
 body {
-    background-image: image-set('Images/index/Background_Index.jpg');
+    background-image: image-set('/Images/index/Background_Index.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
