@@ -1,0 +1,12 @@
+body {
+    background-image: image-set('Images/VPN_remoto/Imagen_Background.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    color: #FFFFFF;
+}
+p {
+    width: 550px;
+    height: 150px;
+    border: aquamarine;
+}

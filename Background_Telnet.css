@@ -1,0 +1,12 @@
+body {
+    background-image: image-set('Images/Telnet_Switch/Background_Telnet.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    color: #FFFFFF;
+}
+p {
+    width: 400px;
+    height: 150px;
+    overflow: auto;
+}
