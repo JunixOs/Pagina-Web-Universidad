@@ -1,162 +1,340 @@
-<!DOCTYPE html> <!--Le decimos al navegador que version de HTML estamos usando-->
-<html lang="es"> <!--Contenido, me dice que todo es HTML. lang es una atributo de etiqueta-->
-    <div>
-    <head> <!--Cabeza-->
-        <!--Que codificacion de caracteres estamos usando-->
-        <meta charset="utf-8"/>
-        <!--"meta" da mas informacion-->
-        <meta name="Description" content="Pagina web de principiante"/>
-        <meta name="Autor Pagina" content="Junior Ordoñez"/>
-        <!--Palabras clave para que nuestra web sea mas facil de encontrar-->
-        <meta name="keywords" content="Mi primer sitio, Sitio Web, Principiante"/>
-        <!--Titulo de la pagina, el "head" solo muestra lo que hay dentro de la etiqueta "title"--> 
-        <title>
-            Pagina Personal
-        </title>
-        <link rel="stylesheet" href="/CSS/order.css">
-        <link rel="stylesheet" href="/CSS/background_index.css">
+<!DOCTYPE html>
+<style>
+    body{
+        width: 100%;
+        height: 100%;
+        --s: 200px; /* control the size */
+        --c1: #1d1d1d;
+        --c2: #4e4f51;
+        --c3: #3c3c3c;
+
+        background: repeating-conic-gradient(
+                from 30deg,
+                #0000 0 120deg,
+                var(--c3) 0 180deg
+            )
+            calc(0.5 * var(--s)) calc(0.5 * var(--s) * 0.577),
+            repeating-conic-gradient(
+            from 30deg,
+            var(--c1) 0 60deg,
+            var(--c2) 0 120deg,
+            var(--c3) 0 180deg
+            );
+        background-size: var(--s) calc(var(--s) * 0.577);
+    }
+    /* From Uiverse.io by csemszepp */ 
+    a {
+    outline: none;
+    text-decoration: none;
+    color: #000;
+    padding: 2px 1px 0;
+    }
+    .principal{
+        padding-top: 8px;
+        padding-bottom: 8px;
+        width: 100vw;
+        height: 71vh;
+        display: flex;
+    }
+    .configuraciones{
+        background-color: whitesmoke;
+        width: 70vw;
+        height: 71vh;
+        display: grid;
+        border-radius: 15px;
+    }
+    .titulo-configuraciones{
+        width: 65vw;
+        height: 5vh;
+        border-bottom: solid;
+        border-width: 1pt;
+    }
+    .contenido-configuraciones{
+        padding-top: 5px;
+        width: 70vw;
+        height: 65vh;
+        overflow-y: scroll;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 20px;
+        grid-auto-rows: 400px;
+
+    }
+    .item-configuracion{
+        background-color: burlywood;
+        padding-left: 10px;
+        width: 28vw;
+        height: 300px;
+        border-radius: 15px;
+        cursor: pointer;
+        transition-duration: 1.5s;
+        transition-delay: 0.1s;
+        transition: 400ms;
+    }
+    .item-configuracion:hover{
+        background: rgb(238,174,202);
+        background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+        transform: scale(1.1 , 1.1);
+    }
+    .contenido-configuraciones:hover > .item-configuracion:not(:hover){
+        filter: blur(10px);
+        transform: scale(0.9, 0.9);
+    }
+    .imagen-item-configuracion{
+        background-color: white;
+        width: 100%;
+        height: 150px;
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+    }
+    .imagen-item-configuracion-contenido{
+        width: 100%;
+        height: 100%;
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+    }
+    .descripcion-item-configuracion{
+        background-color: burlywood;
+        width: 100%;
+        height: 150px;
+        border-bottom-right-radius: 15px;
+        border-bottom-left-radius: 15px;
+        overflow-y: scroll;
+    }
+    .titulo-descripcion-item-configuracion{
+        width: 100%;
+        height: max-content;
+        text-align: center;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 25px;
+        font-style: italic;
+        font-weight: lighter;
+        border-bottom: solid;
+        border-width: 1px;
+    }
+    .texto-descripcion-item-configuracion{
+        height: max-content;
+        font-family:'Times New Roman', Times, serif;
+        font-size: 15px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .extras{
+        background-color: red;
+        width: 30vw;
+        height: 71vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .categorias-recomendadas{
+        background-color: black;
+        width: 20vw;
+        height: 60vh;
+    }
+    .top-bar{
+        background-color: grey;
+        width: 100vw;
+        height: 10vh;
+        display: flex;
+    }
+    .contenedor-titulo-pagina{
+        background-image: image-set('/Images/nube.png');
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        margin: 0 auto;
+        width: 16vw;
+        height: 10vh;
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+    }
+    .titulo-pagina{
+        padding-top: 20px;
+        width: fit-content;
+        height: fit-content;
+        font-family:'Courier New', Courier, monospace;
+        color: black;
+        font-weight: bolder;
+        font-size: 25px;
+        font-style: oblique;
+    }
+    .contenedor-links{
+        padding-left: 10px;
+        width: 84vw;
+        height: 10vh;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 5px;
+        grid-auto-rows: 100px;
+    }
+    .links{
+        background-color: gold;
+        width: 10vw;
+        height: 8vh;
+        text-align: center;
+        transition: 400ms;
+    }
+    .links:hover{
+        transform: scale(1.2,1.2);
+    }
+    .references {
+        text-align: center;
+    }
+    .foot{
+        background-color:cornsilk;
+        width: 100vw;
+        height: 13vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .foot-text{
+        padding-left: 15px;
+        width: 50vw;
+        height: 100%;
+        font-size: small;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight:lighter;
+        font-style: italic;
+    }
+    .foot-contenedor-logos{
+        width: 50vw;
+        height: 100%;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 20px;
+        grid-auto-rows: 5px;
+    }
+    .foot-logos{
+        width: 6vw;
+        height: 50px;
+        text-align: center;
+        font-size: 25px;
+    }
+</style>
+<html>
+    <head>
+        <title>Inicio</title>
+        <link rel="icon" href="/Images/nube-icono.ico" type="image/x-icon">
     </head>
     <body>
-        <header> <!--Le dice al navegador que esto es la cabeza de la pagina web-->
-            <h1> <!--Heading, encabezado en español, h1 para colocar texto en negrita y grande-->
-                <span style="font-size: 40px; margin: 21px 0;font-style: italic;"><center>Mi Pagina personal</center></span>
-                    <!--con span puedo personalizar mi texto-->
-            </h1>
-        </header> 
-        <h2> <!--Subtitulo, existen niveles de encabezado, como en el word-->
-            <center><font color="Green" size="6">Cursos Universidad</font></center>
-        </h2>
-        <p> <!--Paragraph ,Parrafo-->
-            <font><center>Bienvenidos a mi pagina web</center></font>
-        </p>
-        <center><img src="/Images/index/Gato.jpg" alt="Imagen de Gato" height="250"/></center>
-        <section>
-            <nav>
-                <ol> <!--Ordered List-->
-                    <li value="1">
-                        <hgroup>
-                            <h1>
-                                <span style="font-size: 19px; margin: 21px 0; font-style: italic;">
-                                    CONFIGURACION BASICA DE DISPOSITIVOS DE RED
-                                </span>
-                            </h1>
-                        </hgroup>
-                    </li>
-                    <ol>
-                        <li>
-                            <hgroup><h2><span style="font-size: 18px; margin: 21px 0;font-style: normal;">
-                                Configurar VPN remoto:
-                            </span></h2></hgroup>
-                            <address>
-                                <a href="VPN_configuration_cisco.html">
-                                    <img src="/Images/index/VPN_Remoto.jpg" alt="Imagen de VPN remoto Cisco" height="200px" width="480px">
-                                </a>
-                            </address> 
-                        </li>
-
-                        <li>
-                            <hgroup><h2><span style="font-size: 18px;font-style: normal;">Telefonia VoIP</span></h2></hgroup>
-                            <address><a href="Configuracion_VoIP.html">
-                                <img src="/Images/index/Imagen_VoIP.png" width="320px" height="240px" alt="Imagen de telefono VoIp que redirige a la configuracion del mismo">
-                            </a></address>
-                        </li>
-
-                        <li>
-                            <hgroup><h2><span style="font-size: 18px; font-style: normal;">Configuracion Telnet en Switches</span></h2></hgroup>
-                            <address><a href="Configuracion_Telnet_Switch.html">
-                                <img src="/Images/index/Telnet_Switch.png" alt="Acceder a Switch usando el protocolo Telnet">
-                            </a></address>
-                        </li> <!--"li" de list, Me permite crear listas, la informacion dentro son items-->
-                    </ol>
-                </ol>
-                        <!-- <meta http-equiv="refresh" content="5 ; url="URL HERE"> -->
-                </nav>
-            </section>
-            <section> <!--Es un contenedor de contenido-->
-                <article> <!--Sirven para detallar el contenido-->
-                    <hgroup> <!--Sirve para agrupar encabezados y asi mantener la jerarquia-->
-                        <h1><span style="font-size: 21px; font-style:italic">Experimentando con HTML</span></h1>
-                        <h2><font size="4" color="black">Subtitulo del primer articulo</font></h2>
-                    </hgroup>
+        <div class="top-bar">
+            <div class="contenedor-titulo-pagina">
+                <div class="titulo-pagina">
+                    <p>NetConfig</p>
+                </div>
+            </div>
+            <div class="contenedor-links">
+                <div class="links">
+                    <a href="/Paginas Web/index.html"><p>Pagina principal</p></a>
+                </div>
+                <div class="links">
+                    <a href=""><p>Acerca de</p></a>
+                </div>
+                <div class="links">
+                    <a href=""><p>Ver secciones</p></a>
+                </div>
+                <div class="links">
+                    <p></p>
+                </div>
+            </div>
+        </div>
+        <div class="principal">
+            <div class="configuraciones">
+                <div class="titulo-configuraciones">
+                    <p style="font-family: 'Times New Roman', Times, serif;padding-left: 20px;">Inicio</p>
+                </div>
+                <div class="contenido-configuraciones">
+                    <div class="item-configuracion">
+                        <a href="/Paginas Web/Configuracion-de-switch.html">
+                            <div class="imagen-item-configuracion">
+                                <img src="/Images/Configuracion-capa-2.webp" alt="Configuracion de capa 2" class="imagen-item-configuracion-contenido">
+                            </div>
+                            <div class="descripcion-item-configuracion">
+                                <div class="titulo-descripcion-item-configuracion">
+                                    Configuracion de Switch
+                                </div>
+                                <section>
+                                    <p class="texto-descripcion-item-configuracion">
+                                        En esta seccion encontraras diferentes guias para la configuracion de Switches o Conmutadores.
+                                        Algunas de las configuraciones abordadas son Configuracion basica, STP, VTP, PVSTP, Seguridad de puertos de switch, Acceso remoto a un Switch, etc.
+                                    </p>
+                                </section>
+                            </div>
+                        </a>
+                    </div>
                     
-                    <time datetime="12-10-24">Publicado el 12 de octubre de 2024</time> <!--"datetime" da mas
-                        info sobre la fecha-->
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                        Rerum quia ex, aspernatur ad architecto sit! Blanditiis animi vero, fugit vitae enim <br>
-                        aliquam, 
-                        tempore minima nihil in ad, aut expedita iste optio commodi sit aspernatur laboriosam.
-                    </p>
-                        <!--Generar texto de prueba "loremn" donde n es la cantidad de palabras que tendra el texto a
-                            generar-->
-                    <footer>
-                        <p>
-                            Comments 0
-                        </p>
-                    </footer>
-                    <address>
-                    <a href="https://openai.com">
-                        Haz tus preguntas aqui!...
-                    </a>
-                    </address>
-                </article>
-                <article>
-                    <hgroup>
-                        <h1>Experimentando con SQL</h1>
-                        <h2>Subtitulo del segundo articulo</h2>
-                    </hgroup>
-                    <time datetime="12-10-24">Publicado el 12 de octubre de 2024</time>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                        Doloribus cupiditate accusantium consectetur eos labore totam veritatis possimus <br>
-                        dolores recusandae consequuntur tenetur quod ea fuga, minima excepturi nisi veniam, 
-                        laudantium voluptates.</p>
-                    <footer>
-                        <p>
-                            Comments 0
-                        </p>
-                    </footer>
-                    <address> <!--Le dice al navegador que esta es una direccion, se coloca en cursiva-->
-                    <a href="http://google.com"> <!--Me permite colocar enlaces-->
-                        Mas informacion aqui...
-                    </a>
-                    </address>
-                </article>
-            </section> <!--section, especifica una seccion generica independiente del documento-->
+                    <div class="item-configuracion">
+                        <a href="/Paginas Web/Configuracion-de-router.html">
+                        <div class="imagen-item-configuracion">
+                            <img src="/Images/Configuracion-router.jpg" alt="Configuracion de router" class="imagen-item-configuracion-contenido">
+                        </div>
+                        <div class="descripcion-item-configuracion">
+                            <div class="titulo-descripcion-item-configuracion">
+                                Configuracion de Router
+                            </div>
+                            <section>
+                                <p class="texto-descripcion-item-configuracion">
+                                    Aqui encontraras diferentes guias para la configuracion de Routers o Enrutadores.
+                                    Algunas de las configuraciones abordadas son configuracion basica, Protocolos de enrutamiento, Inter-VLAN, Acceso remoto, ACL, etc. 
+                                </p>
+                            </section>
+                        </div>
+                        </a>
+                    </div>
+                    <div class="item-configuracion">
+                        <div class="imagen-item-configuracion">
+                            <img src="/Images/Configuracion-firewall.jpg" alt="Configuracion de firewall" style="width: 100%;height: 100%;">
+                        </div>
+                        <div class="descripcion-item-configuracion">
+                            <div class="titulo-descripcion-item-configuracion">
+                                Configuracion de Firewall
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item-configuracion">
+                        <div class="imagen-item-configuracion">
+                            <img src="/Images/Configuracion-de-controlador-de-red.png" alt="Configuracion de controlador de red" style="width: 100%;height: 100%;">
+                        </div>
+                        <div class="descripcion-item-configuracion">
+                            <div class="titulo-descripcion-item-configuracion">
+                                Configuracion de Controlador de Red
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item-configuracion">
 
-            <aside> <!--aside, especifica una parte del texto que esta indirectamente relacionado con el contenido
-                        de la pagina-->
-                Archivo
-                <ul> <!--Lista desordenada, el orden no importa-->
-                    <li> <!--Especifico los elementos uno por uno-->
-                        Como ganar en el Fornite
-                    </li>
-                </ul>
-                Acerca de
-                <blockquote cite="https://youtube.com"> <!--Me permite introducir citas-->
-                    Cita 1:
-                    <cite> <!--Me permite resaltar las citas-->
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
-                        In inventore, sint minima omnis eveniet minus?
-                    </cite>
-                </blockquote>
+                    </div>
+                </div>
+            </div>
+            <div class="extras">
+                <div class="categorias-recomendadas">
 
-                <ol>
-                    <li></li>
-                </ol>
-                <blockquote cite="https://google.com">
-                    Cita 2:
-                    <cite>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                        Quos assumenda possimus veritatis maxime distinctio? Qui quidem animi ut aliquam a.
-                    </cite>
-                </blockquote>
-            </aside>
-            <address>
-                <a href="About Us.html">Click for more.. </a>
-            </address>   
-        </body>
-        <footer> <!--Pie de pagina, ya sea de la pagina o de un articulo-->
-            <small>Derechos reservados 2001-2024</small> <!--Me permite reducir el tamaño de fuente-->
-        </footer>
-    </div>
+                </div>
+            </div>
+        </div>
+        <div class="foot">
+            <div class="foot-text">
+                <p>Todas las configuraciones son resultado del material de los cursos de Redes I y II</p>
+                <p>Si tienes dudas, consultas o requieres de apoyo en un examen practico enviame un mensaje</p>
+            </div>
+            <div class="foot-contenedor-logos">
+                <div class="foot-logos">
+                    <a href=""><img src="/Images/facebook.png" alt="facebook" style="width: 100%;height: 100%;"></a>
+                    Facebook
+                </div>
+                <div class="foot-logos">
+                    <img src="/Images/whatsapp.png" alt="whatsapp" style="width: 100%;height: 100%;">
+                    Whatsapp
+                </div>
+                <div class="foot-logos">
+                    <a href=""><img src="/Images/gmail.png" alt="gmail" style="width: 100%;height: 100%;"></a>
+                    Gmail
+                </div>
+            </div>
+        </div>
+    </body>
 </html>

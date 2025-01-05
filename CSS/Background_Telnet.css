@@ -5,7 +5,7 @@ body {
     background-size: cover;
     color: #FFFFFF;
 }
-p {
+.parrafo {
     width: 400px;
     height: 150px;
     overflow: auto;

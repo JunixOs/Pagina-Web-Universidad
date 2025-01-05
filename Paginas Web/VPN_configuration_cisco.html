@@ -1,128 +1,190 @@
 <!DOCTYPE html>
-<html lang="es" link="">
-    <div>
+<style>
+    ol {
+        padding-left: 16px; 
+        padding-top: 5px;
+    }
+    ol li {
+        padding-top: 4px;
+        padding-bottom: 4px;
+    }
+    ol li p {
+        padding-top: 5px;
+        padding-bottom: 5px;
+        padding-left: 12px;
+    }
+    ol li img{
+        justify-content: center;
+    }
+</style>
+<html lang="es">
     <head>
         <meta name="Descripcion" content="Configuracion VPN remoto en dispositivos Cisco">
         <meta name="keywords" content="Configuracion, VPN remoto, Cisco, Router Cisco">
         <meta name="Autor" content="Junior Ordoñez">
         <title>
-            Configuracion VPN remoto
+            Configuracion VPN remoto en Cisco Packet Tracer
         </title>
-        <link rel="stylesheet" href="/CSS/order.css">
         <link rel="stylesheet" href="/CSS/background_VPN_Remoto.css">
     </head>
     <body>
         <header>
-            <h1><center><span style="font-size: 15; color: blue;font-family: 'Times New Roman', Times, serif;">Configuracion VPN Remoto</span></center></h1>
+            <h1><center><span style="font-size: 15; color: blue;font-family: 'Times New Roman', Times, serif;font-weight: bold;font-style: italic;">Configuracion VPN Remoto</span></center></h1>
         </header>
         <nav>
-            <hgroup>
-                <h1>
-                    <center><span style="font-size: 12;font-family: 'Times New Roman', Times, serif;">Se tiene la siguiente topologia</span></center>
-                </h1>
-            </hgroup>
-            <center><img src="/Images/VPN_remoto/Topologia.png" alt="Topologia VPN remoto"></center>
-            <p>
-                <center>
-                    <font size="4">
-                        Se pide configurar R1 para brindar acceso a la red local madiante VPN a la red remota 192.168.1.0/24
-                    </font>
-                </center>
-            </p>
-            <ul>
-                <li> 
-                    <hgroup><h2><font size="4">Especificaciones antes de comenzar:</font></h2></hgroup>
-                    <ol>
-                        <li>
-                            Conocimientos basicos del uso del CLI de CiscoIOS
-                        </li>
-                        <li>
-                            Conocimientos basicos de protocolos de seguridas (IPsec y ISAKMP) 
-                            y metodos de encriptacion (AES, RSA).
-                        </li>
-                        <li>
-                            Conociemiento de enrutamiento
-                        </li>
-                    </ol>
-                </li>
-            
-                <li><hgroup><h2><font size="4">Configuracion del equipo de red R1</font></h2></hgroup></li>
-                <ol>
-                    <li>
-                        <hgroup><h3><font size="3">Crear un pool local:</font></h3></hgroup>
-                        <p>
-                            Aqui se incluiran las direcciones de nuestra red LAN CORP que arrendaremos a la LAN REMOTA
-                            R1(config)#ip local pool VPNPool 10.0.0.100 10.0.0.150
-                        </p>
-                    </li>
-                    <li>
-                        <hgroup><h3><font size="3">Configurar el servicio AAA en R1:</font></h3></hgroup>
-                        R1(config)#aaa new-model <br>
-                        R1(config)#aaa authorization network GroupVPN local <br>
-                        R1(config)#aaa authentication login UserVPN local <br>
-                    </li>
+            <div id="general">
+                <hgroup>
+                    <h1>
+                        <center><span style="font-size: 12;font-family: 'Times New Roman', Times, serif;font-style: italic;">Se tiene la siguiente topologia</span></center>
+                    </h1>
+                </hgroup>
+                <div id="otros">
+                    <div class="item">
+                        <ol>
+                            <li>
+                                Otros Articulos
+                                <ul>
+                                    <li>
+                                        <div class="direcciones"><a href="Configuracion_VoIP.html">Confiurar VoIP</a></div>
+                                    </li>
+                                    <li>
+                                        <address><a href="Configuracion_Telnet_Switch.html">Configurar Telnet</a></address>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+                <div id="contenido">
+                    <center><img src="/Images/VPN_remoto/Topologia.png" alt="Topologia VPN remoto"></center><br>
+                    <p style="padding-top: 5px;">
+                        <center>
+                            <font size="4">
+                                Se pide configurar R1 para brindar acceso a la red local madiante VPN a la red remota 192.168.1.0/24
+                            </font>
+                        </center>
+                    </p>
+                    <div class="contenedor_contenido">
+                        <ul>
+                            <li style="padding-top: 8px;padding-bottom: 8px;"> 
+                                <hgroup style="font-family: 'Times New Roman', Times, serif;font-style: oblique;"><h2><font size="4">Especificaciones antes de comenzar:</font></h2></hgroup>
+                                <ol>
+                                    <li>
+                                        Conocimientos basicos del uso del CLI de CiscoIOS <br>
+                                    </li>
+                                    <li>
+                                        Conocimientos basicos de protocolos de seguridad (IPsec y ISAKMP) 
+                                        y metodos de encriptacion (AES, RSA). <br>
+                                    </li>
+                                    <li>
+                                        Conociemiento de enrutamiento <br>
+                                    </li>
+                                </ol>
+                            </li>
+                            
+                            <li style="padding-top: 8px;padding-bottom: 8px;"><hgroup style="font-family: 'Times New Roman', Times, serif;font-style: oblique;"><h2><font size="4">Configuracion del equipo de red R1</font></h2></hgroup></li>
+                            <ol>
+                                <li>
+                                    <hgroup><h3><font size="3">Crear un pool local:</font></h3></hgroup>
+                                    <p>
+                                        Aqui se incluiran las direcciones de nuestra red LAN CORP que arrendaremos a la LAN REMOTA
+                                    </p>
+                                    <p>
+                                        R1(config)#ip local pool VPNPool 10.0.0.100 10.0.0.150
+                                    </p>
+                                </li>
+                                <li>
+                                    <hgroup><h3><font size="3">Configurar el servicio AAA en R1:</font></h3></hgroup>
+                                    <p>R1(config)#aaa authorization network GroupVPN local </p>
+                                    <p>R1(config)#aaa new-model</p>
+                                    <p>R1(config)#aaa authentication login UserVPN local </p>
+                                </li>
 
-                    <li>
-                        <hgroup><h3><font size="3">Configurar el protocolo ISAKMP:</font></h3></hgroup>
-                        R1(config)#crypto isakmp policy [1-100] <br>
-                        R1(config)#encryption aes 256 <br>
-                        R1(config)#authentication pre-share <br>
-                        R1(config)#group [1|3|5] <br>
-                        R1(config)#exit <br>
-                    </li>
+                                <li>
+                                    <hgroup><h3><font size="3">Configurar las politicas de seuguridad con ISAKMP:</font></h3></hgroup>
+                                    <p>R1(config)#crypto isakmp policy [1-100]</p>
+                                    <p>R1(config)#encryption aes 256 </p>
+                                    <p>R1(config)#group [1|3|5]</p>
+                                    <p>R1(config)#exit</p>          
+                                </li>
+                                <li>
+                                    <hgroup><h3><font size="3">Configurar las credenciales de GroupVPN:</font></h3></hgroup>
+                                    <p>R1(config)#crypto isakmp client configuration group GrupoVPN</p>
+                                    <p>R1(config)#key [Constraseña a usar]</p>
+                                    <p>R1(config)#pool VPNPool</p>
+                                </li>
 
-                    <li>
-                        <hgroup><h3><font size="3">Configurar las credenciales de GroupVPN:</font></h3></hgroup>
-                        R1(config)#crypto isakmp client configuration group GrupoVPN <br>
-                        R1(config)#key [Constraseña a usar] <br>
-                        R1(config)#pool VPNPool
-                    </li>
+                                <li>
+                                    <hgroup><h3><font size="3">Activar un set en IPSec:</font></h3></hgroup>
+                                    <p>R1(config)# crypto ipsec transform-set VPN-SET esp-aes esp-sha-hmac</p>
+                                </li>
+                                <li>
+                                    <hgroup><h3><font size="3">Configurar un crypto map dinamico:</font></h3></hgroup>
+                                    <p>R1(config)#crypto dynamic-map DynamicVPN 10</p>
+                                    <p>R1(config)#set transform-set VPN-SET</p>
+                                    <p>R1(config)#reverse-route</p>
+                                </li>
 
-                    <li>
-                        <hgroup><h3><font size="3">Activar un set en IPSec:</font></h3></hgroup>
-                        R1(config)# crypto ipsec transform-set VPN-SET esp-aes esp-sha-hmac <br>
-                    </li>
-                    <li>
-                        <hgroup><h3><font size="3">Configurar un crypto map dinamico:</font></h3></hgroup>
-                        R1(config)#crypto dynamic-map DynamicVPN 10 <br>
-                        R1(config)#set transform-set VPN-SET <br>
-                        R1(config)#reverse-route <br>
-                    </li>
+                                <li>
+                                    <hgroup><h3><font size="3">Configurar un crypto map:</font></h3></hgroup>
+                                    <p>
+                                        R1(config)#crypto map Map-Estatico client authentication list UserVPN
+                                    </p>
+                                    <p>R1(config)#crypto map Map-Estatico client configuration address respond</p>
+                                    <p>R1(config)#crypto map Map-Estatico isakmp authorization list GroupVPN</p>
+                                    <p>R1(config)#crypto map Map-Estatico 20 ipsec-isakmp dynamic DynamicVPN</p>
+                                </li>
 
-                    <li>
-                        <hgroup><h3><font size="3">Configurar un crypto map:</font></h3></hgroup>
-                        <p class="p">
-                            R1(config)#crypto map Map-Estatico client authentication list UserVPN <br>
-                            R1(config)#crypto map Map-Estatico client configuration address respond <br>
-                            R1(config)#crypto map Map-Estatico isakmp authorization list GroupVPN <br>
-                            R1(config)#crypto map Map-Estatico 20 ipsec-isakmp dynamic DynamicVPN <br>
-                        </p>
-                    </li>
+                                <li>
+                                    <hgroup><h3><font size="3">Configurar un enrutamiento desde R3 hacia R1:</font></h3></hgroup>
+                                    <p>R1(config)#ip route 192.168.1.0 255.255.255.0 20.0.0.2</p>
+                                </li>
 
-                    <li>
-                        <hgroup><h3><font size="3">Configurar un enrutamiento desde R3 hacia R1:</font></h3></hgroup>
-                        R1(config)#ip route 192.168.1.0 255.255.255.0 20.0.0.2 <br>
-                    </li>
-
-                    <li>
-                        <hgroup><h3><font size="3">Finalmente asociar el map estatico la interfaz mas cercana a la red remota:</font></h3></hgroup>
-                        R1(config)#int se0/1/0 <br>
-                        R1(config-if)#crypto map Map-Estatico <br>
-                    </li>
-                </ol>
-                <li>
-                    <hgroup><h2><font size="4">Conectarse al VPN desde un Host remoto</font></h2></hgroup>
-                </li>
-            </ul>
-        </nav>
-        <address>
-            <div style="text-align: center;">
-                <a href="index.html"><button style="width: 150px; height: 30px;background-color: azure;">Volver</button></a>
+                                <li>
+                                    <hgroup><h3><font size="3">Crear un usuario en el router:</font></h3></hgroup>
+                                    <p>R1(config)#username R1 secret 12345678</p>
+                                </li>
+                                <li>
+                                    <hgroup><h3><font size="3">Finalmente asociar el map estatico la interfaz mas cercana a la red remota:</font></h3></hgroup>
+                                    <p>R1(config)#int se0/1/0</p>
+                                    <p>R1(config-if)#crypto map Map-Estatico</p>
+                                    <p>R1(config-id)#ip address 20.0.0.1 255.255.255.252  (Direccion IP de la interfaz)</p>
+                                </li>
+                            </ol>
+                            <li>
+                                <hgroup><h2><font size="4">Conectarse al VPN desde un Host remoto</font></h2></hgroup>
+                                <ol>
+                                    <li>
+                                        <p>Ingresar al host haciendo clic sobre el e ir al apartado "Desktop", luego seleccionar la opcion de "VPN"</p>
+                                        <img src="/Images/VPN_remoto/VPN-Host.png" alt="Host-1" style="width: 500px;height: 550px;">
+                                    </li>
+                                    <li>
+                                        <p>Una vez dentro completar los campos con la informacion necesaria</p>
+                                        <p>GroupName: GroupVPN (ver paso 2)</p>
+                                        <p>Group Key: [Contraseña del paso 4]"</p>
+                                        <p>Host IP (Server IP): 20.0.0.1 (IP interfaz Serial 0/1/0 de R1, ver paso 10)</p>
+                                        <p>Username: R1 (ver paso 9)</p>
+                                        <p>Password: 12345678 (ver paso 9)</p>
+                                        <img src="/Images/VPN_remoto/VPN-Host-2.png" alt="Host-2" style="width: 500px;height: 550px;">
+                                    </li>
+                                </ol>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div id="volver">
+                    <address>
+                        <div style="text-align: center; margin-top: 20px;">
+                            <a href="index.html"><button style="width: 150px; height: 30px;background-color: azure;">Volver</button></a>
+                        </div>
+                    </address>
+                </div>
+                <div id="foot">
+                    <footer>
+                        <small>Todos los derechos reservados Unas 1969-2024 c</small>
+                    </footer>
+                </div>
             </div>
-        </address>
+        </nav>
     </body>
-    <footer>
-        <small>Todos los derechos reservados Unas 1969-2024 c</small>
-    </footer>
-    </div>
 </html>

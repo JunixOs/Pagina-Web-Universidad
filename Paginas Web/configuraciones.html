@@ -1,0 +1,160 @@
+<!DOCTYPE html> <!--Le decimos al navegador que version de HTML estamos usando-->
+<html lang="es"> <!--Contenido, me dice que todo es HTML. lang es una atributo de etiqueta-->
+    <div>
+    <head> <!--Cabeza-->
+        <!--Que codificacion de caracteres estamos usando-->
+        <meta charset="utf-8"/>
+        <!--"meta" da mas informacion-->
+        <meta name="Description" content="Pagina web de principiante"/>
+        <meta name="Autor Pagina" content="Junior Ordoñez"/>
+        <!--Palabras clave para que nuestra web sea mas facil de encontrar-->
+        <meta name="keywords" content="Mi primer sitio, Sitio Web, Principiante"/>
+        <!--Titulo de la pagina, el "head" solo muestra lo que hay dentro de la etiqueta "title"--> 
+        <title>
+            Pagina Personal
+        </title>
+        <link rel="stylesheet" href="/CSS/background_index.css">
+    </head>
+    <body>
+        <header> <!--Le dice al navegador que esto es la cabeza de la pagina web-->
+            <h1> <!--Heading, encabezado en español, h1 para colocar texto en negrita y grande-->
+                <span style="font-size: 40px; margin: 21px 0;font-style: italic;"><center>Mi Pagina personal</center></span>
+                    <!--con span puedo personalizar mi texto-->
+            </h1>
+        </header> 
+        <h2> <!--Subtitulo, existen niveles de encabezado, como en el word-->
+            <center><font color="Green" size="6">Cursos Universidad</font></center>
+        </h2>
+        <p> <!--Paragraph ,Parrafo-->
+            <font><center>Bienvenidos a mi pagina web</center></font>
+        </p>
+        <center><img src="/Images/index/Gato.jpg" alt="Imagen de Gato" height="250"/></center>
+        <section>
+            <nav>
+                <div id="contenedor_general">
+                    <hgroup>
+                        <h1>
+                            <span style="font-size: 19px; margin: 21px 0; font-style: italic">
+                                <center>CONFIGURACION BASICA DE DISPOSITIVOS DE RED</center>
+                            </span>
+                        </h1>
+                        </hgroup>
+                    </li>
+                    <ol>
+                        <div>
+                            <li>
+                                <hgroup><h2><span style="font-size: 18px; margin: 21px 0;font-style: normal;">
+                                    Configurar VPN remoto:
+                                </span></h2></hgroup>
+                                <address>
+                                    <a href="VPN_configuration_cisco.html">
+                                        <img src="/Images/index/VPN_Remoto.jpg" alt="Imagen de VPN remoto Cisco" height="200px" width="480px">
+                                    </a>
+                                </address> 
+                            </li>
+                        </div>
+                        <li>
+                            <hgroup><h2><span style="font-size: 18px;font-style: normal;">Telefonia VoIP</span></h2></hgroup>
+                            <address><a href="Configuracion_VoIP.html">
+                                <img src="/Images/index/Imagen_VoIP.png" width="320px" height="240px" alt="Imagen de telefono VoIp que redirige a la configuracion del mismo">
+                            </a></address>
+                        </li>
+
+                        <li>
+                            <hgroup><h2><span style="font-size: 18px; font-style: normal;">Configuracion Telnet en Switches</span></h2></hgroup>
+                            <address><a href="Configuracion_Telnet_Switch.html">
+                                <img src="/Images/index/Telnet_Switch.png" alt="Acceder a Switch usando el protocolo Telnet">
+                            </a></address>
+                        </li> <!--"li" de list, Me permite crear listas, la informacion dentro son items-->
+                    </ol>
+                </div>        <!-- <meta http-equiv="refresh" content="5 ; url="URL HERE"> -->
+            </nav>
+            </section>
+            <section> <!--Es un contenedor de contenido-->
+                <article> <!--Sirven para detallar el contenido-->
+                    <hgroup> <!--Sirve para agrupar encabezados y asi mantener la jerarquia-->
+                        <h1><span style="font-size: 21px; font-style:italic">Experimentando con HTML</span></h1>
+                        <h2><font size="4" color="black">Subtitulo del primer articulo</font></h2>
+                    </hgroup>
+                    
+                    <time datetime="12-10-24">Publicado el 12 de octubre de 2024</time> <!--"datetime" da mas
+                        info sobre la fecha-->
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                        Rerum quia ex, aspernatur ad architecto sit! Blanditiis animi vero, fugit vitae enim <br>
+                        aliquam, 
+                        tempore minima nihil in ad, aut expedita iste optio commodi sit aspernatur laboriosam.
+                    </p>
+                        <!--Generar texto de prueba "loremn" donde n es la cantidad de palabras que tendra el texto a
+                            generar-->
+                    <footer>
+                        <p>
+                            Comments 0
+                        </p>
+                    </footer>
+                    <address>
+                    <a href="https://openai.com">
+                        Haz tus preguntas aqui!...
+                    </a>
+                    </address>
+                </article>
+                <article>
+                    <hgroup>
+                        <h1>Experimentando con SQL</h1>
+                        <h2>Subtitulo del segundo articulo</h2>
+                    </hgroup>
+                    <time datetime="12-10-24">Publicado el 12 de octubre de 2024</time>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                        Doloribus cupiditate accusantium consectetur eos labore totam veritatis possimus <br>
+                        dolores recusandae consequuntur tenetur quod ea fuga, minima excepturi nisi veniam, 
+                        laudantium voluptates.</p>
+                    <footer>
+                        <p>
+                            Comments 0
+                        </p>
+                    </footer>
+                    <address> <!--Le dice al navegador que esta es una direccion, se coloca en cursiva-->
+                    <a href="http://google.com"> <!--Me permite colocar enlaces-->
+                        Mas informacion aqui...
+                    </a>
+                    </address>
+                </article>
+            </section> <!--section, especifica una seccion generica independiente del documento-->
+
+            <aside> <!--aside, especifica una parte del texto que esta indirectamente relacionado con el contenido
+                        de la pagina-->
+                Archivo
+                <ul> <!--Lista desordenada, el orden no importa-->
+                    <li> <!--Especifico los elementos uno por uno-->
+                        Como ganar en el Fornite
+                    </li>
+                </ul>
+                Acerca de
+                <blockquote cite="https://youtube.com"> <!--Me permite introducir citas-->
+                    Cita 1:
+                    <cite> <!--Me permite resaltar las citas-->
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
+                        In inventore, sint minima omnis eveniet minus?
+                    </cite>
+                </blockquote>
+
+                <ol>
+                    <li></li>
+                </ol>
+                <blockquote cite="https://google.com">
+                    Cita 2:
+                    <cite>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                        Quos assumenda possimus veritatis maxime distinctio? Qui quidem animi ut aliquam a.
+                    </cite>
+                </blockquote>
+            </aside>
+            <address>
+                <a href="About Us.html">Click for more.. </a>
+            </address>   
+        </body>
+        <footer> <!--Pie de pagina, ya sea de la pagina o de un articulo-->
+            <small>Derechos reservados 2001-2024</small> <!--Me permite reducir el tamaño de fuente-->
+        </footer>
+    </div>
+</html>

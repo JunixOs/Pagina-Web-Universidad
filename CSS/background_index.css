@@ -5,3 +5,10 @@ body {
     background-size: cover;
     color: #FFFFFF;
 }
+.wharm{
+    justify-content: space-between;
+}
+*{
+    padding: 0px;
+    margin: 0px;
+}
