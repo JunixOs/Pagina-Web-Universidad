@@ -1,0 +1,75 @@
+
+.extras{
+    width: 30vw;
+    height: 71vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.categorias-recomendadas{
+    background-color: white;
+    width: 26vw;
+    height: 67vh;
+    display: flex;
+    flex-direction: column;
+    border-radius: 15px;
+}
+.titulo-categorias-recomendadas{
+    font-family: 'Times New Roman', Times, serif;
+    padding-left: 20px;
+    width: 24vw;
+    height: 5vh;
+    border-color: black;
+    border-bottom: solid;
+    border-width: 1pt;
+    padding-left: 20px;
+    margin: 0 auto;
+}
+.contenedor-item-categorias-recomendadas{
+    width: 26vw;
+    height: 62vh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    grid-gap: 35px;
+    padding-top: 25px;
+    padding-bottom: 35px;
+}
+.item-categorias-recomendadas{
+    background-color:slateblue;
+    opacity: 40%;
+    width: 15vw;
+    height: 25vh;
+    transition: 400ms;
+    border-radius: 5px;
+    margin: 0 auto;
+}
+.item-categorias-recomendadas:hover{
+    opacity: 100%;
+    background-color: violet;
+    transform: scale(1.25,1.25);
+    border: solid;
+    border-width: 3pt;
+    border-color:purple;
+    border-radius: 15px;
+}
+.imagen-item-categorias-recomendadas{
+    background-color: blue;
+    width: 15vw;
+    height: 12.5vh;
+    border-radius: 50%;
+    transition: 600ms;
+}
+.item-categorias-recomendadas:hover > .imagen-item-categorias-recomendadas{
+    border-radius: 0%;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+.descripcion-item-categorias-recomendadas{
+    border-top: black;
+    border-top: solid;
+    border-width: 1pt;
+    width: 15vw;
+    height: 12.5vh;
+    text-align: center;
+}

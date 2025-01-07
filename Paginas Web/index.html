@@ -1,224 +1,10 @@
 <!DOCTYPE html>
-<style>
-    body{
-        width: 100%;
-        height: 100%;
-        --s: 200px; /* control the size */
-        --c1: #1d1d1d;
-        --c2: #4e4f51;
-        --c3: #3c3c3c;
-
-        background: repeating-conic-gradient(
-                from 30deg,
-                #0000 0 120deg,
-                var(--c3) 0 180deg
-            )
-            calc(0.5 * var(--s)) calc(0.5 * var(--s) * 0.577),
-            repeating-conic-gradient(
-            from 30deg,
-            var(--c1) 0 60deg,
-            var(--c2) 0 120deg,
-            var(--c3) 0 180deg
-            );
-        background-size: var(--s) calc(var(--s) * 0.577);
-    }
-    /* From Uiverse.io by csemszepp */ 
-    a {
-    outline: none;
-    text-decoration: none;
-    color: #000;
-    padding: 2px 1px 0;
-    }
-    .principal{
-        padding-top: 8px;
-        padding-bottom: 8px;
-        width: 100vw;
-        height: 71vh;
-        display: flex;
-    }
-    .configuraciones{
-        background-color: whitesmoke;
-        width: 70vw;
-        height: 71vh;
-        display: grid;
-        border-radius: 15px;
-    }
-    .titulo-configuraciones{
-        width: 65vw;
-        height: 5vh;
-        border-bottom: solid;
-        border-width: 1pt;
-    }
-    .contenido-configuraciones{
-        padding-top: 5px;
-        width: 70vw;
-        height: 65vh;
-        overflow-y: scroll;
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        grid-gap: 20px;
-        grid-auto-rows: 400px;
-
-    }
-    .item-configuracion{
-        background-color: burlywood;
-        padding-left: 10px;
-        width: 28vw;
-        height: 300px;
-        border-radius: 15px;
-        cursor: pointer;
-        transition-duration: 1.5s;
-        transition-delay: 0.1s;
-        transition: 400ms;
-    }
-    .item-configuracion:hover{
-        background: rgb(238,174,202);
-        background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
-        transform: scale(1.1 , 1.1);
-    }
-    .contenido-configuraciones:hover > .item-configuracion:not(:hover){
-        filter: blur(10px);
-        transform: scale(0.9, 0.9);
-    }
-    .imagen-item-configuracion{
-        background-color: white;
-        width: 100%;
-        height: 150px;
-        border-top-left-radius: 15px;
-        border-top-right-radius: 15px;
-    }
-    .imagen-item-configuracion-contenido{
-        width: 100%;
-        height: 100%;
-        border-top-left-radius: 15px;
-        border-top-right-radius: 15px;
-    }
-    .descripcion-item-configuracion{
-        background-color: burlywood;
-        width: 100%;
-        height: 150px;
-        border-bottom-right-radius: 15px;
-        border-bottom-left-radius: 15px;
-        overflow-y: scroll;
-    }
-    .titulo-descripcion-item-configuracion{
-        width: 100%;
-        height: max-content;
-        text-align: center;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        font-size: 25px;
-        font-style: italic;
-        font-weight: lighter;
-        border-bottom: solid;
-        border-width: 1px;
-    }
-    .texto-descripcion-item-configuracion{
-        height: max-content;
-        font-family:'Times New Roman', Times, serif;
-        font-size: 15px;
-        padding-left: 10px;
-        padding-right: 10px;
-    }
-    .extras{
-        background-color: red;
-        width: 30vw;
-        height: 71vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    .categorias-recomendadas{
-        background-color: black;
-        width: 20vw;
-        height: 60vh;
-    }
-    .top-bar{
-        background-color: grey;
-        width: 100vw;
-        height: 10vh;
-        display: flex;
-    }
-    .contenedor-titulo-pagina{
-        background-image: image-set('/Images/nube.png');
-        background-position: center;
-        background-size: cover;
-        background-repeat: no-repeat;
-        margin: 0 auto;
-        width: 16vw;
-        height: 10vh;
-        display: grid;
-        justify-content: center;
-        align-items: center;
-        overflow: hidden;
-    }
-    .titulo-pagina{
-        padding-top: 20px;
-        width: fit-content;
-        height: fit-content;
-        font-family:'Courier New', Courier, monospace;
-        color: black;
-        font-weight: bolder;
-        font-size: 25px;
-        font-style: oblique;
-    }
-    .contenedor-links{
-        padding-left: 10px;
-        width: 84vw;
-        height: 10vh;
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        grid-gap: 5px;
-        grid-auto-rows: 100px;
-    }
-    .links{
-        background-color: gold;
-        width: 10vw;
-        height: 8vh;
-        text-align: center;
-        transition: 400ms;
-    }
-    .links:hover{
-        transform: scale(1.2,1.2);
-    }
-    .references {
-        text-align: center;
-    }
-    .foot{
-        background-color:cornsilk;
-        width: 100vw;
-        height: 13vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    .foot-text{
-        padding-left: 15px;
-        width: 50vw;
-        height: 100%;
-        font-size: small;
-        font-family: Arial, Helvetica, sans-serif;
-        font-weight:lighter;
-        font-style: italic;
-    }
-    .foot-contenedor-logos{
-        width: 50vw;
-        height: 100%;
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-gap: 20px;
-        grid-auto-rows: 5px;
-    }
-    .foot-logos{
-        width: 6vw;
-        height: 50px;
-        text-align: center;
-        font-size: 25px;
-    }
-</style>
 <html>
     <head>
         <title>Inicio</title>
         <link rel="icon" href="/Images/nube-icono.ico" type="image/x-icon">
+        <link rel="stylesheet" href="/CSS/Estilos-principales.css">
+        <link rel="stylesheet" href="/CSS/Estilos-index.css">
     </head>
     <body>
         <div class="top-bar">
@@ -229,13 +15,13 @@
             </div>
             <div class="contenedor-links">
                 <div class="links">
-                    <a href="/Paginas Web/index.html"><p>Pagina principal</p></a>
+                    <a href="/Paginas Web/index.html"><p class="references">Pagina principal</p></a>
                 </div>
                 <div class="links">
-                    <a href=""><p>Acerca de</p></a>
+                    <a href=""><p class="references">Acerca de</p></a>
                 </div>
                 <div class="links">
-                    <a href=""><p>Ver secciones</p></a>
+                    <a href=""><p class="references">Ver secciones</p></a>
                 </div>
                 <div class="links">
                     <p></p>
@@ -245,11 +31,11 @@
         <div class="principal">
             <div class="configuraciones">
                 <div class="titulo-configuraciones">
-                    <p style="font-family: 'Times New Roman', Times, serif;padding-left: 20px;">Inicio</p>
+                    <p>Inicio</p>
                 </div>
                 <div class="contenido-configuraciones">
                     <div class="item-configuracion">
-                        <a href="/Paginas Web/Configuracion-de-switch.html">
+                        <a href="/Paginas Web/Seccion-Configuracion-Switch/Configuracion-de-switch.html">
                             <div class="imagen-item-configuracion">
                                 <img src="/Images/Configuracion-capa-2.webp" alt="Configuracion de capa 2" class="imagen-item-configuracion-contenido">
                             </div>
@@ -268,7 +54,7 @@
                     </div>
                     
                     <div class="item-configuracion">
-                        <a href="/Paginas Web/Configuracion-de-router.html">
+                        <a href="/Paginas Web/Seccion-Configuracion-Router/Configuracion-de-router.html">
                         <div class="imagen-item-configuracion">
                             <img src="/Images/Configuracion-router.jpg" alt="Configuracion de router" class="imagen-item-configuracion-contenido">
                         </div>
@@ -286,33 +72,126 @@
                         </a>
                     </div>
                     <div class="item-configuracion">
+                        <a href="">
                         <div class="imagen-item-configuracion">
-                            <img src="/Images/Configuracion-firewall.jpg" alt="Configuracion de firewall" style="width: 100%;height: 100%;">
+                            <img src="/Images/Configuracion-firewall.jpg" alt="Configuracion de firewall" class="imagen-item-configuracion-contenido">
                         </div>
                         <div class="descripcion-item-configuracion">
                             <div class="titulo-descripcion-item-configuracion">
                                 Configuracion de Firewall
                             </div>
                         </div>
+                        </a>
                     </div>
                     <div class="item-configuracion">
-                        <div class="imagen-item-configuracion">
-                            <img src="/Images/Configuracion-de-controlador-de-red.png" alt="Configuracion de controlador de red" style="width: 100%;height: 100%;">
-                        </div>
-                        <div class="descripcion-item-configuracion">
-                            <div class="titulo-descripcion-item-configuracion">
-                                Configuracion de Controlador de Red
+                        <a href="">
+                            <div class="imagen-item-configuracion">
+                                <img src="/Images/Configuracion-de-controlador-de-red.png" alt="Configuracion de controlador de red" class="imagen-item-configuracion-contenido">
                             </div>
-                        </div>
+                            <div class="descripcion-item-configuracion">
+                                <div class="titulo-descripcion-item-configuracion">
+                                    Configuracion de Controlador de Red
+                                </div>
+                            </div>
+                            <section>
+                                <p class="texto-descripcion-item-configuracion">
+
+                                </p>
+                            </section>
+                        </a>
                     </div>
                     <div class="item-configuracion">
+                        <a href="/Paginas Web/GNS3.html">
+                            <div class="imagen-item-configuracion">
+                                <img src="/Images/gns3_net_logo.jpg" alt="GNS3" class="imagen-item-configuracion-contenido">
+                            </div>
+                            <div class="descripcion-item-configuracion">
+                                <div class="titulo-descripcion-item-configuracion">
+                                    GNS3
+                                </div>
+                                <section>
+                                    <p class="texto-descripcion-item-configuracion">
+                                        Aqui encontraras guias para la instalacion de dispositivos de red en GNS3 y su uso.
+                                    </p>
+                                </section>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="item-configuracion">
+                        <a href="">
+                            <div class="imagen-item-configuracion">
+                                <img src="/Images/ENSP.jpg" alt="ENSP" class="imagen-item-configuracion-contenido">
+                            </div>
+                            <div class="descripcion-item-configuracion">
+                                <div class="titulo-descripcion-item-configuracion">
+                                    Configuracion con ENSP
+                                </div>
+                                <section>
+                                    <p class="texto-descripcion-item-configuracion">
 
+                                    </p>
+                                </section>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="item-configuracion">
+                        <a href="/Paginas Web/Seccion-Configuraciones-Variadas/Configuraciones-variadas.html">
+                            <div class="imagen-item-configuracion">
+                                <img src="/Images/Configuraciones-Variadas.jpg" alt="Configuraciones variadas" class="imagen-item-configuracion-contenido">
+                            </div>
+                            <div class="descripcion-item-configuracion">
+                                <div class="titulo-descripcion-item-configuracion">
+                                    Configuraciones variadas
+                                </div>
+                                <section>
+                                    <p class="texto-descripcion-item-configuracion">
+
+                                    </p>
+                                </section>
+                            </div>
+                        </a>
                     </div>
                 </div>
             </div>
             <div class="extras">
                 <div class="categorias-recomendadas">
+                    <div class="titulo-categorias-recomendadas">
+                        <p>Extras</p>
+                    </div>
+                    <div class="contenedor-item-categorias-recomendadas">
+                            <div class="item-categorias-recomendadas">
 
+                                <div class="imagen-item-categorias-recomendadas">
+                                
+                                </div>
+                                <div class="descripcion-item-categorias-recomendadas">
+                                    CiscoIOS
+                                </div>
+
+                            </div>                       
+                        <a href="">
+                            <div class="item-categorias-recomendadas">
+                            
+                                <div class="imagen-item-categorias-recomendadas">
+
+                                </div>
+                                <div class="descripcion-item-categorias-recomendadas">
+                                    Introduccion al modelo OSI
+                                </div>
+                            </div>
+                        </a>
+                        <a href="">
+                            <div class="item-categorias-recomendadas">
+                            
+                                <div class="imagen-item-categorias-recomendadas">
+
+                                </div>
+                                <div class="descripcion-item-categorias-recomendadas">
+                                    Introduccion al modelo OSI
+                                </div>
+                            </div>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -323,15 +202,16 @@
             </div>
             <div class="foot-contenedor-logos">
                 <div class="foot-logos">
-                    <a href=""><img src="/Images/facebook.png" alt="facebook" style="width: 100%;height: 100%;"></a>
+                    <a href="https://www.facebook.com/"><img src="/Images/facebook.png" alt="facebook" style="width: 100%;height: 100%;"></a>
                     Facebook
                 </div>
                 <div class="foot-logos">
-                    <img src="/Images/whatsapp.png" alt="whatsapp" style="width: 100%;height: 100%;">
+                    <a href="https://www.whatsapp.com"><img src="/Images/whatsapp.png" alt="whatsapp" style="width: 100%;height: 100%;">
                     Whatsapp
+                    </a>
                 </div>
                 <div class="foot-logos">
-                    <a href=""><img src="/Images/gmail.png" alt="gmail" style="width: 100%;height: 100%;"></a>
+                    <a href="https://www.gmail.com"><img src="/Images/gmail.png" alt="gmail" style="width: 100%;height: 100%;"></a>
                     Gmail
                 </div>
             </div>
