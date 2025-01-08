@@ -10,20 +10,60 @@
     </head>
     <body>
         <div class="principal">
+            <!--Modal-->
+            <div class="modal" id="myModal">
+                <div class="titulo-modal">
+                    <Header><h2 style="text-align: center;font-size: 15px;font-family: 'Times New Roman', Times, serif;">Topologia</h2></Header>
+                </div>
+                <div class="contenedor-imagen-modal">
+                    <img src="/Images/Configuraciones Variadas/Topologia-VoIP-1.png" alt="" class="imagen-modal-style">
+                </div>
+                <div class="contenedor-boton-cerrar-modal">
+                    <button class="botones-navegacion" id="CloseModal">Cerrar</button>
+                </div>
+            </div>
+            <!--Fin Modal-->
+
             <div class="vista-configuracion-left" id="Ventana-left">
                 <div class="VCLeft-Indicaciones-previas">
-                    <div>
-
+                    <div class="VCLeft-titulo-indicaciones-previas">
+                        <header><h1 style="font-family: 'Times New Roman', Times, serif;font-size: 15px;">Indicaciones Previas</h1></header>
                     </div>
-                    <div>
-                        <ul>
-                            <li>
+                    <div class="VCLeft-contenido-indicaciones-previas">
+                        <div class="VCLeft-indicaciones-previas-lvl-dificultad" id="BtnLvlDificultad">
+                            <header><button class="botones-navegacion"><h2 style="font-family: 'Times New Roman', Times, serif;font-size: 15px;" id="nivel-configuracion">Nivel de Configuracion</h2></button></header>
+                        </div>
+                        <!--Ventana LVL. CONFIGURACION-->
+                        <div>
+                            <p class="estilo-lvl-principiante" id="texto-principiante">
+                                Principiante
+                            </p>
+                            <p class="estilo-lvl-medio" id="texto-medio">Medio</p>
+                            <p class="estilo-lvl-avanzado" id="texto-avanzado">Avanzado</p>
+                        </div>
+                        <!--Fin Ventana LVL. CONFIGURACION-->
 
-                            </li>
-                            <li>
-
-                            </li>
-                        </ul>
+                        <div class="VCLeft-indicaciones-previas-dispositivos-usados" id="BtnDispUsados">
+                            <header><button class="botones-navegacion"><h2 style="font-family: 'Times New Roman', Times, serif;font-size: 15px;" id="dispositivos-usados">Dispositivos Usados</h2></button></header>
+                        </div>
+                        <!--Ventana DISPOSITIVOS USADOS-->
+                        <div>
+                            <ol>
+                                <li>
+                                    Switch 2970
+                                </li>
+                                <li>
+                                    Router 2811
+                                </li>
+                                <li>
+                                    Telefono VoIP
+                                </li>
+                                <li>
+                                    PC
+                                </li>
+                            </ol>
+                        </div>                        
+                        <!--FIN Ventana DISPOSITIVOS USADOS-->
                     </div>
                 </div>
                 <div class="VCLeft-seccion-imagen-topo">
@@ -43,69 +83,57 @@
                     </div>
                 </div>
             </div>
-            <!--Modal-->
-            <div class="modal" id="myModal">
-                <div class="titulo-modal">
-                    <p style="text-align: center;">Topologia</p>
-                </div>
-                <div class="contenedor-imagen-modal">
-                    <img src="/Images/Configuraciones Variadas/Topologia-VoIP-1.png" alt="" class="imagen-modal-style">
-                </div>
-                <div class="contenedor-boton-cerrar-modal">
-                    <button class="botones-navegacion" id="CloseModal">Cerrar</button>
-                </div>
-            </div>
-            <!--Fin Modal-->
             <div class="vista-configuracion-right" id="Ventana-configuracion">
                 <div class="VCRight-Titulo">
-                    <p style="text-align: center;font-family: 'Times New Roman', Times, serif;">Pasos para la configuracion</p>
+                    <header><h1 style="text-align: center;font-family: 'Times New Roman', Times, serif;font-size: 16px;" id="titulo-ventana-configuracion"></h1></header>
                 </div>
                 <div class="VCRight-contenido">
-                    <div class="seccion">
-                        <a href="#" role="button" class="boton-seccion-dispositivo-red" id="BtnRouter">Router</a>
+                    <div class="seccion" id="ContenedorBtnRouter">
+                        <button class="boton-seccion-dispositivo-red" id="BtnRouter">Routers</button>
                     </div>
                     <!--Ventana configuraciones router-->
                     <div class="ventana-comandos" id="ventana-router">
-                        <div class="subseccion-principal">
-                            <a href="#" role="button" class="boton-seccion-dispositivo-red" id="BtnOpenR1">R1</a>
-                            <!--Ventana R1-->
-                            <div class="subventana-configuracion-dispositivos" id="Ventana-R1">
-                                <div class="contenedor-comandos-configuracion">
-                                    <p>R1>enable </p>
-                                    <p>R1#configure terminal</p>
-                                </div>
-                                <div class="subseccion-boton-cerrar">
-                                    <button class="botones-cerrar-ventanas" id="BtnCloseR1">Cerrar</button>
-                                </div>
-                            </div>
-                            <!--Fin Ventana R1-->
+                        <div class="subseccion-principal" id="ContenedorBtnOpenRn">
+                            <button class="boton-seccion-dispositivo-red" id="BtnOpenR1">R1</button>
                         </div>
+                        <!--Ventana R1-->
+                        <div class="subventana-configuracion-dispositivos" id="Ventana-R1">
+                            <div class="contenedor-comandos-configuracion">
+                                <p>R1>enable </p>
+                                <p>R1#configure terminal</p>
+                            </div>
+                            <div class="subseccion-boton-cerrar">
+                                <button class="botones-cerrar-ventanas" id="BtnCloseR1">Cerrar</button>
+                            </div>
+                        </div>
+                        <!--Fin Ventana R1-->
                         <div class="subseccion-boton-cerrar">
                             <button class="botones-cerrar-ventanas" id="BtnCloseVRouter">Cerrar</button>
                         </div>
                     </div>
                     <!--Fin Ventana configuraciones router-->
 
-                    
-                    <div class="seccion">
-                        <a href="#" role="button" class="boton-seccion-dispositivo-red" id="BtnSwitch">Switch</a>
+                    <div class="seccion" id="ContenedorBtnSwitch">
+                        <button class="boton-seccion-dispositivo-red" id="BtnSwitch">Switches</button>
                     </div>
                     <!--Ventana configuraciones switch-->
                     <div class="ventana-comandos" id="ventana-switch">
-                        <div class="subseccion-principal">
-                            <a href="#" role="button" class="boton-seccion-dispositivo-red" id="BtnOpenS1">S1</a>
-                            <!--Ventana S1-->
-                            <div class="subventana-configuracion-dispositivos" id="Ventana-S1">
-                                <div class="contenedor-comandos-configuracion">
-                                    <p>S1>enable</p>
-                                    <p>S1#configure terminal</p>
-                                </div>
-                                <div class="subseccion-boton-cerrar">
-                                    <button class="botones-cerrar-ventanas" id="BtnCloseS1">Cerrar</button>
-                                </div>
-                            </div>
-                            <!--Fin Ventana S1-->
+                        <div class="subseccion-principal" id="ContenedorBtnOpenSn">
+                            <button class="boton-seccion-dispositivo-red" id="BtnOpenS1">S1</button>
                         </div>
+                        <!--Ventana S1-->
+                        <div class="subventana-configuracion-dispositivos" id="Ventana-S1">
+                            <div class="contenedor-comandos-configuracion">
+                                <p class="estilo-texto-configuracion">
+                                    S1>enable <br>
+                                    S1#configure terminal <br>
+                                </p>
+                            </div>
+                            <div class="subseccion-boton-cerrar">
+                                <button class="botones-cerrar-ventanas" id="BtnCloseS1">Cerrar</button>
+                            </div>
+                        </div>
+                        <!--Fin Ventana S1-->
                         <div class="subseccion-boton-cerrar">
                             <button class="botones-cerrar-ventanas" id="BtnCloseVSwitch">Cerrar</button>
                         </div>
@@ -121,183 +149,436 @@
 
         </div>
         <script>
-            //Expandir imagen
+            
             var OpenModal = document.getElementById("OpenModal");
             var Modal = document.getElementById("myModal");
             var CloseModal = document.getElementById("CloseModal");
             var VentanaConfig = document.getElementById("Ventana-configuracion");
             var VentanaLeft = document.getElementById("Ventana-left");
 
+
             var BtnOpenRouter = document.getElementById("BtnRouter");
+            var ConenedorBtnOpenRouter = document.getElementById("ContenedorBtnRouter");
             var VentanaComandosRouter = document.getElementById("ventana-router");
             var BtnCloseVentanaRouter = document.getElementById("BtnCloseVRouter");
+
+                var ContenedorBtnOpenR1 = document.getElementById("ContenedorBtnOpenRn");
                 var BtnOpenR1 = document.getElementById("BtnOpenR1");
                 var VentanaRouter1 = document.getElementById("Ventana-R1");
                 var BtnCloseR1 = document.getElementById("BtnCloseR1");
 
+
             var BtnOpenSwitch = document.getElementById("BtnSwitch");
+            var ContenedorBtnOpenSwitch = document.getElementById("ContenedorBtnSwitch");
             var VentanaComandosSwitch = document.getElementById("ventana-switch");
             var BtnCloseSwitch = document.getElementById("BtnCloseVSwitch");
+
+                var ContenedorBtnOpenSn = document.getElementById("ContenedorBtnOpenSn");
                 var BtnOpenS1 = document.getElementById("BtnOpenS1");
                 var VentanaSwitch1 = document.getElementById("Ventana-S1");
                 var BtnCloseS1 = document.getElementById("BtnCloseS1");
 
+
+            var TituloVentanaConfiguracion = document.getElementById("titulo-ventana-configuracion");
+
+            var TextoPrincipiante = document.getElementById("texto-principiante");
+            var TextoMedio = document.getElementById("texto-medio");
+            var TextoAvanzado = document.getElementById("texto-avanzado");
+            //Cambio de titulos
+            function Titulo_Inicial(){
+                TituloVentanaConfiguracion.textContent = "Elige el dispositivo de red";
+            }
+            function Titulo_Eleccion_Router(){
+                TituloVentanaConfiguracion.textContent = "Elige un router para ver los comandos";
+            }
+            function Titulo_Eleccion_Switch(){
+                TituloVentanaConfiguracion.textContent = "Elige un switch para ver los comandos";
+            }
+            function Titulo_Eleccion_Host(){
+                TituloVentanaConfiguracion.textContent = "Elige un host para ver los comandos";
+            }
+            function Titulo_Cuando_Seleccion_Dispositivo(){
+                TituloVentanaConfiguracion.textContent = "Comandos";
+            }
+            Titulo_Inicial()
+            //FIN cambio titulos
+
+            //Ruleta 
+            TextoPrincipiante.style.transform = "scale(1.1,1.1)";
+            TextoMedio.style.transform = "scale(1.1,1.1)";
+            TextoAvanzado.style.transform = "scale(1.1,1.1)";
+
+            function Resaltar_Texto_Principiante(){
+                TextoPrincipiante.style.transitionProperty = "all";
+                TextoPrincipiante.style.transitionDuration = "0.2s";
+                TextoPrincipiante.style.backgroundColor = "royalblue";
+                TextoPrincipiante.style.transform = "scale(1.1,1.1)";
+                TextoPrincipiante.style.opacity = "1";
+
+                TextoMedio.style.transitionProperty = "all";
+                TextoMedio.style.transitionDuration = "0.2s";
+                TextoMedio.style.backgroundColor = "skyblue";
+                TextoMedio.style.transform = "scale(0.9,0.9)";
+                TextoMedio.style.opacity = "0.5";
+
+                TextoAvanzado.style.transitionProperty = "all";
+                TextoAvanzado.style.transitionDuration = "0.2s";
+                TextoAvanzado.style.backgroundColor = "skyblue";
+                TextoAvanzado.style.transform = "scale(0.9,0.9)";
+                TextoAvanzado.style.opacity = "0.5";
+            }
+
+            function Resaltar_Texto_Medio(){
+                TextoPrincipiante.style.transitionProperty = "all";
+                TextoPrincipiante.style.transitionDuration = "0.2s";
+                TextoPrincipiante.style.backgroundColor = "skyblue";
+                TextoPrincipiante.style.transform = "scale(0.9,0.9)";
+                TextoPrincipiante.style.opacity = "0.5";
+
+                TextoMedio.style.transitionProperty = "all";
+                TextoMedio.style.transitionDuration = "0.2s";
+                TextoMedio.style.backgroundColor = "royalblue";
+                TextoMedio.style.transform = "scale(1.1,1.1)";
+                TextoMedio.style.opacity = "1";
+
+                TextoAvanzado.style.transitionProperty = "all";
+                TextoAvanzado.style.transitionDuration = "0.2s";
+                TextoAvanzado.style.backgroundColor = "skyblue";
+                TextoAvanzado.style.transform = "scale(0.9,0.9)";
+                TextoAvanzado.style.opacity = "0.5";
+            }
+
+            function Resaltar_Texto_Avanzado(){
+                TextoPrincipiante.style.transitionProperty = "all";
+                TextoPrincipiante.style.transitionDuration = "0.2s";
+                TextoPrincipiante.style.backgroundColor = "skyblue";
+                TextoPrincipiante.style.transform = "scale(0.9,0.9)";
+                TextoPrincipiante.style.opacity = "0.5";
+
+                TextoMedio.style.transitionProperty = "all";
+                TextoMedio.style.transitionDuration = "0.2s";
+                TextoMedio.style.backgroundColor = "skyblue";
+                TextoMedio.style.transform = "scale(0.9,0.9)";
+                TextoMedio.style.opacity = "0.5";
+
+                TextoAvanzado.style.transitionProperty = "all";
+                TextoAvanzado.style.transitionDuration = "0.2s";
+                TextoAvanzado.style.backgroundColor = "royalblue";
+                TextoAvanzado.style.transform = "scale(1.1,1.1)";
+                TextoAvanzado.style.opacity = "1";
+            }
+
+            function Dificultades(){
+                int1 = setInterval(() => {
+                    Resaltar_Texto_Principiante();
+                }, 100) //cada 0.5s
+                int2 = setInterval(() => {
+                    Resaltar_Texto_Medio()
+                }, 150);
+                int3 = setInterval(() => {
+                    Resaltar_Texto_Avanzado()
+                }, 200);
+                setTimeout(() => {
+                    clearInterval(int1);
+                    clearInterval(int2);
+                    clearInterval(int3);
+                    Resaltar_Texto_Principiante()
+                }, 4000);
+            }
+            //Dificultades()
+            //Fin Ruleta
+
+            // SECCION DE DISPOSITIVOS DE RED
             function Ocultar_Boton_Router(){
-                BtnOpenRouter.style.opacity= "0";
+                BtnOpenRouter.style.transitionProperty = "opacity";
+                BtnOpenRouter.style.transitionDuration = "0.5s";
                 BtnOpenRouter.style.pointerEvents = "none";
+                BtnOpenRouter.style.opacity= "0";
+
+                ConenedorBtnOpenRouter.style.transitionProperty = "width height";
+                ConenedorBtnOpenRouter.style.transitionDuration = "0.5s";
+                ConenedorBtnOpenRouter.style.height = "0%";
+                ConenedorBtnOpenRouter.style.width = "0%";
             }
             function Mostrar_Boton_Router(){
+                BtnOpenRouter.style.transitionProperty = "opacity";
+                BtnOpenRouter.style.transitionDuration = "0.5s";
                 BtnOpenRouter.style.opacity= "1";
                 BtnOpenRouter.style.pointerEvents = "all";
+                BtnOpenRouter.style.transitionProperty = "all"; //Esto para que despues se puedan aplicar otras transiciones, de lo contrario
+                                                                    //se aplicaran solo transiciones a la opacidad
+
+                ConenedorBtnOpenRouter.style.transitionProperty = "width height";
+                ConenedorBtnOpenRouter.style.transitionDuration = "0.5s";
+                ConenedorBtnOpenRouter.style.height = "40px";
+                ConenedorBtnOpenRouter.style.width = "90%";
             }
-            function Ocultar_Boton_Switch(){
-                BtnOpenSwitch.style.transitionProperty = "height width opacity";
-                BtnOpenSwitch.style.transitionDuration = "0.5s";
-                BtnOpenSwitch.style.width = "0%";
-                BtnOpenSwitch.style.height = "0%";
-                BtnOpenSwitch.style.borderWidth = "0";
-                BtnOpenSwitch.style.opacity = "0";
-                BtnOpenSwitch.style.pointerEvents = "none";
-            }
-            function Mostrar_Boton_Switch(){
-                BtnOpenSwitch.style.transitionProperty = "height width opacity";
-                BtnOpenSwitch.style.transitionDuration = "0.5s";
-                BtnOpenSwitch.style.width = "12%";
-                BtnOpenSwitch.style.height = "25px";
-                BtnOpenSwitch.style.borderWidth = "1pt";
-                BtnOpenSwitch.style.opacity = "1";
-                BtnOpenSwitch.style.pointerEvents = "all";
-            }
-            OpenModal.onclick = function(){
-                Modal.style.display = "flex"
-                Modal.style.justifyContent = "center";
-                Modal.style.alignItems = "center";
-                Modal.style.flexDirection = "column";
-                Modal.style.transitionProperty = "width";
-                Modal.style.transitionDuration = "0.5s";
-                Modal.style.width= "49.5%";
-
-                VentanaConfig.style.transitionProperty = "width";
-                VentanaConfig.style.transitionDuration = "0.5s";
-                VentanaConfig.style.width = "50%";
-                
-                VentanaLeft.style.opacity = "0";
-                VentanaLeft.style.width = "50%";
-                VentanaLeft.style.transitionProperty = "opacity";
-                VentanaLeft.style.transitionDuration = "0.2s";
-                VentanaLeft.style.opacity = "0%";
-            }
-
-            CloseModal.onclick = function(){
-                Modal.style.display = "flex";
-                Modal.style.transitionProperty = "width";
-                Modal.style.transitionDuration = "0.5s";
-                Modal.style.width= "0%";
-
-                VentanaConfig.style.transitionProperty = "width";
-                VentanaConfig.style.transitionDuration = "0.8s";
-                VentanaConfig.style.width = "81%";
-                
-                
-                VentanaLeft.style.width = "30%";
-                VentanaLeft.style.transitionProperty = "opacity";
-                VentanaLeft.style.transitionDuration = "0.9s";
-                VentanaLeft.style.opacity = "1";
-            }
-
-            //Fin Expandir imagen
-
-            //Ventana configuraciones router
-
-            BtnOpenRouter.onclick = function(){
+            function Ocultar_Ventana_Router(){
                 VentanaComandosRouter.style.transitionProperty = "height";
-                VentanaComandosRouter.style.transitionDuration = "0.8s";
-                VentanaComandosRouter.style.height = "500px";
-                VentanaComandosRouter.style.overflowY = "auto";
+                VentanaComandosRouter.style.transitionDuration = "1s";
+                VentanaComandosRouter.style.transitionTimingFunction = "ease";
+                VentanaComandosRouter.style.height = "0%";
+                VentanaComandosRouter.style.overflowY = "hidden";
+                VentanaComandosRouter.style.borderStyle = "none";
+                
+                Mostrar_Boton_Router()
+                Mostrar_Boton_Switch()
+
+                Ocultar_Boton_Router_R1()
+
+                Titulo_Inicial()
+            }
+            function Mostrar_Ventana_Router(){
+                VentanaComandosRouter.style.transitionProperty = "height";
+                VentanaComandosRouter.style.transitionDuration = "1s";
+                VentanaComandosRouter.style.transitionTimingFunction = "ease";
+                VentanaComandosRouter.style.height = "530px";
+                VentanaComandosRouter.style.overflowY = "hidden";
                 VentanaComandosRouter.style.borderColor = "black";
                 VentanaComandosRouter.style.borderWidth = "1pt";
                 VentanaComandosRouter.style.borderStyle = "solid";
 
                 Ocultar_Boton_Router()
-
                 Ocultar_Boton_Switch()
+
+                Titulo_Eleccion_Router()
             }
-            BtnCloseVentanaRouter.onclick = function(){
-                VentanaComandosRouter.style.transitionProperty = "height";
-                VentanaComandosRouter.style.transitionDuration = "0.8s";
-                VentanaComandosRouter.style.height = "0%";
-                VentanaComandosRouter.style.overflowY = "none";
-                VentanaComandosRouter.style.borderStyle = "none";
-                
-                Mostrar_Boton_Router()
+
+                function Ocultar_Boton_Router_R1(){
+                    BtnOpenR1.style.transitionProperty = "opacity";
+                    BtnOpenR1.style.transitionDuration = "0.8s";
+                    BtnOpenR1.style.transitionTimingFunction = "ease";
+                    BtnOpenR1.style.opacity = "0";
+
+                    ContenedorBtnOpenRn.style.transitionProperty = "height width";
+                    ContenedorBtnOpenRn.style.transitionDuration = "0.8s";
+                    ContenedorBtnOpenRn.style.transitionTimingFunction = "ease";
+                    ContenedorBtnOpenRn.style.width = "0%";
+                    ContenedorBtnOpenRn.style.height = "0%";
+                }
+                function Mostrar_Boton_Router_R1(){
+                    BtnOpenR1.style.transitionProperty = "opacity";
+                    BtnOpenR1.style.transitionDuration = "0.8s";
+                    BtnOpenR1.style.transitionTimingFunction = "ease";
+                    BtnOpenR1.style.opacity = "1";
+                    BtnOpenR1.style.transitionProperty = "all";
+
+                    ContenedorBtnOpenRn.style.transitionProperty = "width";
+                    ContenedorBtnOpenRn.style.transitionDuration = "0.8s";
+                    ContenedorBtnOpenRn.style.transitionTimingFunction = "ease";
+                    ContenedorBtnOpenRn.style.width = "100%";
+                    ContenedorBtnOpenRn.style.height = "max-content";
+                }
+                function Ocultar_Ventana_Router_R1(){
+                    VentanaRouter1.style.transitionProperty = "height";
+                    VentanaRouter1.style.transitionDuration = "0.8s";
+                    VentanaRouter1.style.transitionTimingFunction = "ease";
+                    VentanaRouter1.style.height = "0%";
+                    VentanaRouter1.style.overflowY = "hidden";
+
+                    Mostrar_Boton_Router_R1()
+                }
+                function Mostrar_Ventana_Router_R1(){
+                    VentanaRouter1.style.transitionProperty = "height";
+                    VentanaRouter1.style.transitionDuration = "0.8s";
+                    VentanaRouter1.style.transitionTimingFunction = "ease";
+                    VentanaRouter1.style.height = "480px";
+                    VentanaRouter1.style.overflowY = "hidden";
+
+                    Mostrar_Boton_Router_R1()
+
+                    Titulo_Cuando_Seleccion_Dispositivo()
+                }
+            
+            
+            function Ocultar_Boton_Switch(){
+                BtnOpenSwitch.style.transitionProperty = "opacity";
+                BtnOpenSwitch.style.transitionDuration = "0.5s";
+                BtnOpenSwitch.style.opacity = "0";
+                BtnOpenSwitch.style.pointerEvents = "none";
+
+                ContenedorBtnOpenSwitch.style.transitionProperty = "widht height";
+                ContenedorBtnOpenSwitch.style.transitionDuration = "0.5s";
+                ContenedorBtnOpenSwitch.style.width = "0%";
+                ContenedorBtnOpenSwitch.style.height = "0%";
+            }
+            function Mostrar_Boton_Switch(){
+                BtnOpenSwitch.style.transitionProperty = "opacity";
+                BtnOpenSwitch.style.transitionDuration = "0.5s";
+                BtnOpenSwitch.style.borderWidth = "1pt";
+                BtnOpenSwitch.style.opacity = "1";
+                BtnOpenSwitch.style.pointerEvents = "all";
+                BtnOpenSwitch.style.transitionProperty = "all";
+
+                ContenedorBtnOpenSwitch.style.transitionProperty = "widht height";
+                ContenedorBtnOpenSwitch.style.transitionDuration = "0.5s";
+                ContenedorBtnOpenSwitch.style.width = "90%";
+                ContenedorBtnOpenSwitch.style.height = "40px";
+            }
+            function Ocultar_Ventana_Switch(){
+                VentanaComandosSwitch.style.transitionProperty = "height";
+                VentanaComandosSwitch.style.transitionDuration = "1s";
+                VentanaComandosSwitch.style.height = "0%";
+                VentanaComandosSwitch.style.overflowY = "hidden";
+                VentanaComandosSwitch.style.borderStyle = "none";
 
                 Mostrar_Boton_Switch()
+                Mostrar_Boton_Router()
+
+                Ocultar_Ventana_Switch_S1()
+
+                Titulo_Inicial()
             }
-                //Ventana R1
-
-                BtnOpenR1.onclick = function() {
-                    VentanaRouter1.style.transitionProperty = "height";
-                    VentanaRouter1.style.transitionDuration = "0.5s";
-                    VentanaRouter1.style.height = "250px";
-                    VentanaRouter1.style.overflowY = "auto";
-                }
-                BtnCloseR1.onclick = function(){
-                    VentanaRouter1.style.transitionProperty = "height";
-                    VentanaRouter1.style.transitionDuration = "0.5s";
-                    VentanaRouter1.style.height = "0%";
-                }
-                //Fin ventana R1
-            //Fin Ventana configuraciones router
-
-            //Ventana configuraciones Switch
-
-
-            BtnOpenSwitch.onclick = function(){
+            function Mostrar_Ventana_Switch(){
                 VentanaComandosSwitch.style.transitionProperty = "height";
-                VentanaComandosSwitch.style.transitionDuration = "0.8s";
-                VentanaComandosSwitch.style.height= "500px";
-                VentanaComandosSwitch.style.overflowY = "auto";
+                VentanaComandosSwitch.style.transitionDuration = "1s";
+                VentanaComandosSwitch.style.height= "530px";
+                VentanaComandosSwitch.style.overflowY = "hidden";
                 VentanaComandosSwitch.style.borderColor = "black";
                 VentanaComandosSwitch.style.borderWidth = "1pt";
                 VentanaComandosSwitch.style.borderStyle = "solid";
 
-                BtnOpenRouter.style.transitionProperty = "height width opacity";
-                BtnOpenRouter.style.transitionDuration = "0.5s";
-                BtnOpenRouter.style.width = "0%";
-                BtnOpenRouter.style.height = "0%";
-                BtnOpenRouter.style.borderWidth = "0";
-                BtnOpenRouter.style.opacity = "0";
-                BtnOpenRouter.style.pointerEvents = "none";
+                Ocultar_Boton_Router()
+                Ocultar_Boton_Switch()
+                
+                Titulo_Eleccion_Switch()
+            }
+            
+                function Ocultar_Boton_Switch_S1(){
+                    BtnOpenS1.style.transitionProperty = "opacity";
+                    BtnOpenS1.style.transitionDuration = "0.8s";
+                    BtnOpenS1.style.transitionTimingFunction = "ease";
+                    BtnOpenS1.style.opacity = "0";
+
+                    ContenedorBtnOpenSn.style.transitionProperty = "height width";
+                    ContenedorBtnOpenSn.style.transitionDuration = "0.8s";
+                    ContenedorBtnOpenSn.style.transitionTimingFunction = "ease";
+                    ContenedorBtnOpenSn.style.width = "0%";
+                    ContenedorBtnOpenSn.style.height = "0%";
+
+
+                }
+                function Mostrar_Boton_Switch_S1(){
+                    BtnOpenS1.style.transitionProperty = "opacity";
+                    BtnOpenS1.style.transitionDuration = "0.8s";
+                    BtnOpenS1.style.transitionTimingFunction = "ease";
+                    BtnOpenS1.style.opacity = "1";
+                    BtnOpenS1.style.transitionProperty = "all";
+
+                    ContenedorBtnOpenSn.style.transitionProperty = "width";
+                    ContenedorBtnOpenSn.style.transitionDuration = "0.8s";
+                    ContenedorBtnOpenSn.style.transitionTimingFunction = "ease";
+                    ContenedorBtnOpenSn.style.width = "100%";
+                    ContenedorBtnOpenSn.style.height = "max-content";
+                }
+                function Ocultar_Ventana_Switch_S1(){
+                    VentanaSwitch1.style.transitionProperty = "height";
+                    VentanaSwitch1.style.transitionDuration = "0.8s";
+                    VentanaSwitch1.style.transitionTimingFunction = "ease";
+                    VentanaSwitch1.style.height = "0%";
+                    VentanaSwitch1.style.overflowY = "hidden";
+
+                    Mostrar_Boton_Switch_S1()
+                }
+                function Mostrar_Ventana_Switch_S1(){
+                    VentanaSwitch1.style.transitionProperty = "height";
+                    VentanaSwitch1.style.transitionDuration = "0.8s";
+                    VentanaSwitch1.style.transitionTimingFunction = "ease";
+                    VentanaSwitch1.style.height = "480px";
+                    VentanaSwitch1.style.overflowY = "hidden";
+
+                    Titulo_Cuando_Seleccion_Dispositivo()
+                }
+
+            
+            function Ocultar_Boton_Hosts(){
+
+            }
+            function Mostrar_Boton_Hosts(){
+
+            }
+            function Ocultar_Ventana_Hosts(){
+
+            }
+            function Mostrar_Ventana_Hosts(){
+
             }
 
-            BtnCloseSwitch.onclick = function(){
-                VentanaComandosSwitch.style.transitionProperty = "height";
-                VentanaComandosSwitch.style.transitionDuration = "0.8s";
-                VentanaComandosSwitch.style.height = "0%";
-                VentanaComandosSwitch.style.overflowY = "none";
-                VentanaComandosSwitch.style.borderStyle = "none";
+            //FIN SECCION DE DISPOSITIVOS DE RED
+            //Expandir imagen
+            OpenModal.onclick = function(){
+                Modal.style.transitionProperty = "width";
+                Modal.style.transitionTimingFunction = "ease";
+                Modal.style.transitionDuration = "0.8s";
+                Modal.style.width= "49.5%";
 
-                BtnOpenRouter.style.transitionProperty = "height width opacity";
-                BtnOpenRouter.style.transitionDuration = "0.5s";
-                BtnOpenRouter.style.width = "12%";
-                BtnOpenRouter.style.height = "25px";
-                BtnOpenRouter.style.borderWidth = "1pt";
-                BtnOpenRouter.style.opacity = "1";
-                BtnOpenRouter.style.pointerEvents = "all";
+                VentanaConfig.style.transitionProperty = "width";
+                VentanaConfig.style.transitionDuration = "0.9s";
+                VentanaConfig.style.transitionTimingFunction = "ease";
+                VentanaConfig.style.width = "50%";
+                
+                VentanaLeft.style.transitionProperty = "width";
+                VentanaLeft.style.transitionDuration = "0.6s";
+                VentanaLeft.style.transitionTimingFunction = "ease";
+                VentanaLeft.style.width = "0%";
+            }
+
+            CloseModal.onclick = function(){
+                Modal.style.transitionProperty = "width";
+                Modal.style.transitionTimingFunction = "ease";
+                Modal.style.transitionDuration = "0.6s";
+                Modal.style.width= "0%";
+
+                VentanaConfig.style.transitionProperty = "width";
+                VentanaConfig.style.transitionDuration = "1s";
+                VentanaConfig.style.transitionTimingFunction = "ease";
+                VentanaConfig.style.width = "70%";
+                
+                VentanaLeft.style.transitionProperty = "width";
+                VentanaLeft.style.transitionDuration = "0.7s";
+                VentanaLeft.style.width = "29%";
+            }
+            //Fin Expandir imagen
+            
+
+            //Ventana configuraciones router
+            BtnOpenRouter.onclick = function(){
+                Mostrar_Ventana_Router()
+            }
+            BtnCloseVentanaRouter.onclick = function(){
+                Ocultar_Ventana_Router()
+
+                Ocultar_Ventana_Router_R1()
+            }
+
+                //Ventana R1
+                BtnOpenR1.onclick = function() {
+                    Mostrar_Ventana_Router_R1()
+                }
+                BtnCloseR1.onclick = function(){
+                    Ocultar_Ventana_Router_R1()
+
+                    Titulo_Eleccion_Router()
+                }
+                //Fin ventana R1
+            //Fin Ventana configuraciones router
+
+
+            //Ventana configuraciones Switch
+            BtnOpenSwitch.onclick = function(){
+                Mostrar_Ventana_Switch()
+            }
+            BtnCloseSwitch.onclick = function(){
+                Ocultar_Ventana_Switch()
             }
                 //Ventana S1
-
-
                 BtnOpenS1.onclick = function(){
-                    VentanaSwitch1.style.transitionProperty = "height";
-                    VentanaSwitch1.style.transitionDuration = "0.5s";
-                    VentanaSwitch1.style.height = "250px";
-                    VentanaSwitch1.style.overflowY = "auto";
+                    Mostrar_Ventana_Switch_S1()
                 }
                 BtnCloseS1.onclick = function(){
-                    VentanaSwitch1.style.transitionProperty = "height";
-                    VentanaSwitch1.style.transitionDuration = "0.5s";
-                    VentanaSwitch1.style.height = "0%";
+                    Ocultar_Ventana_Switch_S1()
+
+                    Titulo_Eleccion_Switch()
                 }
                 //Fin Ventana S1
             //Fin Ventana configuraciones Switch
