@@ -29,25 +29,23 @@
                     <div class="VCLeft-titulo-indicaciones-previas">
                         <header><h1 style="font-family: 'Times New Roman', Times, serif;font-size: 15px;">Indicaciones Previas</h1></header>
                     </div>
-                    <div class="VCLeft-contenido-indicaciones-previas">
+                    <div class="VCLeft-contenido-indicaciones-previas" id="contenido-indicaciones-previas">
                         <div class="VCLeft-indicaciones-previas-lvl-dificultad" id="BtnLvlDificultad">
-                            <header><button class="botones-navegacion"><h2 style="font-family: 'Times New Roman', Times, serif;font-size: 15px;" id="nivel-configuracion">Nivel de Configuracion</h2></button></header>
+                            <header><button class="botones-navegacion"  style="font-family: 'Times New Roman', Times, serif;font-size: 15px;font-weight: bold;" id="nivel-configuracion">Nivel de Configuracion</button></header>
                         </div>
                         <!--Ventana LVL. CONFIGURACION-->
-                        <div>
-                            <p class="estilo-lvl-principiante" id="texto-principiante">
-                                Principiante
-                            </p>
+                        <div class="ventana-lvl-dificultad" id="ventana-lvl-dificultad">
+                            <p class="estilo-lvl-principiante" id="texto-principiante">Principiante</p>
                             <p class="estilo-lvl-medio" id="texto-medio">Medio</p>
                             <p class="estilo-lvl-avanzado" id="texto-avanzado">Avanzado</p>
                         </div>
                         <!--Fin Ventana LVL. CONFIGURACION-->
 
                         <div class="VCLeft-indicaciones-previas-dispositivos-usados" id="BtnDispUsados">
-                            <header><button class="botones-navegacion"><h2 style="font-family: 'Times New Roman', Times, serif;font-size: 15px;" id="dispositivos-usados">Dispositivos Usados</h2></button></header>
+                            <header><button class="botones-navegacion"  style="font-family: 'Times New Roman', Times, serif;font-size: 15px;font-weight: bold;" id="dispositivos-usados">Dispositivos Usados</button></header>
                         </div>
                         <!--Ventana DISPOSITIVOS USADOS-->
-                        <div>
+                        <div class="ventana-dispositivos-usados" id="ventana-dispositivos-usados">
                             <ol>
                                 <li>
                                     Switch 2970
@@ -98,9 +96,17 @@
                         </div>
                         <!--Ventana R1-->
                         <div class="subventana-configuracion-dispositivos" id="Ventana-R1">
-                            <div class="contenedor-comandos-configuracion">
-                                <p>R1>enable </p>
-                                <p>R1#configure terminal</p>
+                            <div class="contenedor-comandos-configuracion" id="ContenedorComandosR1">
+                                <p class="estilo-texto-configuracion">
+                                    R1>enable <br>
+                                    R2#configure terminal <br>
+                                </p>
+                            </div>
+                            <div class="contenedor-solo-comandos-configuracion" id="ContenedorSoloComandosR1">
+                                <p class="estilo-texto-configuracion">
+                                    enable <br>
+                                    configure terminal <br>
+                                </p>
                             </div>
                             <div class="subseccion-boton-cerrar">
                                 <button class="botones-cerrar-ventanas" id="BtnCloseR1">Cerrar</button>
@@ -123,10 +129,16 @@
                         </div>
                         <!--Ventana S1-->
                         <div class="subventana-configuracion-dispositivos" id="Ventana-S1">
-                            <div class="contenedor-comandos-configuracion">
+                            <div class="contenedor-comandos-configuracion" id="ContenedorComandosS1">
                                 <p class="estilo-texto-configuracion">
                                     S1>enable <br>
                                     S1#configure terminal <br>
+                                </p>
+                            </div>
+                            <div class="contenedor-solo-comandos-configuracion" id="ContenedorSoloComandosS1">
+                                <p class="estilo-texto-configuracion">
+                                    enable <br>
+                                    configure terminal <br>
                                 </p>
                             </div>
                             <div class="subseccion-boton-cerrar">
@@ -142,11 +154,31 @@
                     <div>
 
                     </div>
+                    <div style="display: flex;flex-direction: row;grid-column: 2px;justify-content: center; align-items: center;">
+                        <input type="checkbox" id="MostrarSoloComandosOption" name="Mostrar solo comandos" class="estilo-checkbox"><label for="MostrarSoloComandos" style="font-family: 'Courier New', Courier, monospace;font-size: 14px;">Mostrar solo comandos</label>
+                    </div>
                 </div>
             </div>
         </div>
         <div class="foot">
-
+            <div class="foot-text">
+                <p>Todas las configuraciones son resultado del material de los cursos de Redes I y II</p>
+                <p>Si tienes dudas, consultas o requieres de apoyo en un examen practico enviame un mensaje</p>
+            </div>
+            <div class="foot-contenedor-logos">
+                <div class="foot-logos">
+                    <a href="https://www.facebook.com/"><img src="/Images/facebook.png" alt="facebook" style="width: 100%;height: 100%;"></a>
+                    Facebook
+                </div>
+                <div class="foot-logos">
+                    <a href="https://www.whatsapp.com"><img src="/Images/whatsapp.png" alt="whatsapp" style="width: 100%;height: 100%;">
+                    Whatsapp
+                    </a>
+                </div>
+                <div class="foot-logos">
+                    <a href="https://www.gmail.com"><img src="/Images/gmail.png" alt="gmail" style="width: 100%;height: 100%;"></a>
+                    Gmail
+                </div>
         </div>
         <script>
             
@@ -155,6 +187,15 @@
             var CloseModal = document.getElementById("CloseModal");
             var VentanaConfig = document.getElementById("Ventana-configuracion");
             var VentanaLeft = document.getElementById("Ventana-left");
+
+
+            var ContenidoIndicacionesPrevias = document.getElementById("contenido-indicaciones-previas");
+                var BtnLvlDificultad = document.getElementById("BtnLvlDificultad");
+                    var NivelConfiguracion = document.getElementById("nivel-configuracion");
+                    var VentanaLvlDificultad = document.getElementById("ventana-lvl-dificultad");
+                var BtnDispUsados = document.getElementById("BtnDispUsados");
+                    var DispositivosUsados = document.getElementById("dispositivos-usados");
+                    var VentanaDispUsados = document.getElementById("ventana-dispositivos-usados");
 
 
             var BtnOpenRouter = document.getElementById("BtnRouter");
@@ -180,11 +221,18 @@
 
 
             var TituloVentanaConfiguracion = document.getElementById("titulo-ventana-configuracion");
-
             var TextoPrincipiante = document.getElementById("texto-principiante");
             var TextoMedio = document.getElementById("texto-medio");
             var TextoAvanzado = document.getElementById("texto-avanzado");
-            //Cambio de titulos
+
+            const CheckBox = document.getElementById("MostrarSoloComandosOption");
+                var ContenedorComandosS1 = document.getElementById("ContenedorComandosS1");
+                var ContenedorSoloComandosS1 = document.getElementById("ContenedorSoloComandosS1");
+
+                var ContenedorComandosR1 = document.getElementById("ContenedorComandosR1");
+                var ContenedorSoloComandosR1 = document.getElementById("ContenedorSoloComandosR1");
+            
+            //Funciones Cambio de titulos
             function Titulo_Inicial(){
                 TituloVentanaConfiguracion.textContent = "Elige el dispositivo de red";
             }
@@ -201,9 +249,9 @@
                 TituloVentanaConfiguracion.textContent = "Comandos";
             }
             Titulo_Inicial()
-            //FIN cambio titulos
+            //FIN Funciones cambio titulos
 
-            //Ruleta 
+            // Funcion Ruleta
             TextoPrincipiante.style.transform = "scale(1.1,1.1)";
             TextoMedio.style.transform = "scale(1.1,1.1)";
             TextoAvanzado.style.transform = "scale(1.1,1.1)";
@@ -268,25 +316,128 @@
                 TextoAvanzado.style.opacity = "1";
             }
 
-            function Dificultades(){
-                int1 = setInterval(() => {
-                    Resaltar_Texto_Principiante();
-                }, 100) //cada 0.5s
-                int2 = setInterval(() => {
-                    Resaltar_Texto_Medio()
-                }, 150);
-                int3 = setInterval(() => {
-                    Resaltar_Texto_Avanzado()
-                }, 200);
-                setTimeout(() => {
-                    clearInterval(int1);
-                    clearInterval(int2);
-                    clearInterval(int3);
-                    Resaltar_Texto_Principiante()
-                }, 4000);
+                function Dificultades(){
+                    int1 = setInterval(() => {
+                        Resaltar_Texto_Principiante();
+                    }, 100) //cada 0.5s
+                    int2 = setInterval(() => {
+                        Resaltar_Texto_Medio()
+                    }, 150);
+                    int3 = setInterval(() => {
+                        Resaltar_Texto_Avanzado()
+                    }, 200);
+                    setTimeout(() => {
+                        clearInterval(int1);
+                        clearInterval(int2);
+                        clearInterval(int3);
+                        Resaltar_Texto_Principiante()
+                    }, 2000);
+                }
+                Dificultades()
+            //Fin Funcion Ruleta
+
+            // SECCION INDICACIONES PREVIAS
+            var Verificar_Ventana_Lvl_Config_Abierto
+            var Verificar_Ventana_Dispositivos_Usados_Aierto
+
+            function Ocultar_Boton_Lvl_Dificultad(){
+                NivelConfiguracion.style.transitionProperty = "all";
+                NivelConfiguracion.style.transitionDuration = "0.4s";
+                NivelConfiguracion.style.transitionTimingFunction = "ease";
+                NivelConfiguracion.style.opacity = "0";
+
+                BtnLvlDificultad.style.transitionProperty = "all";
+                BtnLvlDificultad.style.transitionDuration = "0.4s";
+                BtnLvlDificultad.style.transitionTimingFunction = "ease";
+                BtnLvlDificultad.style.width = "0%";
+                BtnLvlDificultad.style.height = "0%";
             }
-            //Dificultades()
-            //Fin Ruleta
+            function Mostrar_Boton_Lvl_Dificultad(){
+                NivelConfiguracion.style.transitionProperty = "all";
+                NivelConfiguracion.style.transitionDuration = "0.4s";
+                NivelConfiguracion.style.transitionTimingFunction = "ease";
+                NivelConfiguracion.style.opacity = "1";
+
+                BtnLvlDificultad.style.transitionProperty = "all";
+                BtnLvlDificultad.style.transitionDuration = "0.4s";
+                BtnLvlDificultad.style.transitionTimingFunction = "ease";
+                BtnLvlDificultad.style.width = "70%";
+                BtnLvlDificultad.style.height = "60px";
+            }
+            function Ocultar_Boton_Dispositivos_Usados(){
+                DispositivosUsados.style.transitionProperty = "all";
+                DispositivosUsados.style.transitionDuration = "0.4s";
+                DispositivosUsados.style.transitionTimingFunction = "ease";
+                DispositivosUsados.style.opacity = "0";
+
+                BtnDispUsados.style.transitionProperty = "all";
+                BtnDispUsados.style.transitionDuration = "0.4s";
+                BtnDispUsados.style.transitionTimingFunction = "ease";
+                BtnDispUsados.style.width = "0%";
+                BtnDispUsados.style.height = "0%";
+            }
+            function Mostrar_Boton_Dispositivos_Usados(){
+                DispositivosUsados.style.transitionProperty = "all";
+                DispositivosUsados.style.transitionDuration = "0.4s";
+                DispositivosUsados.style.transitionTimingFunction = "ease";
+                DispositivosUsados.style.opacity = "1";
+
+                BtnDispUsados.style.transitionProperty = "all";
+                BtnDispUsados.style.transitionDuration = "0.4s";
+                BtnDispUsados.style.transitionTimingFunction = "ease";
+                BtnDispUsados.style.width = "70%";
+                BtnDispUsados.style.height = "60px";
+            }
+                function Ocultar_Ventana_Lvl_Configuracion(){
+                    VentanaLvlDificultad.style.transitionDuration = "0.4s";
+                    VentanaLvlDificultad.style.transitionTimingFunction = "ease";
+                    VentanaLvlDificultad.style.height = "0%";
+                    VentanaLvlDificultad.style.borderStyle = "hidden";
+                    VentanaLvlDificultad.style.paddingTop = "0px";
+
+                    Verificar_Ventana_Lvl_Config_Abierto = false;
+                    Verificar_Ventana_Dispositivos_Usados_Aierto = false;
+                }
+                function Mostrar_Ventana_Lvl_Configuracion(){
+                    VentanaLvlDificultad.style.transitionDuration = "0.4s";
+                    VentanaLvlDificultad.style.transitionTimingFunction = "ease";
+                    VentanaLvlDificultad.style.height = "150px";
+                    VentanaLvlDificultad.style.borderStyle = "solid";
+                    VentanaLvlDificultad.style.paddingTop = "6px";
+
+                    Verificar_Ventana_Lvl_Config_Abierto = true;
+                    Verificar_Ventana_Dispositivos_Usados_Aierto = false;
+                }
+                function Ocultar_Ventana_Dispositivos_Usados(){
+                    VentanaDispUsados.style.transitionDuration = "0.4s";
+                    VentanaDispUsados.style.transitionTimingFunction = "ease";
+                    VentanaDispUsados.style.height = "0%";
+                    VentanaDispUsados.style.borderStyle = "hidden";
+
+                    BtnDispUsados.style.height = "60px";
+                    BtnDispUsados.style.overflow = "hidden";
+
+                    ContenidoIndicacionesPrevias.style.paddingBottom = "0px";
+
+                    Verificar_Ventana_Dispositivos_Usados_Aierto = false;
+                }
+                function Mostrar_Ventana_Dispositivos_Usados(){
+                    VentanaDispUsados.style.transitionDuration = "0.4s";
+                    VentanaDispUsados.style.transitionTimingFunction = "ease";
+                    VentanaDispUsados.style.height = "150px";
+                    VentanaDispUsados.style.borderStyle = "solid";
+                    VentanaDispUsados.style.overflowY = "auto";
+
+                    BtnDispUsados.style.height = "50px";
+                    BtnDispUsados.style.overflow = "visible";
+                    BtnDispUsados.style.paddingBottom = "5px";
+
+                    ContenidoIndicacionesPrevias.style.paddingBottom = "12px";
+
+                    Verificar_Ventana_Dispositivos_Usados_Aierto = true;
+                }
+            // FIN SECCION INDICACIONES PREVIAS
+
 
             // SECCION DE DISPOSITIVOS DE RED
             function Ocultar_Boton_Router(){
@@ -503,8 +654,64 @@
             function Mostrar_Ventana_Hosts(){
 
             }
-
             //FIN SECCION DE DISPOSITIVOS DE RED
+
+
+            function Mostrar_Solo_Comandos(){
+                ContenedorComandosR1.style.transitionDuration = "0.3s";
+                ContenedorComandosR1.style.opacity = "0";
+                ContenedorComandosR1.style.height = "0%";
+                ContenedorComandosR1.style.borderStyle = "hidden";
+                ContenedorComandosR1.style.overflowY = "hidden";
+
+                ContenedorComandosS1.style.transitionDuration = "0.3s";
+                ContenedorComandosS1.style.opacity = "0";
+                ContenedorComandosS1.style.height = "0%";
+                ContenedorComandosS1.style.borderStyle = "hidden";
+                ContenedorComandosS1.style.overflowY = "hidden";
+
+
+                ContenedorSoloComandosR1.style.transitionDuration = "0,6s";
+                ContenedorSoloComandosR1.style.opacity = "1";
+                ContenedorSoloComandosR1.style.height = "82%";
+                ContenedorSoloComandosR1.style.borderStyle = "solid";
+                ContenedorSoloComandosR1.style.overflowY = "auto";
+
+                ContenedorSoloComandosS1.style.transitionDuration = "0.6s";
+                ContenedorSoloComandosS1.style.opacity = "1";
+                ContenedorSoloComandosS1.style.height = "82%";
+                ContenedorSoloComandosS1.style.borderStyle = "solid";
+                ContenedorSoloComandosS1.style.overflowY = "auto";
+            }
+            function No_Mostrar_Solo_Comandos(){
+                ContenedorComandosR1.style.transitionDuration = "0.6s";
+                ContenedorComandosR1.style.opacity = "1";
+                ContenedorComandosR1.style.height = "82%";
+                ContenedorComandosR1.style.borderStyle = "solid";
+                ContenedorComandosR1.style.overflowY = "auto";
+
+                ContenedorComandosS1.style.transitionDuration = "0.6s";
+                ContenedorComandosS1.style.opacity = "1";
+                ContenedorComandosS1.style.height = "82%";
+                ContenedorComandosS1.style.borderStyle = "solid";
+                ContenedorComandosS1.style.overflowY = "auto";
+
+
+                ContenedorSoloComandosR1.style.transitionDuration = "0,3s";
+                ContenedorSoloComandosR1.style.opacity = "0";
+                ContenedorSoloComandosR1.style.height = "0%";
+                ContenedorSoloComandosR1.style.borderStyle = "hidden";
+                ContenedorSoloComandosR1.style.overflowY = "hidden";
+
+
+                ContenedorSoloComandosS1.style.transitionDuration = "0.3s";
+                ContenedorSoloComandosS1.style.opacity = "0";
+                ContenedorSoloComandosS1.style.height = "0%";
+                ContenedorSoloComandosS1.style.borderStyle = "hidden";
+                ContenedorSoloComandosS1.style.overflowY = "hidden";
+            }
+
+
             //Expandir imagen
             OpenModal.onclick = function(){
                 Modal.style.transitionProperty = "width";
@@ -540,6 +747,54 @@
             }
             //Fin Expandir imagen
             
+
+            //Mostrar Ventana Nivel configuracion
+            setTimeout(() => {
+                NivelConfiguracion.style.pointerEvents= "none";
+                Ocultar_Boton_Dispositivos_Usados()
+                Mostrar_Ventana_Lvl_Configuracion()
+            }, 0);
+            setTimeout(() => {
+                Mostrar_Boton_Dispositivos_Usados()
+                Ocultar_Ventana_Lvl_Configuracion()
+            }, 3500);
+            setTimeout(() => {
+                NivelConfiguracion.style.pointerEvents = "all";
+            }, 3600);
+
+            NivelConfiguracion.onclick = function(){
+                if (Verificar_Ventana_Lvl_Config_Abierto){
+                    Ocultar_Ventana_Lvl_Configuracion()
+
+                    Mostrar_Boton_Dispositivos_Usados()
+                }
+                else {
+                    Mostrar_Boton_Lvl_Dificultad()
+                    Ocultar_Boton_Dispositivos_Usados()
+
+                    Mostrar_Ventana_Lvl_Configuracion()
+                }
+
+            }
+            //FIN Mostrar Ventana Nivel configuracion
+
+
+            //Mostrar Ventana Dispositivos Usados
+            DispositivosUsados.onclick = function(){
+                if (Verificar_Ventana_Dispositivos_Usados_Aierto){
+                    Mostrar_Boton_Lvl_Dificultad()
+                    
+                    Ocultar_Ventana_Dispositivos_Usados()
+                }
+                else {
+                    Ocultar_Boton_Lvl_Dificultad()
+
+                    Mostrar_Ventana_Dispositivos_Usados()
+                }
+
+            }
+            //FIN Mostrar Ventana Dispositivos Usados
+
 
             //Ventana configuraciones router
             BtnOpenRouter.onclick = function(){
@@ -583,9 +838,22 @@
                 //Fin Ventana S1
             //Fin Ventana configuraciones Switch
 
+
             //Ventana configuraciones hosts
 
             //Fin Ventana configuraciones hosts
+
+
+            //Mostrar/ocultar Solo comandos
+            CheckBox.addEventListener('change', function(){
+                if(CheckBox.checked){
+                    Mostrar_Solo_Comandos()
+                }
+                else{
+                    No_Mostrar_Solo_Comandos()
+                }
+            })
+            //Fin Mostrar/ocultar Solo comandos
         </script>
     </body>
 </html>

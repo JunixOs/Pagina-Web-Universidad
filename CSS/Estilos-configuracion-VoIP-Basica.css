@@ -79,8 +79,35 @@
     justify-content: center;
     align-items: center;
     padding-top: 10px;
+    column-gap: 25px;
 }
-
+.estilo-checkbox{
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+    border: 2px solid black;
+    border-radius: 50%;
+    background-color:#6C6E72;
+    transition: background-color 0.4s ease-in-out, transform 0.4s ease-in-out;
+    transform: scale(1,1);
+}
+.estilo-checkbox:disabled{
+    background-color: rgb(198, 198, 198);
+    transform: scale(0.9,0.9);
+    transition: transform 0.4s ease-in-out, background-color 0.4s ease-in-out;
+}
+.estilo-checkbox:checked{
+    transform: scale(1,1);
+    background: linear-gradient(315deg, #F4B0C0 45%, black 45%, black 55%, #F4B0C0 55%, #F4B0C0 100%);
+    transition: background-color 0.4s ease-in-out, transform 0.4s ease-in-out; /*Cuando trasbajes con checkbox las trancisiones deben 
+                                                                                declararse de manera explicita*/
+}
+.estilo-checkbox:focus{
+    border-color: rgb(80, 67, 250);
+    transform: scale(1.1,1.1);
+    transition: background-color 0.4s ease-in-out, transform 0.4s ease-in-out;
+}
 .subventana-configuracion-dispositivos{
     width: 90%;
     height: 0%;
@@ -88,12 +115,14 @@
     margin: 0 auto;
     border-radius: 15px;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
 .contenedor-comandos-configuracion{
     width: 90%;
     height: 82%;
-    overflow-y: auto;
+    overflow-y: hidden;
     border-radius: 15px;
     border-color: black;
     border-width: 1pt;
@@ -101,29 +130,47 @@
     margin: 0 auto;
     padding-left: 10px;
 }
-.contenedor-comandos-configuracion::-webkit-scrollbar{
+.contenedor-solo-comandos-configuracion{
+    width: 90%;
+    height: 0%;
+    overflow-y: hidden;
+    border-radius: 15px;
+    border-color: black;
+    border-width: 1pt;
+    border-style: hidden;
+    margin: 0 auto;
+    padding-left: 10px;
+}
+.contenedor-comandos-configuracion::-webkit-scrollbar,
+.contenedor-solo-comandos-configuracion::-webkit-scrollbar{
     height: 100%;
     width: 12px;
     text-wrap: wrap;
 }
-.contenedor-comandos-configuracion::-webkit-scrollbar-thumb{
+.contenedor-comandos-configuracion::-webkit-scrollbar-thumb,
+.contenedor-solo-comandos-configuracion::-webkit-scrollbar-thumb{
     background-color: darkolivegreen;
     border-radius: 4px;
     transition-duration: 400ms;
 }
-.contenedor-comandos-configuracion::-webkit-scrollbar-thumb:hover{
+.contenedor-comandos-configuracion::-webkit-scrollbar-thumb:hover,
+.contenedor-solo-comandos-configuracion::-webkit-scrollbar-thumb:hover{
     background-color: yellowgreen;
     transform: scale(1.1,1.1);
 }
-.contenedor-comandos-configuracion::-webkit-scrollbar-thumb:active{
+.contenedor-comandos-configuracion::-webkit-scrollbar-thumb:active,
+.contenedor-solo-comandos-configuracion::-webkit-scrollbar-thumb:active{
     background-color: yellow;
 }
-.contenedor-comandos-configuracion::-webkit-scrollbar-track{
+.contenedor-comandos-configuracion::-webkit-scrollbar-track,
+.contenedor-solo-comandos-configuracion::-webkit-scrollbar-track{
     background-color: steelblue;
     border-radius: 4px;
 }
 .contenedor-comandos-configuracion::-webkit-scrollbar-track:hover,
-.contenedor-comandos-configuracion::-webkit-scrollbar-track:active{
+.contenedor-comandos-configuracion::-webkit-scrollbar-track:active,
+.contenedor-solo-comandos-configuracion::-webkit-scrollbar-track:hover,
+.contenedor-solo-comandos-configuracion::-webkit-scrollbar-track:active{
     background-color: turquoise;
 }
 .estilo-texto-configuracion{

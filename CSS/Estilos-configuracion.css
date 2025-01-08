@@ -19,10 +19,13 @@
     width: 99vw;
     height: 65vh;
     overflow-y: scroll;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 45px;
-    grid-auto-rows: 400px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    column-gap: 40px;
+    row-gap: 80px;
+    justify-content: center;
+    align-items: center;
 }
 .item-configuracion-config{
     background-color: burlywood;
