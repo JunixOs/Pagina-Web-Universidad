@@ -179,6 +179,16 @@
     font-size: 14px;
     color: black;
 }
+.estilo-texto-explicacion-configuracion{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;
+    color: black;
+    border-radius: 15px;
+    border-style: solid;
+    border-color: black;
+    border-width: 1pt;
+    padding-left: 7px;
+}
 .estilo-texto-configuracion::selection{
     color: red;
     background-color: yellow;
@@ -187,4 +197,7 @@
     font-family: Arial, Helvetica, sans-serif;
     font-size: 14px;
     color: black;
+    padding-top: 5px;
+    padding-bottom: 2px;
+    text-align: center;
 }

@@ -19,6 +19,8 @@
                     <img src="/Images/Configuraciones Variadas/Topologia-VoIP-1.png" alt="Topologia" class="imagen-modal-style">
                 </div>
                 <div class="contenedor-boton-cerrar-modal">
+                    <a href="/Images/Configuraciones Variadas/Topologia-VoIP-1.png" download><button class="botones-navegacion" id="BtnDescargarImagenTopologia">Descargar Imagen</button></a>
+                    <a href="/Topologias pkt/Practica Individual Configuracion-VoIP Basica 4-1-25.pkt" download><button class="botones-navegacion">Descargar archivo .pkt</button></a>
                     <button class="botones-navegacion" id="CloseModal">Cerrar</button>
                 </div>
             </div>
@@ -97,6 +99,8 @@
                                 <p class="estilo-texto-configuracion">
                                     R1>enable <br>
                                     R2#configure terminal <br>
+                                    <br>
+
                                 </p>
                             </div>
                             <div class="contenedor-solo-comandos-configuracion" id="ContenedorSoloComandosR1">
@@ -130,6 +134,8 @@
                                 <p class="estilo-texto-configuracion">
                                     S1>enable <br>
                                     S1#configure terminal <br>
+                                    <br>
+                                    S1(config)#
                                 </p>
                             </div>
                             <div class="contenedor-solo-comandos-configuracion" id="ContenedorSoloComandosS1">
@@ -164,10 +170,21 @@
                     </div>
                     <!--Ventana Explicacion-->
                     <div class="ventana-comandos" id="VentanaExplicacionPaso1">
-                        <div class="VECR-contenedor-texto">
-                            <p class="estilo-texto-configuracion">
-                                HELLO WORLD
+                        <div class="VECR-contenedor-texto" id="ContenedorTextoExplicacionConfiguracionPaso1">
+                            <p class="estilo-texto-descripcion-configuracion">
+                                Insertamos los dispositivos que usaremos dentro del espacio en blanco
                             </p>
+                            <div class="contenedor-carrusel">
+                                <div class="carrusel-explicacion" id="Carrusel">
+                                    <img src="/Images/ENSP.jpg" alt="" class="imagenes-carrusel-explicacion">
+                                    <img src="/Images/Configuracion-firewall.jpg" alt="" class="imagenes-carrusel-explicacion">
+                                    <img src="/Images/Configuracion-capa-2.webp" alt="" class="imagenes-carrusel-explicacion">
+                                </div>
+                                <div class="contenedor-botones-carrusel">
+                                    <button class="estilo-boton-carrusel-anterior" id="BtnCarruselImagenAnterior">Anterior</BUtton>
+                                    <button class="estilo-boton-carrusel-siguiente" id="BtnCarruselImagenSiguiente">Siguiente</button>
+                                </div>
+                            </div>
                         </div>
                         <div class="subseccion-boton-cerrar">
                             <button class="botones-cerrar-ventanas" id="BtnCloseVentanaPaso1">Cerrar</button>
@@ -180,9 +197,36 @@
                     </div>
                     <!--Ventana Explicacion-->
                     <div class="ventana-comandos" id="VentanaExplicacionPaso2">
-                        <div class="VECR-contenedor-texto">
-                            <p class="estilo-texto-configuracion">
-                                HELLO WORLD
+                        <div class="VECR-contenedor-texto" id="ContenedorTextoExplicacionConfiguracionPaso2">
+                            <p class="estilo-texto-descripcion-configuracion">
+                                Comenzamos a configurar el Switch S1
+                            </p>
+                            <p class="estilo-texto-descripcion-configuracion">
+                                Ingresamos a S1 y configuramos los puertos correspondientes para que la VLAN 1 funcione como una VLAN de voz o una VLAN de datos en ellos.
+                            </p>
+                            <p class="estilo-texto-explicacion-configuracion">
+                                S1>enable <br>
+                                S1#configure terminal <br>
+                                <br>
+                                // Permitimos que la VLAN 1 funcione como VLAN de voz en los puertos FastEthernet 0/1 y FastEthernet 0/2
+                                <br>
+                                S1(config)#interface range f0/1-2 <br>
+                                S1(config-if)#switchport mode access <br>
+                                S1(config-if)#switchport voice vlan 1<br>
+                                S1(config-if)#exit <br>
+                                <br>
+                                // Permitimos que la VLAN 1 funcione como VLAN de voz y de datos en el puerto FastEthernet 0/3
+                                <br>
+                                S1(config)#interface f0/3 <br>
+                                S1(config-if)#switchport mode access <br>
+                                S1(config-if)#switchport access vlan 1 <br>
+                                S1(config-if)#switchport voice vlan 1 <br>
+                                S1(config-if)#exit <br>
+                                <br>
+                                // Opcional, Guardamos la configuracion
+                                <br>
+                                S1(config)#exit <br>
+                                S1#write <br>
                             </p>
                         </div>
                         <div class="subseccion-boton-cerrar">
@@ -196,13 +240,57 @@
                     </div>
                     <!--Ventana Explicacion-->
                     <div class="ventana-comandos" id="VentanaExplicacionPaso3">
-                        <div class="VECR-contenedor-texto">
-                            <p class="estilo-texto-configuracion">
-                                HELLO WORLD
+                        <div class="VECR-contenedor-texto" id="ContenedorTextoExplicacionConfiguracionPaso3">
+                            <p class="estilo-texto-descripcion-configuracion">
+                                Configuramos el direccionamiento IP del router y creamos un pool DHCP, el cual brindara direcciones IP a todos los hosts de nuetra
+                                red, adicionalmente, dentro del DHCP configuraremos la opcion 150, el cual corresponde al servicio de TFTP. 
+                            </p>
+                            <p class="estilo-texto-explicacion-configuracion">
+                                R1>enable <br>
+                                R1#configure terminal <br>
+
+                                R1(config)#interface f0/1 <br>
+                                R1(config-if)#ip address 192.168.10.1 255.255.255.0 <br>
+                                R1(config-if)#no shutdown <br>
+                                R1(config-if)#exit <br>
+                                <br>
+                                // Creamos el pool para DHCP, el nombre del DHCP que usare es RED_1, pero se puede colocar cualquiera
+                                <br>
+                                R1(config)#ip dhcp pool RED_1 <br>
+                                R1(config)#network 192.168.10.0 255.255.255.0 (Direccion de red)<br>
+                                R1(config)#default-router 192.168.10.1  (Direccion del gateway)<br>
+                                R1(config)#dns-server 8.8.8.8 (Opcional, direccion del servidor DNS, usare el de google)<br>
+                                // Configuro la opcion 50 del DHCP, el servicio TFTP
+                                <br>
+                                R1(config)#option 150 ip 192.168.10.1 (usamos el gateway de la red) <br>
+                                R1(config)#exit <br>
                             </p>
                         </div>
                         <div class="subseccion-boton-cerrar">
                             <button class="botones-cerrar-ventanas" id="BtnCloseVentanaPaso3">Cerrar</button>
+                        </div>
+                    </div>
+                    <!--FIN Ventana Explicacion-->
+
+                    <div class="seccion" id="ContenedorBtnExplicacion-paso4">
+                        <button class="boton-seccion-dispositivo-red" id="BtnExplicacion-paso4">Paso 4</button>
+                    </div>
+                    <!--Ventana Explicacion-->
+                    <div class="ventana-comandos" id="VentanaExplicacionPaso4">
+                        <div class="VECR-contenedor-texto" id="ContenedorTextoExplicacionConfiguracionPaso4">
+                            <p class="estilo-texto-descripcion-configuracion">
+                                Una vez terminada la configuracion de los dispositivos de red, encendemos los telefonos VoIP 1 y VoIP 2, 
+                                y configuramos la PC 1.
+                            </p>
+                            <p class="estilo-texto-descripcion-configuracion">
+                                Para los telefonos VoIP 1 y VoIP 2:
+                            </p>
+                            <p class="estilo-texto-descripcion-configuracion">
+                                Para la PC 1
+                            </p>
+                        </div>
+                        <div class="subseccion-boton-cerrar">
+                            <button class="botones-cerrar-ventanas" id="BtnCloseVentanaPaso4">Cerrar</button>
                         </div>
                     </div>
                     <!--FIN Ventana Explicacion-->
@@ -240,6 +328,7 @@
             var CloseModal = document.getElementById("CloseModal");
             var VentanaConfig = document.getElementById("Ventana-configuracion");
             var VentanaLeft = document.getElementById("Ventana-left");
+            var BtnDescargarImagenTopologia = document.getElementById("BtnDescargarImagenTopologia");
 
 
             var ContenidoIndicacionesPrevias = document.getElementById("contenido-indicaciones-previas");
@@ -288,6 +377,10 @@
 
             var BtnOpenVentanaExplicacion = document.getElementById("BtnOpenVentanaExplicacion");
             var VentanaExplicacion = document.getElementById("VentanaExplicacion");
+            var ContenedorTextoExplicacionConfiguracionPaso1 = document.getElementById("ContenedorTextoExplicacionConfiguracionPaso1");
+            var ContenedorTextoExplicacionConfiguracionPaso2 = document.getElementById("ContenedorTextoExplicacionConfiguracionPaso2");
+            var ContenedorTextoExplicacionConfiguracionPaso3 = document.getElementById("ContenedorTextoExplicacionConfiguracionPaso3");
+            var ContenedorTextoExplicacionConfiguracionPaso4 = document.getElementById("ContenedorTextoExplicacionConfiguracionPaso4");
             var TituloVentanaExplicacion = document.getElementById("titulo-ventana-explicacion");
             var BtnCloseExplicacion = document.getElementById("BtnCloseExplicacion");
                 var BtnExplicacionPaso1 = document.getElementById("BtnExplicacion-paso1");
@@ -304,6 +397,17 @@
                 var ContenedorBtnExplicacionPaso3 = document.getElementById("ContenedorBtnExplicacion-paso3");
                 var BtnExplicacionPaso3 = document.getElementById("BtnExplicacion-paso3");
                 var VentanaExplicacionPaso3 = document.getElementById("VentanaExplicacionPaso3");
+
+                var BtnCloseVentanaPaso4 = document.getElementById("BtnCloseVentanaPaso4");
+                var ContenedorBtnExplicacionPaso4 = document.getElementById("ContenedorBtnExplicacion-paso4");
+                var BtnExplicacionPaso4 = document.getElementById("BtnExplicacion-paso4");
+                var VentanaExplicacionPaso4 = document.getElementById("VentanaExplicacionPaso4");
+
+            //Descargar Imagen Topologia
+            BtnDescargarImagenTopologia.onclick = function(){
+                window.alert("Su descarga comenzara en breve");
+            }
+            //FIN Descargar Imagen Topologia
             //Funciones Cambio de titulos
             //Cambio tirulo configuracion
             function Titulo_Inicial(){
@@ -823,6 +927,9 @@
                 VentanaConfig.style.transitionTimingFunction = "ease";
                 VentanaConfig.style.width = "70%";
             }
+            //FIN Funciones ventana configuraciones
+
+
             //Seccion Explicacion Configuracion
             function Mostrar_Ventana_Explicacion(){
                 VentanaExplicacion.style.transitionDuration = "0.4s";
@@ -831,9 +938,11 @@
 
                 CloseModal.style.transitionDuration = "0.2s";
                 CloseModal.style.opacity = "0";
+                CloseModal.style.width = "0%";
+                CloseModal.style.height = "0%";
                 CloseModal.style.pointerEvents = "none";
-                Expandir_Ventana_Imagen()
 
+                Expandir_Ventana_Imagen()
                 Ocultar_Ventana_Comandos()
             }
             function Ocultar_Ventana_Explicacion(){
@@ -842,7 +951,10 @@
 
                 CloseModal.style.transitionDuration = "0.2s";
                 CloseModal.style.opacity = "1";
+                CloseModal.style.width = "12vw";
+                CloseModal.style.height = "5vh";
                 CloseModal.style.pointerEvents = "all";
+
                 Ocultar_Ventana_Imagen()
 
                 Mostrar_Ventana_Comandos()
@@ -904,42 +1016,115 @@
                     ContenedorBtnExplicacionPaso3.style.width = "90%";
                     ContenedorBtnExplicacionPaso3.style.height = "50px";
                 }
+                function Ocultar_Boton_Paso_4(){
+                    BtnExplicacionPaso4.style.transitionDuration = "0.4s";
+                    BtnExplicacionPaso4.style.opacity = "0";
+                    BtnExplicacionPaso4.style.pointerEvents = "none";
+
+                    ContenedorBtnExplicacionPaso4.style.transitionDuration = "0.4s";
+                    ContenedorBtnExplicacionPaso4.style.width = "0%";
+                    ContenedorBtnExplicacionPaso4.style.height = "0%";
+                }
+                function Mostrar_Boton_Paso_4(){
+                    BtnExplicacionPaso4.style.transitionDuration = "0.4s";
+                    BtnExplicacionPaso4.style.transitionTimingFunction = "ease";
+                    BtnExplicacionPaso4.style.opacity = "1";
+                    BtnExplicacionPaso4.style.pointerEvents = "all";
+
+                    ContenedorBtnExplicacionPaso4.style.transitionDuration = "0.4s";
+                    ContenedorBtnExplicacionPaso4.style.width = "90%";
+                    ContenedorBtnExplicacionPaso4.style.height = "50px";
+                }
                 function Ocultar_Ventana_Paso_1(){
                     VentanaExplicacionPaso1.style.transitionDuration = "1s";
                     VentanaExplicacionPaso1.style.transitionTimingFunction = "ease";
                     VentanaExplicacionPaso1.style.height = "0%";
                     VentanaExplicacionPaso1.style.borderStyle = "hidden";
+
+                    ContenedorTextoExplicacionConfiguracionPaso1.style.overflowY = "hidden";
                 }
                 function Mostrar_Ventana_Paso_1(){
                     VentanaExplicacionPaso1.style.transitionDuration = "1s";
                     VentanaExplicacionPaso1.style.transitionTimingFunction = "ease";
                     VentanaExplicacionPaso1.style.height = "540px";
                     VentanaExplicacionPaso1.style.borderStyle = "solid";
+
+                    ContenedorTextoExplicacionConfiguracionPaso1.style.overflowY = "auto";
                 }
                 function Ocultar_Ventana_Paso_2(){
                     VentanaExplicacionPaso2.style.transitionDuration = "1s";
                     VentanaExplicacionPaso2.style.transitionTimingFunction = "ease";
                     VentanaExplicacionPaso2.style.height = "0%";
                     VentanaExplicacionPaso2.style.borderStyle = "hidden";
+
+                    ContenedorTextoExplicacionConfiguracionPaso2.style.overflowY = "hidden";
                 }
                 function Mostrar_Ventana_Paso_2(){
                     VentanaExplicacionPaso2.style.transitionDuration = "1s";
                     VentanaExplicacionPaso2.style.transitionTimingFunction = "ease";
                     VentanaExplicacionPaso2.style.height = "530px";
                     VentanaExplicacionPaso2.style.borderStyle = "solid";
+
+                    ContenedorTextoExplicacionConfiguracionPaso2.style.overflowY = "auto";
                 }
                 function Ocultar_Ventana_Paso_3(){
                     VentanaExplicacionPaso3.style.transitionDuration = "1s";
                     VentanaExplicacionPaso3.style.transitionTimingFunction = "ease";
                     VentanaExplicacionPaso3.style.height = "0%";
                     VentanaExplicacionPaso3.style.borderStyle = "hidden";
+
+                    ContenedorTextoExplicacionConfiguracionPaso3.style.overflowY = "hidden";
                 }
                 function Mostrar_Ventana_Paso_3(){
                     VentanaExplicacionPaso3.style.transitionDuration = "1s";
                     VentanaExplicacionPaso3.style.transitionTimingFunction = "ease";
                     VentanaExplicacionPaso3.style.height = "530px";
                     VentanaExplicacionPaso3.style.borderStyle = "solid";
+
+                    ContenedorTextoExplicacionConfiguracionPaso3.style.overflowY = "auto";
                 }
+                function Ocultar_Ventana_Paso_4(){
+                    VentanaExplicacionPaso4.style.transitionDuration = "1s";
+                    VentanaExplicacionPaso4.style.transitionTimingFunction = "ease";
+                    VentanaExplicacionPaso4.style.height = "0%";
+                    VentanaExplicacionPaso4.style.borderStyle = "hidden";
+
+                    ContenedorTextoExplicacionConfiguracionPaso4.style.overflowY = "hidden";
+                }
+                function Mostrar_Ventana_Paso_4(){
+                    VentanaExplicacionPaso4.style.transitionDuration = "1s";
+                    VentanaExplicacionPaso4.style.transitionTimingFunction = "ease";
+                    VentanaExplicacionPaso4.style.height = "530px";
+                    VentanaExplicacionPaso4.style.borderStyle = "solid";
+
+                    ContenedorTextoExplicacionConfiguracionPaso4.style.overflowY = "auto";
+                }
+            
+            var Carrusel = document.getElementById("Carrusel");
+            var BtnCarruselImagenAnterior = document.getElementById("BtnCarruselImagenAnterior");
+            var BtnCarruselImagenSiguiente = document.getElementById("BtnCarruselImagenSiguiente");
+            function Moverse_Imagen_Siguiente_Carrusel(){
+                const ImagenSiguiente = Carrusel.scrollLeft + Carrusel.clientWidth;
+
+                Carrusel.scrollTo({
+                    left: ImagenSiguiente,
+                    behavior: 'smooth'
+                })
+            }
+            function Moverse_Imagen_Anterior_Carrusel(){
+                const ImagenAnterior = Carrusel.scrollLeft - Carrusel.clientWidth;
+
+                Carrusel.scrollTo({
+                    left: ImagenAnterior,
+                    behavior: 'smooth'
+                })
+            }
+            /*  Moverse a la imagen siguiente cuando hacemos clic en las imagenes del carrusel*/
+            Carrusel.addEventListener('click',Moverse_Imagen_Siguiente_Carrusel);
+            /*  Botones Anterior y Siguiente*/
+            BtnCarruselImagenAnterior.addEventListener('click',Moverse_Imagen_Anterior_Carrusel);
+            BtnCarruselImagenSiguiente.addEventListener('click',Moverse_Imagen_Siguiente_Carrusel);
+
             //FIN Seccion Explicacion Configuracion
 
 
@@ -1082,8 +1267,6 @@
             //Fin Mostrar/ocultar Solo comandos
 
             //ventana explicacion configuraciones
-            //Modificar Titulo explicacion configuraciones
-            //FIN Modificar Titulo explicacion configuraciones
             BtnOpenVentanaExplicacion.onclick = function(){
                 Mostrar_Ventana_Explicacion()
             }
@@ -1093,10 +1276,12 @@
                 Mostrar_Boton_Paso_1()
                 Mostrar_Boton_Paso_2()
                 Mostrar_Boton_Paso_3()
+                Mostrar_Boton_Paso_4()
 
                 Ocultar_Ventana_Paso_1()
                 Ocultar_Ventana_Paso_2()
                 Ocultar_Ventana_Paso_3()
+                Ocultar_Ventana_Paso_4()
 
                 Titulo_Inicial_Explicacion_Configuracion()
             }
@@ -1105,6 +1290,7 @@
                 BtnExplicacionPaso1.onclick = function(){
                     Ocultar_Boton_Paso_2()
                     Ocultar_Boton_Paso_3()
+                    Ocultar_Boton_Paso_4()
 
                     Mostrar_Ventana_Paso_1()
 
@@ -1113,6 +1299,7 @@
                 BtnCloseVentanaPaso1.onclick = function(){
                     Mostrar_Boton_Paso_2()
                     Mostrar_Boton_Paso_3()
+                    Mostrar_Boton_Paso_4()
 
                     Ocultar_Ventana_Paso_1()
 
@@ -1125,6 +1312,7 @@
                 BtnExplicacionPaso2.onclick = function(){
                     Ocultar_Boton_Paso_1()
                     Ocultar_Boton_Paso_3()
+                    Ocultar_Boton_Paso_4()
 
                     Mostrar_Ventana_Paso_2()
 
@@ -1133,6 +1321,7 @@
                 BtnCloseVentanaPaso2.onclick = function(){
                     Mostrar_Boton_Paso_1()
                     Mostrar_Boton_Paso_3()
+                    Mostrar_Boton_Paso_4()
 
                     Ocultar_Ventana_Paso_2()
 
@@ -1145,6 +1334,7 @@
                 BtnExplicacionPaso3.onclick = function(){
                     Ocultar_Boton_Paso_1()
                     Ocultar_Boton_Paso_2()
+                    Ocultar_Boton_Paso_4()
 
                     Mostrar_Ventana_Paso_3()
 
@@ -1153,11 +1343,32 @@
                 BtnCloseVentanaPaso3.onclick = function(){
                     Mostrar_Boton_Paso_1()
                     Mostrar_Boton_Paso_2()
+                    Mostrar_Boton_Paso_4()
 
                     Ocultar_Ventana_Paso_3()
                     Titulo_Inicial_Explicacion_Configuracion()
                 }
                 //Fin Ventana Paso3
+
+
+                //Ventana Paso4
+                BtnExplicacionPaso4.onclick = function(){
+                    Ocultar_Boton_Paso_1()
+                    Ocultar_Boton_Paso_2()
+                    Ocultar_Boton_Paso_3()
+
+                    Mostrar_Ventana_Paso_4()
+                    Titulo_Pasos()
+                }
+                BtnCloseVentanaPaso4.onclick = function(){
+                    Mostrar_Boton_Paso_1()
+                    Mostrar_Boton_Paso_2()
+                    Mostrar_Boton_Paso_3()
+
+                    Ocultar_Ventana_Paso_4()
+                    Titulo_Inicial_Explicacion_Configuracion()
+                }
+                //Fin Ventana Paso4
             // FIN ventana explicacion configuraciones
         </script>
     </body>

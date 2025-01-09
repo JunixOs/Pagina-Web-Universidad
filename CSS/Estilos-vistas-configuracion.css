@@ -67,6 +67,7 @@ padding: 2px 1px 0;
     display: flex;
     justify-content: center;
     align-items: center;
+    column-gap: 15px;
 }
 .principal{
     padding-top: 8px;
@@ -351,12 +352,120 @@ padding: 2px 1px 0;
     background-color: blanchedalmond;
     margin: 0 auto;
     border-radius: 15px;
-    border-color: black;
-    border-width: 1pt;
-    border-style: hidden;
     overflow: hidden;
+    padding-right: 5px;
 }
+.VECR-contenedor-texto::-webkit-scrollbar{
+    width: 5px;
+    height: 98%;
+    text-wrap: wrap;
+    transition-duration: 400ms;
+}
+.VECR-contenedor-texto::-webkit-scrollbar-thumb{
+    background-color: darkolivegreen;
+    border-radius: 4px;
+    transition-duration: 400ms;
+}
+.VECR-contenedor-texto::-webkit-scrollbar-thumb:hover{
+    background-color: yellowgreen;
+    transform: scale(1.1,1.1);
+}
+.VECR-contenedor-texto::-webkit-scrollbar-thumb:active{
+    background-color: yellow;
+}
+.VECR-contenedor-texto::-webkit-scrollbar-track{
+    background-color: steelblue;
+    border-radius: 4px;
+}
+.VECR-contenedor-texto::-webkit-scrollbar-track:active,
+.VECR-contenedor-texto::-webkit-scrollbar-track:hover{
+    background-color: turquoise;
+}
+.contenedor-carrusel{
+    width: 74vh;
+    height: 40vh;
+    background-color: #C5EAFA;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+}
+.carrusel-explicacion{
+    display: flex;
+    width: 100%;
+    height: 85%;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: thin;
+}
+.carrusel-explicacion::-webkit-scrollbar{
+    width: 5px;
+    height: 98%;
+    text-wrap: wrap;
+    transition-duration: 400ms;
+}
+.carrusel-explicacion::-webkit-scrollbar-thumb{
+    background-color: darkolivegreen;
+    border-radius: 4px;
+    transition-duration: 400ms;
+}
+.carrusel-explicacion::-webkit-scrollbar-thumb:hover{
+    background-color: yellowgreen;
+    transform: scale(1.1,1.1);
+}
+.carrusel-explicacion::-webkit-scrollbar-thumb:active{
+    background-color: yellow;
+}
+.carrusel-explicacion::-webkit-scrollbar-track{
+    background-color: steelblue;
+    border-radius: 4px;
+}
+.carrusel-explicacion::-webkit-scrollbar-track:active,
+.carrusel-explicacion::-webkit-scrollbar-track:hover{
+    background-color: turquoise;
+}
+.imagenes-carrusel-explicacion{
+    flex: 0 0 100%;
+    width: 30%;
+    object-fit: contain;
+    scroll-snap-align: center;
+}
+.contenedor-botones-carrusel{
+    width: 100%;
+    height: 15%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    column-gap: 20px;
+    border-top: #000 solid 2pt;
+}
+.estilo-boton-carrusel-anterior, .estilo-boton-carrusel-siguiente{
+    cursor: pointer;
+    background-color:cadetblue;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 14px;
+    text-align: center;
+    width: 10vh;
+    height: 4vh;
+    border-style: hidden;
+    transition: all 800ms ease;
+}
+.estilo-boton-carrusel-anterior{
+    clip-path: polygon(0% 50%, 40% 100%, 40% 70%, 100% 100%, 100% 0%, 40% 25%, 40% 0%);
+}
+.estilo-boton-carrusel-anterior:hover{
 
+    transform: scale(1.2,1.2);
+    background-color: yellow;
+}
+.estilo-boton-carrusel-siguiente{
+    clip-path: polygon(0% 100%, 60% 70%, 60% 100%, 100% 50%, 60% 0%, 60% 25%, 0% 0%);
+}
+.estilo-boton-carrusel-siguiente:hover{
+
+    transform: scale(1.2,1.2);
+    background-color: yellow;
+}
 /*Fin Vista Explicacion de la configuracion Right*/
 .botones-navegacion{
     font-family: 'Times New Roman', Times, serif;
