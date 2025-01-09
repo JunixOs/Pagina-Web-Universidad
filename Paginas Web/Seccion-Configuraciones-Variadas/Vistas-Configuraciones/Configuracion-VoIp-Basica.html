@@ -16,7 +16,7 @@
                     <Header><h2 style="text-align: center;font-size: 15px;font-family: 'Times New Roman', Times, serif;">Topologia</h2></Header>
                 </div>
                 <div class="contenedor-imagen-modal">
-                    <img src="/Images/Configuraciones Variadas/Topologia-VoIP-1.png" alt="" class="imagen-modal-style">
+                    <img src="/Images/Configuraciones Variadas/Topologia-VoIP-1.png" alt="Topologia" class="imagen-modal-style">
                 </div>
                 <div class="contenedor-boton-cerrar-modal">
                     <button class="botones-navegacion" id="CloseModal">Cerrar</button>
@@ -73,12 +73,9 @@
                     </div>
                 </div>
                 <div class="VCLeft-contenedor-botones">
-                    <div class="VCLeft-contenedor-boton-volver-seccion">
-                        <a href="/Paginas Web/Seccion-Configuraciones-Variadas/Configuraciones-variadas.html"><button class="botones-navegacion">Volver</button></a>
-                    </div>
-                    <div class="VCLeft-contenedor-boton-volver-inicio">
-                        <a href="/Paginas Web/index.html"><button class="botones-navegacion">Volver a pagina principal</button></a>
-                    </div>
+                    <a href="/Paginas Web/Seccion-Configuraciones-Variadas/Configuraciones-variadas.html"><button class="botones-navegacion">Volver</button></a>
+                    <a href="/Paginas Web/index.html"><button class="botones-navegacion">Volver a pagina principal</button></a>
+                    <button class="botones-navegacion" id="BtnOpenVentanaExplicacion">Mostrar explicacion paso a paso</button>
                 </div>
             </div>
             <div class="vista-configuracion-right" id="Ventana-configuracion">
@@ -151,14 +148,70 @@
                         </div>
                     </div>
                     <!--Fin Ventana configuraciones switch-->
-                    <div>
-
-                    </div>
                     <div style="display: flex;flex-direction: row;grid-column: 2px;justify-content: center; align-items: center;">
                         <input type="checkbox" id="MostrarSoloComandosOption" name="Mostrar solo comandos" class="estilo-checkbox"><label for="MostrarSoloComandos" style="font-family: 'Courier New', Courier, monospace;font-size: 14px;">Mostrar solo comandos</label>
                     </div>
                 </div>
             </div>
+            <!--Ventana Explicacion Configuracion-->
+            <div class="vista-explicacion-configuracion-por-orden-right" id="VentanaExplicacion">
+                <div class="VECRight-titulo-explicacion-configuracion">
+                    <header><h1 style="text-align: center;font-family: 'Times New Roman', Times, serif;font-size: 16px;" id="titulo-ventana-explicacion"></h1></header>
+                </div>
+                <div class="VECR-contenido-explicacion-configuracion">
+                    <div class="seccion" id="ContenedorBtnExplicacion-paso1">
+                        <button class="boton-seccion-dispositivo-red" id="BtnExplicacion-paso1">Paso 1</button>
+                    </div>
+                    <!--Ventana Explicacion-->
+                    <div class="ventana-comandos" id="VentanaExplicacionPaso1">
+                        <div class="VECR-contenedor-texto">
+                            <p class="estilo-texto-configuracion">
+                                HELLO WORLD
+                            </p>
+                        </div>
+                        <div class="subseccion-boton-cerrar">
+                            <button class="botones-cerrar-ventanas" id="BtnCloseVentanaPaso1">Cerrar</button>
+                        </div>
+                    </div>
+                    <!--FIN Ventana Explicacion-->
+
+                    <div class="seccion" id="ContenedorBtnExplicacion-paso2">
+                        <button class="boton-seccion-dispositivo-red" id="BtnExplicacion-paso2">Paso 2</button>
+                    </div>
+                    <!--Ventana Explicacion-->
+                    <div class="ventana-comandos" id="VentanaExplicacionPaso2">
+                        <div class="VECR-contenedor-texto">
+                            <p class="estilo-texto-configuracion">
+                                HELLO WORLD
+                            </p>
+                        </div>
+                        <div class="subseccion-boton-cerrar">
+                            <button class="botones-cerrar-ventanas" id="BtnCloseVentanaPaso2">Cerrar</button>
+                        </div>
+                    </div>
+                    <!--FIN Ventana Explicacion-->
+
+                    <div class="seccion" id="ContenedorBtnExplicacion-paso3">
+                        <button class="boton-seccion-dispositivo-red" id="BtnExplicacion-paso3">Paso 3</button>
+                    </div>
+                    <!--Ventana Explicacion-->
+                    <div class="ventana-comandos" id="VentanaExplicacionPaso3">
+                        <div class="VECR-contenedor-texto">
+                            <p class="estilo-texto-configuracion">
+                                HELLO WORLD
+                            </p>
+                        </div>
+                        <div class="subseccion-boton-cerrar">
+                            <button class="botones-cerrar-ventanas" id="BtnCloseVentanaPaso3">Cerrar</button>
+                        </div>
+                    </div>
+                    <!--FIN Ventana Explicacion-->
+                    <div class="subseccion-boton-cerrar">
+                        <button class="botones-cerrar-ventanas" id="BtnCloseExplicacion">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+            <!--FIN Ventana Explicacion Configuracion-->
         </div>
         <div class="foot">
             <div class="foot-text">
@@ -232,7 +285,27 @@
                 var ContenedorComandosR1 = document.getElementById("ContenedorComandosR1");
                 var ContenedorSoloComandosR1 = document.getElementById("ContenedorSoloComandosR1");
             
+
+            var BtnOpenVentanaExplicacion = document.getElementById("BtnOpenVentanaExplicacion");
+            var VentanaExplicacion = document.getElementById("VentanaExplicacion");
+            var TituloVentanaExplicacion = document.getElementById("titulo-ventana-explicacion");
+            var BtnCloseExplicacion = document.getElementById("BtnCloseExplicacion");
+                var BtnExplicacionPaso1 = document.getElementById("BtnExplicacion-paso1");
+                var ContenedorBtnExplicacionPaso1 = document.getElementById("ContenedorBtnExplicacion-paso1");
+                var BtnCloseVentanaPaso1 = document.getElementById("BtnCloseVentanaPaso1");
+                var VentanaExplicacionPaso1 = document.getElementById("VentanaExplicacionPaso1");
+
+                var BtnCloseVentanaPaso2 = document.getElementById("BtnCloseVentanaPaso2");
+                var ContenedorBtnExplicacionPaso2 = document.getElementById("ContenedorBtnExplicacion-paso2");
+                var BtnExplicacionPaso2 = document.getElementById("BtnExplicacion-paso2");
+                var VentanaExplicacionPaso2 = document.getElementById("VentanaExplicacionPaso2");
+
+                var BtnCloseVentanaPaso3 = document.getElementById("BtnCloseVentanaPaso3");
+                var ContenedorBtnExplicacionPaso3 = document.getElementById("ContenedorBtnExplicacion-paso3");
+                var BtnExplicacionPaso3 = document.getElementById("BtnExplicacion-paso3");
+                var VentanaExplicacionPaso3 = document.getElementById("VentanaExplicacionPaso3");
             //Funciones Cambio de titulos
+            //Cambio tirulo configuracion
             function Titulo_Inicial(){
                 TituloVentanaConfiguracion.textContent = "Elige el dispositivo de red";
             }
@@ -249,7 +322,20 @@
                 TituloVentanaConfiguracion.textContent = "Comandos";
             }
             Titulo_Inicial()
+            //Fin Cambio tirulo configuracion
+
+
+            //Cambio titulos explicacion configuracion
+            function Titulo_Inicial_Explicacion_Configuracion(){
+                TituloVentanaExplicacion.textContent = "Elige un paso de configuracion";
+            }
+            function Titulo_Pasos(){
+                TituloVentanaExplicacion.textContent = "Explicacion";
+            }
+            Titulo_Inicial_Explicacion_Configuracion()
+            //FIN Cambio titulos explicacion configuracion
             //FIN Funciones cambio titulos
+
 
             // Funcion Ruleta
             TextoPrincipiante.style.transform = "scale(1.1,1.1)";
@@ -336,6 +422,7 @@
                 Dificultades()
             //Fin Funcion Ruleta
 
+
             // SECCION INDICACIONES PREVIAS
             var Verificar_Ventana_Lvl_Config_Abierto
             var Verificar_Ventana_Dispositivos_Usados_Aierto
@@ -413,6 +500,7 @@
                     VentanaDispUsados.style.transitionTimingFunction = "ease";
                     VentanaDispUsados.style.height = "0%";
                     VentanaDispUsados.style.borderStyle = "hidden";
+                    VentanaDispUsados.style.overflowY = "hidden";
 
                     BtnDispUsados.style.height = "60px";
                     BtnDispUsados.style.overflow = "hidden";
@@ -439,6 +527,29 @@
             // FIN SECCION INDICACIONES PREVIAS
 
 
+            // Funciones Expandir Imagen
+            function Expandir_Ventana_Imagen(){
+                Modal.style.transitionProperty = "width";
+                Modal.style.transitionTimingFunction = "ease";
+                Modal.style.transitionDuration = "0.8s";
+                Modal.style.width= "49.5%";
+
+                VentanaLeft.style.transitionProperty = "width";
+                VentanaLeft.style.transitionDuration = "0.6s";
+                VentanaLeft.style.transitionTimingFunction = "ease";
+                VentanaLeft.style.width = "0%";
+            }
+            function Ocultar_Ventana_Imagen(){
+                Modal.style.transitionProperty = "width";
+                Modal.style.transitionTimingFunction = "ease";
+                Modal.style.transitionDuration = "0.6s";
+                Modal.style.width= "0%";
+
+                VentanaLeft.style.transitionProperty = "width";
+                VentanaLeft.style.transitionDuration = "0.7s";
+                VentanaLeft.style.width = "29%";
+            }
+            // Fin Funciones Expandir Imagen
             // SECCION DE DISPOSITIVOS DE RED
             function Ocultar_Boton_Router(){
                 BtnOpenRouter.style.transitionProperty = "opacity";
@@ -640,23 +751,10 @@
 
                     Titulo_Cuando_Seleccion_Dispositivo()
                 }
-
-            
-            function Ocultar_Boton_Hosts(){
-
-            }
-            function Mostrar_Boton_Hosts(){
-
-            }
-            function Ocultar_Ventana_Hosts(){
-
-            }
-            function Mostrar_Ventana_Hosts(){
-
-            }
             //FIN SECCION DE DISPOSITIVOS DE RED
 
 
+            //Mostrar/Ocultar Comandos
             function Mostrar_Solo_Comandos(){
                 ContenedorComandosR1.style.transitionDuration = "0.3s";
                 ContenedorComandosR1.style.opacity = "0";
@@ -710,6 +808,139 @@
                 ContenedorSoloComandosS1.style.borderStyle = "hidden";
                 ContenedorSoloComandosS1.style.overflowY = "hidden";
             }
+            //FIN Mostrar/Ocultar Comandos
+
+            //Funciones ventana configuraciones
+            function Ocultar_Ventana_Comandos(){
+                VentanaConfig.style.transitionProperty = "width";
+                VentanaConfig.style.transitionDuration = "0.9s";
+                VentanaConfig.style.transitionTimingFunction = "ease";
+                VentanaConfig.style.width = "0%";
+            }
+            function Mostrar_Ventana_Comandos(){
+                VentanaConfig.style.transitionProperty = "width";
+                VentanaConfig.style.transitionDuration = "1s";
+                VentanaConfig.style.transitionTimingFunction = "ease";
+                VentanaConfig.style.width = "70%";
+            }
+            //Seccion Explicacion Configuracion
+            function Mostrar_Ventana_Explicacion(){
+                VentanaExplicacion.style.transitionDuration = "0.4s";
+                VentanaExplicacion.style.transitionTimingFunction = "ease";
+                VentanaExplicacion.style.width = "50%";
+
+                CloseModal.style.transitionDuration = "0.2s";
+                CloseModal.style.opacity = "0";
+                CloseModal.style.pointerEvents = "none";
+                Expandir_Ventana_Imagen()
+
+                Ocultar_Ventana_Comandos()
+            }
+            function Ocultar_Ventana_Explicacion(){
+                VentanaExplicacion.style.transitionDuration = "0.4s";
+                VentanaExplicacion.style.width = "0%";
+
+                CloseModal.style.transitionDuration = "0.2s";
+                CloseModal.style.opacity = "1";
+                CloseModal.style.pointerEvents = "all";
+                Ocultar_Ventana_Imagen()
+
+                Mostrar_Ventana_Comandos()
+            }
+                function Ocultar_Boton_Paso_1(){
+                    BtnExplicacionPaso1.style.transitionDuration = "0.4s";
+                    BtnExplicacionPaso1.style.opacity = "0";
+                    BtnExplicacionPaso1.style.pointerEvents = "none";
+
+                    ContenedorBtnExplicacionPaso1.style.transitionDuration = "0.4s";
+                    ContenedorBtnExplicacionPaso1.style.width = "0%";
+                    ContenedorBtnExplicacionPaso1.style.height = "0%";
+                }
+                function Mostrar_Boton_Paso_1(){
+                    BtnExplicacionPaso1.style.transitionDuration = "0.4s";
+                    BtnExplicacionPaso1.style.transitionTimingFunction = "ease";
+                    BtnExplicacionPaso1.style.opacity = "1";
+                    BtnExplicacionPaso1.style.pointerEvents = "all";
+
+                    ContenedorBtnExplicacionPaso1.style.transitionDuration = "0.4s";
+                    ContenedorBtnExplicacionPaso1.style.width = "90%";
+                    ContenedorBtnExplicacionPaso1.style.height = "50px";
+                }
+                function Ocultar_Boton_Paso_2(){
+                    BtnExplicacionPaso2.style.transitionDuration = "0.4s";
+                    BtnExplicacionPaso2.style.opacity = "0";
+                    BtnExplicacionPaso2.style.pointerEvents = "none";
+
+                    ContenedorBtnExplicacionPaso2.style.transitionDuration = "0.4s";
+                    ContenedorBtnExplicacionPaso2.style.width = "0%";
+                    ContenedorBtnExplicacionPaso2.style.height = "0%";
+                }
+                function Mostrar_Boton_Paso_2(){
+                    BtnExplicacionPaso2.style.transitionDuration = "0.4s";
+                    BtnExplicacionPaso2.style.transitionTimingFunction = "ease";
+                    BtnExplicacionPaso2.style.opacity = "1";
+                    BtnExplicacionPaso2.style.pointerEvents = "all";
+
+                    ContenedorBtnExplicacionPaso2.style.transitionDuration = "0.4s";
+                    ContenedorBtnExplicacionPaso2.style.width = "90%";
+                    ContenedorBtnExplicacionPaso2.style.height = "50px";
+                }
+                function Ocultar_Boton_Paso_3(){
+                    BtnExplicacionPaso3.style.transitionDuration = "0.4s";
+                    BtnExplicacionPaso3.style.opacity = "0";
+                    BtnExplicacionPaso3.style.pointerEvents = "none";
+
+                    ContenedorBtnExplicacionPaso3.style.transitionDuration = "0.4s";
+                    ContenedorBtnExplicacionPaso3.style.width = "0%";
+                    ContenedorBtnExplicacionPaso3.style.height = "0%";
+                }
+                function Mostrar_Boton_Paso_3(){
+                    BtnExplicacionPaso3.style.transitionDuration = "0.4s";
+                    BtnExplicacionPaso3.style.transitionTimingFunction = "ease";
+                    BtnExplicacionPaso3.style.opacity = "1";
+                    BtnExplicacionPaso3.style.pointerEvents = "all";
+
+                    ContenedorBtnExplicacionPaso3.style.transitionDuration = "0.4s";
+                    ContenedorBtnExplicacionPaso3.style.width = "90%";
+                    ContenedorBtnExplicacionPaso3.style.height = "50px";
+                }
+                function Ocultar_Ventana_Paso_1(){
+                    VentanaExplicacionPaso1.style.transitionDuration = "1s";
+                    VentanaExplicacionPaso1.style.transitionTimingFunction = "ease";
+                    VentanaExplicacionPaso1.style.height = "0%";
+                    VentanaExplicacionPaso1.style.borderStyle = "hidden";
+                }
+                function Mostrar_Ventana_Paso_1(){
+                    VentanaExplicacionPaso1.style.transitionDuration = "1s";
+                    VentanaExplicacionPaso1.style.transitionTimingFunction = "ease";
+                    VentanaExplicacionPaso1.style.height = "540px";
+                    VentanaExplicacionPaso1.style.borderStyle = "solid";
+                }
+                function Ocultar_Ventana_Paso_2(){
+                    VentanaExplicacionPaso2.style.transitionDuration = "1s";
+                    VentanaExplicacionPaso2.style.transitionTimingFunction = "ease";
+                    VentanaExplicacionPaso2.style.height = "0%";
+                    VentanaExplicacionPaso2.style.borderStyle = "hidden";
+                }
+                function Mostrar_Ventana_Paso_2(){
+                    VentanaExplicacionPaso2.style.transitionDuration = "1s";
+                    VentanaExplicacionPaso2.style.transitionTimingFunction = "ease";
+                    VentanaExplicacionPaso2.style.height = "530px";
+                    VentanaExplicacionPaso2.style.borderStyle = "solid";
+                }
+                function Ocultar_Ventana_Paso_3(){
+                    VentanaExplicacionPaso3.style.transitionDuration = "1s";
+                    VentanaExplicacionPaso3.style.transitionTimingFunction = "ease";
+                    VentanaExplicacionPaso3.style.height = "0%";
+                    VentanaExplicacionPaso3.style.borderStyle = "hidden";
+                }
+                function Mostrar_Ventana_Paso_3(){
+                    VentanaExplicacionPaso3.style.transitionDuration = "1s";
+                    VentanaExplicacionPaso3.style.transitionTimingFunction = "ease";
+                    VentanaExplicacionPaso3.style.height = "530px";
+                    VentanaExplicacionPaso3.style.borderStyle = "solid";
+                }
+            //FIN Seccion Explicacion Configuracion
 
 
             //Expandir imagen
@@ -717,7 +948,7 @@
                 Modal.style.transitionProperty = "width";
                 Modal.style.transitionTimingFunction = "ease";
                 Modal.style.transitionDuration = "0.8s";
-                Modal.style.width= "49.5%";
+                Modal.style.width= "49%";
 
                 VentanaConfig.style.transitionProperty = "width";
                 VentanaConfig.style.transitionDuration = "0.9s";
@@ -839,11 +1070,6 @@
             //Fin Ventana configuraciones Switch
 
 
-            //Ventana configuraciones hosts
-
-            //Fin Ventana configuraciones hosts
-
-
             //Mostrar/ocultar Solo comandos
             CheckBox.addEventListener('change', function(){
                 if(CheckBox.checked){
@@ -854,6 +1080,85 @@
                 }
             })
             //Fin Mostrar/ocultar Solo comandos
+
+            //ventana explicacion configuraciones
+            //Modificar Titulo explicacion configuraciones
+            //FIN Modificar Titulo explicacion configuraciones
+            BtnOpenVentanaExplicacion.onclick = function(){
+                Mostrar_Ventana_Explicacion()
+            }
+            BtnCloseExplicacion.onclick = function(){
+                Ocultar_Ventana_Explicacion()
+
+                Mostrar_Boton_Paso_1()
+                Mostrar_Boton_Paso_2()
+                Mostrar_Boton_Paso_3()
+
+                Ocultar_Ventana_Paso_1()
+                Ocultar_Ventana_Paso_2()
+                Ocultar_Ventana_Paso_3()
+
+                Titulo_Inicial_Explicacion_Configuracion()
+            }
+
+                //Ventana Paso1
+                BtnExplicacionPaso1.onclick = function(){
+                    Ocultar_Boton_Paso_2()
+                    Ocultar_Boton_Paso_3()
+
+                    Mostrar_Ventana_Paso_1()
+
+                    Titulo_Pasos()
+                }
+                BtnCloseVentanaPaso1.onclick = function(){
+                    Mostrar_Boton_Paso_2()
+                    Mostrar_Boton_Paso_3()
+
+                    Ocultar_Ventana_Paso_1()
+
+                    Titulo_Inicial_Explicacion_Configuracion()
+                }
+                //Fin Ventana Paso1
+
+
+                //Ventana Paso2
+                BtnExplicacionPaso2.onclick = function(){
+                    Ocultar_Boton_Paso_1()
+                    Ocultar_Boton_Paso_3()
+
+                    Mostrar_Ventana_Paso_2()
+
+                    Titulo_Pasos()
+                }
+                BtnCloseVentanaPaso2.onclick = function(){
+                    Mostrar_Boton_Paso_1()
+                    Mostrar_Boton_Paso_3()
+
+                    Ocultar_Ventana_Paso_2()
+
+                    Titulo_Inicial_Explicacion_Configuracion()
+                }
+                //Fin Ventana Paso2
+
+
+                //Ventana Paso3
+                BtnExplicacionPaso3.onclick = function(){
+                    Ocultar_Boton_Paso_1()
+                    Ocultar_Boton_Paso_2()
+
+                    Mostrar_Ventana_Paso_3()
+
+                    Titulo_Pasos()
+                }
+                BtnCloseVentanaPaso3.onclick = function(){
+                    Mostrar_Boton_Paso_1()
+                    Mostrar_Boton_Paso_2()
+
+                    Ocultar_Ventana_Paso_3()
+                    Titulo_Inicial_Explicacion_Configuracion()
+                }
+                //Fin Ventana Paso3
+            // FIN ventana explicacion configuraciones
         </script>
     </body>
 </html>

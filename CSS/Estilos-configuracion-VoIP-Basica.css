@@ -5,6 +5,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
 }
 .boton-seccion-dispositivo-red{
     font-family: 'Times New Roman', Times, serif;
