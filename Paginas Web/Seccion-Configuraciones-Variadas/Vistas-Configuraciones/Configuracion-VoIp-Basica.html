@@ -171,20 +171,19 @@
                     <!--Ventana Explicacion-->
                     <div class="ventana-comandos" id="VentanaExplicacionPaso1">
                         <div class="VECR-contenedor-texto" id="ContenedorTextoExplicacionConfiguracionPaso1">
-                            <p class="estilo-texto-descripcion-configuracion">
-                                Insertamos los dispositivos que usaremos dentro del espacio en blanco
-                            </p>
+                            <p class="estilo-texto-descripcion-configuracion" id="colocacion-dispositivos-paso-1"></p>
                             <div class="contenedor-carrusel">
                                 <div class="carrusel-explicacion" id="Carrusel">
-                                    <img src="/Images/ENSP.jpg" alt="" class="imagenes-carrusel-explicacion">
-                                    <img src="/Images/Configuracion-firewall.jpg" alt="" class="imagenes-carrusel-explicacion">
-                                    <img src="/Images/Configuracion-capa-2.webp" alt="" class="imagenes-carrusel-explicacion">
+                                    <img src="/Images/Configuraciones Variadas/Configuracion-Basica-VoIP/img-1.png" alt="Imagen 1" class="imagenes-carrusel-explicacion">
+                                    <img src="/Images/Configuraciones Variadas/Configuracion-Basica-VoIP/img-2.png" alt="Imagen 2" class="imagenes-carrusel-explicacion">
+                                    <img src="/Images/Configuraciones Variadas/Configuracion-Basica-VoIP/img-3.png" alt="Imagen 3" class="imagenes-carrusel-explicacion">
                                 </div>
                                 <div class="contenedor-botones-carrusel">
                                     <button class="estilo-boton-carrusel-anterior" id="BtnCarruselImagenAnterior">Anterior</BUtton>
                                     <button class="estilo-boton-carrusel-siguiente" id="BtnCarruselImagenSiguiente">Siguiente</button>
                                 </div>
                             </div>
+                            <p class="estilo-texto-descripcion-configuracion">Listo, ya tenemos la topologia armada.</p>
                         </div>
                         <div class="subseccion-boton-cerrar">
                             <button class="botones-cerrar-ventanas" id="BtnCloseVentanaPaso1">Cerrar</button>
@@ -279,6 +278,22 @@
                     <div class="ventana-comandos" id="VentanaExplicacionPaso4">
                         <div class="VECR-contenedor-texto" id="ContenedorTextoExplicacionConfiguracionPaso4">
                             <p class="estilo-texto-descripcion-configuracion">
+
+                            </p>
+                        </div>
+                        <div class="subseccion-boton-cerrar">
+                            <button class="botones-cerrar-ventanas" id="BtnCloseVentanaPaso4">Cerrar</button>
+                        </div>
+                    </div>
+                    <!--FIN Ventana Explicacion-->
+
+                    <div class="seccion" id="ContenedorBtnExplicacion-paso5">
+                        <button class="boton-seccion-dispositivo-red" id="BtnExplicacion-paso5">Paso 5</button>
+                    </div>
+                    <!--Ventana Explicacion-->
+                    <div class="ventana-comandos" id="VentanaExplicacionPaso5">
+                        <div class="VECR-contenedor-texto" id="ContenedorTextoExplicacionConfiguracionPaso5">
+                            <p class="estilo-texto-descripcion-configuracion">
                                 Una vez terminada la configuracion de los dispositivos de red, encendemos los telefonos VoIP 1 y VoIP 2, 
                                 y configuramos la PC 1.
                             </p>
@@ -290,7 +305,7 @@
                             </p>
                         </div>
                         <div class="subseccion-boton-cerrar">
-                            <button class="botones-cerrar-ventanas" id="BtnCloseVentanaPaso4">Cerrar</button>
+                            <button class="botones-cerrar-ventanas" id="BtnCloseVentanaPaso5">Cerrar</button>
                         </div>
                     </div>
                     <!--FIN Ventana Explicacion-->
@@ -403,6 +418,8 @@
                 var BtnExplicacionPaso4 = document.getElementById("BtnExplicacion-paso4");
                 var VentanaExplicacionPaso4 = document.getElementById("VentanaExplicacionPaso4");
 
+                var TextoColocacionDispositivosPaso1 = document.getElementById("colocacion-dispositivos-paso-1");
+
             //Descargar Imagen Topologia
             BtnDescargarImagenTopologia.onclick = function(){
                 window.alert("Su descarga comenzara en breve");
@@ -438,7 +455,6 @@
             }
             Titulo_Inicial_Explicacion_Configuracion()
             //FIN Cambio titulos explicacion configuracion
-            //FIN Funciones cambio titulos
 
 
             // Funcion Ruleta
@@ -1100,16 +1116,127 @@
                     ContenedorTextoExplicacionConfiguracionPaso4.style.overflowY = "auto";
                 }
             
+            class Carrusel_Class{
+                constructor (ID,IDBtnSiguiente, IDBtnAnterior,IDTituloImagenes,N_Imagenes_Carrusel, Titulos_Imagenes_Carrusel){
+                    this.Carrusel = document.getElementById(ID);
+                    this.BtnSiguiente = document.getElementById(IDBtnSiguiente);
+                    this.BtnAnterior = document.getElementById(IDBtnAnterior);
+                    this.TituloImagenes = document.getElementById(IDTituloImagenes);
+                    this.N_Imagenes_Carrusel = N_Imagenes_Carrusel;
+                    this.Titulos_Imagenes_Carrusel = Titulos_Imagenes_Carrusel;
+                }
+                //GETTERS
+                get get_BtnSiguiente(){
+                    return this.BtnSiguiente;
+                }
+                get get_N_Imagenes_Carrusel(){
+                    return this.N_Imagenes_Carrusel;
+                }
+                //FIN GETTERS
+
+
+                Mostrar_Imagen_Anterior(){
+                    const ImagenAnterior = this.Carrusel.scrollLeft - this.Carrusel.clientWidth;
+
+                    this.Carrusel.scrollTo({
+                        left: ImagenAnterior,
+                        behavior: 'smooth'
+                    })
+                }
+                Mostrar_Imagen_Siguiente(){
+                    const ImagenSiguiente = this.Carrusel.scrollLeft + this.Carrusel.clientWidth;
+
+                    this.Carrusel.scrollTo({
+                        left: ImagenSiguiente,
+                        behavior: 'smooth'
+                    })
+                }
+
+                Mostrar_Titulos_Carrusel(Numero_Titulo_A_Mostrar) //Se pasa la posicion del carrusel
+                {
+                    Numero_Titulo_A_Mostrar--;
+                    this.TituloImagenes.textContent = this.Titulos_Imagenes_Carrusel[Numero_Titulo_A_Mostrar];
+                }
+                Funcion_Inicial(){
+                    this.Carrusel.style.cursor = "pointer";
+                    setTimeout(() => {
+                        this.Mostrar_Titulos_Carrusel(1);
+                    }, 50);
+                }
+            }
+            var Titulos_Imagenes_Carrusel_1 = [
+                "Insertamos los dispositivos que usaremos dentro del espacio en blanco",
+                "Conectamos los dispositivos, al conectar los telefonos VoIP con el switch usamos el puerto especial del telefono llamado \"Switch\".",
+                "Finalmente conectamos el telefono VoIP a la PC 1, para ello, usamos el puerto especial del telefono llamado \"PC\"."
+            ];
+            const Carrusel_1 = new Carrusel_Class('Carrusel','BtnCarruselImagenSiguiente','BtnCarruselImagenAnterior',Titulos_Imagenes_Carrusel_1.length,Titulos_Imagenes_Carrusel_1);
+            /*
+                Crear una instancia de la clase pasando los IDs de los elementos
+                let miCarrusel = new Carrusel('miCarruselID', 'btnSiguiente', 'btnAnterior', 'tituloImagenes');
+
+                No te olvides de usar "this" para referirte a las variables que pertenecen a la clase
+            */
             var Carrusel = document.getElementById("Carrusel");
             var BtnCarruselImagenAnterior = document.getElementById("BtnCarruselImagenAnterior");
             var BtnCarruselImagenSiguiente = document.getElementById("BtnCarruselImagenSiguiente");
-            function Moverse_Imagen_Siguiente_Carrusel(){
-                const ImagenSiguiente = Carrusel.scrollLeft + Carrusel.clientWidth;
 
+            //Cambio titulos carrusel pasos configuracion
+            function Titulo_Colocacion_Dispositivos_1(){
+                TextoColocacionDispositivosPaso1.textContent = "Insertamos los dispositivos que usaremos dentro del espacio en blanco";
+            }
+            function Titulo_Colocacion_Dispositivos_2(){
+                TextoColocacionDispositivosPaso1.textContent = "Conectamos los dispositivos, al conectar los telefonos VoIP con el switch usamos el puerto especial del telefono llamado \"Switch\"."
+            }
+            function Titulo_Colocacion_Dispositivos_3(){
+                TextoColocacionDispositivosPaso1.textContent = "Finalmente conectamos el telefono VoIP a la PC 1, para ello, usamos el puerto especial del telefono llamado \"PC\"."             
+            }
+
+            /*  Botones Anterior y Siguiente Carrusel 1*/
+            function Mostrar_Titulos_Carrusel(Position){
+                switch(Position){
+                    case 1: Titulo_Colocacion_Dispositivos_1();
+                        break;
+                    case 2: Titulo_Colocacion_Dispositivos_2();
+                        break;
+                    case 3: Titulo_Colocacion_Dispositivos_3();
+                        break;
+                }
+            }
+            setTimeout(Mostrar_Titulos_Carrusel(1),50);
+            var Position = 1;
+                BtnCarruselImagenAnterior.onclick = function(){
+                    Position--;
+                    if (Position<1){
+                        Position = 1;
+                    }
+                    Moverse_Imagen_Anterior_Carrusel();
+                    Mostrar_Titulos_Carrusel(Position);
+                }
+                BtnCarruselImagenSiguiente.onclick = function(){
+                    Position++;
+                    if (Position>3){
+                        Position = 3
+                    }
+                    Moverse_Imagen_Siguiente_Carrusel();
+                    Mostrar_Titulos_Carrusel(Position);
+                }
+            //FIN titulos carrusel pasos configuracion
+            //Mover imagen carrusel
+            function Moverse_Imagen_Siguiente_Carrusel(){
+                const ImagenSiguiente = Carrusel.scrollLeft + Carrusel.clientWidth; // valor en px.
+                /*
+                    scrollLeft -> cantidad de desplazamiento en x (en px) que ha ocurrio en el carrusel.
+
+                    clientWidht -> Ancho de banda visible de un elemento, es decir, el ancho que muestra el elemento sin contar bordes ni barras de desplazamiento.
+                */
                 Carrusel.scrollTo({
-                    left: ImagenSiguiente,
-                    behavior: 'smooth'
+                    left: ImagenSiguiente, // Posicion a la que se debe dezplazar el elemento carrusel.
+                    behavior: 'smooth' // Indica que el desplazamiento debe ser suave.
                 })
+                /*
+                    scrollTo -> desplaza el contenido de un elemento de manera suave
+                */
+                Mostrar_Titulos_Carrusel()
             }
             function Moverse_Imagen_Anterior_Carrusel(){
                 const ImagenAnterior = Carrusel.scrollLeft - Carrusel.clientWidth;
@@ -1118,12 +1245,12 @@
                     left: ImagenAnterior,
                     behavior: 'smooth'
                 })
+                Mostrar_Titulos_Carrusel()
             }
+            //FIN Mover imagen carrusel
             /*  Moverse a la imagen siguiente cuando hacemos clic en las imagenes del carrusel*/
+            Carrusel.style.cursor = "pointer";
             Carrusel.addEventListener('click',Moverse_Imagen_Siguiente_Carrusel);
-            /*  Botones Anterior y Siguiente*/
-            BtnCarruselImagenAnterior.addEventListener('click',Moverse_Imagen_Anterior_Carrusel);
-            BtnCarruselImagenSiguiente.addEventListener('click',Moverse_Imagen_Siguiente_Carrusel);
 
             //FIN Seccion Explicacion Configuracion
 
@@ -1369,6 +1496,10 @@
                     Titulo_Inicial_Explicacion_Configuracion()
                 }
                 //Fin Ventana Paso4
+
+                //Botones ir paso siguiente
+                
+                //Fin Botones ir paso siguiente
             // FIN ventana explicacion configuraciones
         </script>
     </body>
