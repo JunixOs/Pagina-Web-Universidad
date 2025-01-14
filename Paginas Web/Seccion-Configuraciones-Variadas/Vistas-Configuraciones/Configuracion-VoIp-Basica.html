@@ -82,7 +82,7 @@
             </div>
             <div class="vista-configuracion-right" id="Ventana-configuracion">
                 <div class="VCRight-Titulo">
-                    <header><h1 style="text-align: center;font-family: 'Times New Roman', Times, serif;font-size: 16px;" id="titulo-ventana-configuracion"></h1></header>
+                    <header><h1 style="text-align: center;font-family: 'Times New Roman', Times, serif;font-size: 16px;" id="titulo-ventana-configuracion">Seccion ver comandos de configuracion</h1></header>
                 </div>
                 <div class="VCRight-contenido">
                     <div class="seccion" id="ContenedorBtnRouter">
@@ -92,31 +92,57 @@
                     <div class="ventana-comandos" id="ventana-router">
                         <div class="subseccion-principal" id="ContenedorBtnOpenRn">
                             <button class="boton-seccion-dispositivo-red" id="BtnOpenR1">R1</button>
+                            <button class="boton-seccion-dispositivo-red" id="BtnOpenR2">R2</button>
                         </div>
-                        <!--Ventana R1-->
-                        <div class="subventana-configuracion-dispositivos" id="Ventana-R1">
-                            <div class="contenedor-comandos-configuracion" id="ContenedorComandosR1">
-                                <p class="estilo-texto-configuracion">
-                                    R1>enable <br>
-                                    R2#configure terminal <br>
-                                    <br>
+                        <div style="height: 481px;display: flex;flex-direction: column;justify-content: start;overflow: hidden;">
+                            <!--Ventana R1-->
+                            <div class="subventana-configuracion-dispositivos" id="Ventana-R1">
+                                <div class="contenedor-comandos-configuracion" id="ContenedorComandosR1">
+                                    <p class="estilo-texto-configuracion">
+                                        R1>enable <br>
+                                        R1#configure terminal <br>
+                                        <br>
 
-                                </p>
+                                    </p>
+                                </div>
+                                <div class="contenedor-solo-comandos-configuracion" id="ContenedorSoloComandosR1">
+                                    <p class="estilo-texto-configuracion">
+                                        enable <br>
+                                        configure terminal <br>
+                                    </p>
+                                </div>
+                                <div class="subseccion-boton-cerrar">
+                                    <button class="botones-cerrar-ventanas" id="BtnCloseR1">Cerrar</button>
+                                </div>
                             </div>
-                            <div class="contenedor-solo-comandos-configuracion" id="ContenedorSoloComandosR1">
-                                <p class="estilo-texto-configuracion">
-                                    enable <br>
-                                    configure terminal <br>
-                                </p>
+                            <!--Fin Ventana R1-->
+                            <!-- Ventana R2 -->
+                            <div class="subventana-configuracion-dispositivos" id="Ventana-R2">
+                                <div class="contenedor-comandos-configuracion" id="ContenedorComandosR2">
+                                    <p class="estilo-texto-configuracion">
+                                        R2>enable <br>
+                                        R2#configure terminal <br>
+                                        <br>
+
+                                    </p>
+                                </div>
+                                <div class="contenedor-solo-comandos-configuracion" id="ContenedorSoloComandosR2">
+                                    <p class="estilo-texto-configuracion">
+                                        enable <br>
+                                        configure terminal <br>
+                                    </p>
+                                </div>
+                                <div class="subseccion-boton-cerrar">
+                                    <button class="botones-cerrar-ventanas" id="BtnCloseR2">Cerrar</button>
+                                </div>
                             </div>
-                            <div class="subseccion-boton-cerrar">
-                                <button class="botones-cerrar-ventanas" id="BtnCloseR1">Cerrar</button>
-                            </div>
+                            <!-- Fin Ventana R2 -->
                         </div>
-                        <!--Fin Ventana R1-->
-                        <div class="subseccion-boton-cerrar">
+                        <!-- Boton Cerrar Ventana Routers -->
+                        <div class="subseccion-boton-cerrar"> 
                             <button class="botones-cerrar-ventanas" id="BtnCloseVRouter">Cerrar</button>
                         </div>
+                        <!-- Fin Boton Cerrar Ventana Routers -->
                     </div>
                     <!--Fin Ventana configuraciones router-->
 
@@ -168,7 +194,19 @@
                     <div class="seccion" id="ContenedorBtnExplicacion-paso1">
                         <button class="boton-seccion-dispositivo-red" id="BtnExplicacion-paso1">Paso 1</button>
                     </div>
-                    <!--Ventana Explicacion-->
+                    <div class="seccion" id="ContenedorBtnExplicacion-paso2">
+                        <button class="boton-seccion-dispositivo-red" id="BtnExplicacion-paso2">Paso 2</button>
+                    </div>
+                    <div class="seccion" id="ContenedorBtnExplicacion-paso3">
+                        <button class="boton-seccion-dispositivo-red" id="BtnExplicacion-paso3">Paso 3</button>
+                    </div>
+                    <div class="seccion" id="ContenedorBtnExplicacion-paso4">
+                        <button class="boton-seccion-dispositivo-red" id="BtnExplicacion-paso4">Paso 4</button>
+                    </div>
+                    <div class="seccion" id="ContenedorBtnExplicacion-paso5">
+                        <button class="boton-seccion-dispositivo-red" id="BtnExplicacion-paso5">Paso 5</button>
+                    </div>
+                    <!--Ventana Explicacion Paso 1-->
                     <div class="ventana-comandos" id="VentanaExplicacionPaso1">
                         <div class="VECR-contenedor-texto" id="ContenedorTextoExplicacionConfiguracionPaso1">
                             <p class="estilo-texto-descripcion-configuracion" id="colocacion-dispositivos-paso-1"></p>
@@ -189,12 +227,10 @@
                             <button class="botones-cerrar-ventanas" id="BtnCloseVentanaPaso1">Cerrar</button>
                         </div>
                     </div>
-                    <!--FIN Ventana Explicacion-->
+                    <!--FIN Ventana Explicacion Paso 1-->
 
-                    <div class="seccion" id="ContenedorBtnExplicacion-paso2">
-                        <button class="boton-seccion-dispositivo-red" id="BtnExplicacion-paso2">Paso 2</button>
-                    </div>
-                    <!--Ventana Explicacion-->
+
+                    <!--Ventana Explicacion Paso 2-->
                     <div class="ventana-comandos" id="VentanaExplicacionPaso2">
                         <div class="VECR-contenedor-texto" id="ContenedorTextoExplicacionConfiguracionPaso2">
                             <p class="estilo-texto-descripcion-configuracion">
@@ -232,12 +268,10 @@
                             <button class="botones-cerrar-ventanas" id="BtnCloseVentanaPaso2">Cerrar</button>
                         </div>
                     </div>
-                    <!--FIN Ventana Explicacion-->
+                    <!--FIN Ventana Explicacion Paso 2-->
 
-                    <div class="seccion" id="ContenedorBtnExplicacion-paso3">
-                        <button class="boton-seccion-dispositivo-red" id="BtnExplicacion-paso3">Paso 3</button>
-                    </div>
-                    <!--Ventana Explicacion-->
+
+                    <!--Ventana Explicacion Paso 3-->
                     <div class="ventana-comandos" id="VentanaExplicacionPaso3">
                         <div class="VECR-contenedor-texto" id="ContenedorTextoExplicacionConfiguracionPaso3">
                             <p class="estilo-texto-descripcion-configuracion">
@@ -269,12 +303,10 @@
                             <button class="botones-cerrar-ventanas" id="BtnCloseVentanaPaso3">Cerrar</button>
                         </div>
                     </div>
-                    <!--FIN Ventana Explicacion-->
+                    <!--FIN Ventana Explicacion Paso 3-->
 
-                    <div class="seccion" id="ContenedorBtnExplicacion-paso4">
-                        <button class="boton-seccion-dispositivo-red" id="BtnExplicacion-paso4">Paso 4</button>
-                    </div>
-                    <!--Ventana Explicacion-->
+
+                    <!--Ventana Explicacion Paso 4-->
                     <div class="ventana-comandos" id="VentanaExplicacionPaso4">
                         <div class="VECR-contenedor-texto" id="ContenedorTextoExplicacionConfiguracionPaso4">
                             <p class="estilo-texto-descripcion-configuracion">
@@ -285,12 +317,10 @@
                             <button class="botones-cerrar-ventanas" id="BtnCloseVentanaPaso4">Cerrar</button>
                         </div>
                     </div>
-                    <!--FIN Ventana Explicacion-->
+                    <!--FIN Ventana Explicacion Paso 4-->
 
-                    <div class="seccion" id="ContenedorBtnExplicacion-paso5">
-                        <button class="boton-seccion-dispositivo-red" id="BtnExplicacion-paso5">Paso 5</button>
-                    </div>
-                    <!--Ventana Explicacion-->
+
+                    <!--Ventana Explicacion Paso 5-->
                     <div class="ventana-comandos" id="VentanaExplicacionPaso5">
                         <div class="VECR-contenedor-texto" id="ContenedorTextoExplicacionConfiguracionPaso5">
                             <p class="estilo-texto-descripcion-configuracion">
@@ -308,9 +338,15 @@
                             <button class="botones-cerrar-ventanas" id="BtnCloseVentanaPaso5">Cerrar</button>
                         </div>
                     </div>
-                    <!--FIN Ventana Explicacion-->
-                    <div class="subseccion-boton-cerrar">
-                        <button class="botones-cerrar-ventanas" id="BtnCloseExplicacion">Cerrar</button>
+                    <!--FIN Ventana Explicacion Paso 5-->
+                    <div style="padding-top: 8px; width: 300px;">
+                        <div class="seccion" style="gap: 20px" id="Contenedor-Btn-Paso-Siguiente-Anterior">
+                            <button class="botones-navegacion" style="width: 100px; height: 35px;" id="BtnPasoAnterior">Paso Anterior</button>
+                            <button class="botones-navegacion" style="width: 100px; height: 35px;" id="BtnPasoSiguiente">Paso Siguiente</button>
+                        </div>
+                        <div class="subseccion-boton-cerrar">
+                            <button class="botones-cerrar-ventanas" style="width: 10vw;" id="BtnCloseExplicacion">Salir de la explicacion</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -354,71 +390,20 @@
                     var DispositivosUsados = document.getElementById("dispositivos-usados");
                     var VentanaDispUsados = document.getElementById("ventana-dispositivos-usados");
 
-
-            var BtnOpenRouter = document.getElementById("BtnRouter");
-            var ConenedorBtnOpenRouter = document.getElementById("ContenedorBtnRouter");
-            var VentanaComandosRouter = document.getElementById("ventana-router");
-            var BtnCloseVentanaRouter = document.getElementById("BtnCloseVRouter");
-
-                var ContenedorBtnOpenR1 = document.getElementById("ContenedorBtnOpenRn");
-                var BtnOpenR1 = document.getElementById("BtnOpenR1");
-                var VentanaRouter1 = document.getElementById("Ventana-R1");
-                var BtnCloseR1 = document.getElementById("BtnCloseR1");
-
-
-            var BtnOpenSwitch = document.getElementById("BtnSwitch");
-            var ContenedorBtnOpenSwitch = document.getElementById("ContenedorBtnSwitch");
-            var VentanaComandosSwitch = document.getElementById("ventana-switch");
-            var BtnCloseSwitch = document.getElementById("BtnCloseVSwitch");
-
-                var ContenedorBtnOpenSn = document.getElementById("ContenedorBtnOpenSn");
-                var BtnOpenS1 = document.getElementById("BtnOpenS1");
-                var VentanaSwitch1 = document.getElementById("Ventana-S1");
-                var BtnCloseS1 = document.getElementById("BtnCloseS1");
-
-
             var TituloVentanaConfiguracion = document.getElementById("titulo-ventana-configuracion");
             var TextoPrincipiante = document.getElementById("texto-principiante");
             var TextoMedio = document.getElementById("texto-medio");
             var TextoAvanzado = document.getElementById("texto-avanzado");
 
-            const CheckBox = document.getElementById("MostrarSoloComandosOption");
-                var ContenedorComandosS1 = document.getElementById("ContenedorComandosS1");
-                var ContenedorSoloComandosS1 = document.getElementById("ContenedorSoloComandosS1");
-
-                var ContenedorComandosR1 = document.getElementById("ContenedorComandosR1");
-                var ContenedorSoloComandosR1 = document.getElementById("ContenedorSoloComandosR1");
-            
+            const CheckBox = document.getElementById("MostrarSoloComandosOption");         
 
             var BtnOpenVentanaExplicacion = document.getElementById("BtnOpenVentanaExplicacion");
             var VentanaExplicacion = document.getElementById("VentanaExplicacion");
-            var ContenedorTextoExplicacionConfiguracionPaso1 = document.getElementById("ContenedorTextoExplicacionConfiguracionPaso1");
-            var ContenedorTextoExplicacionConfiguracionPaso2 = document.getElementById("ContenedorTextoExplicacionConfiguracionPaso2");
-            var ContenedorTextoExplicacionConfiguracionPaso3 = document.getElementById("ContenedorTextoExplicacionConfiguracionPaso3");
-            var ContenedorTextoExplicacionConfiguracionPaso4 = document.getElementById("ContenedorTextoExplicacionConfiguracionPaso4");
             var TituloVentanaExplicacion = document.getElementById("titulo-ventana-explicacion");
             var BtnCloseExplicacion = document.getElementById("BtnCloseExplicacion");
-                var BtnExplicacionPaso1 = document.getElementById("BtnExplicacion-paso1");
-                var ContenedorBtnExplicacionPaso1 = document.getElementById("ContenedorBtnExplicacion-paso1");
-                var BtnCloseVentanaPaso1 = document.getElementById("BtnCloseVentanaPaso1");
-                var VentanaExplicacionPaso1 = document.getElementById("VentanaExplicacionPaso1");
-
-                var BtnCloseVentanaPaso2 = document.getElementById("BtnCloseVentanaPaso2");
-                var ContenedorBtnExplicacionPaso2 = document.getElementById("ContenedorBtnExplicacion-paso2");
-                var BtnExplicacionPaso2 = document.getElementById("BtnExplicacion-paso2");
-                var VentanaExplicacionPaso2 = document.getElementById("VentanaExplicacionPaso2");
-
-                var BtnCloseVentanaPaso3 = document.getElementById("BtnCloseVentanaPaso3");
-                var ContenedorBtnExplicacionPaso3 = document.getElementById("ContenedorBtnExplicacion-paso3");
-                var BtnExplicacionPaso3 = document.getElementById("BtnExplicacion-paso3");
-                var VentanaExplicacionPaso3 = document.getElementById("VentanaExplicacionPaso3");
-
-                var BtnCloseVentanaPaso4 = document.getElementById("BtnCloseVentanaPaso4");
-                var ContenedorBtnExplicacionPaso4 = document.getElementById("ContenedorBtnExplicacion-paso4");
-                var BtnExplicacionPaso4 = document.getElementById("BtnExplicacion-paso4");
-                var VentanaExplicacionPaso4 = document.getElementById("VentanaExplicacionPaso4");
-
-                var TextoColocacionDispositivosPaso1 = document.getElementById("colocacion-dispositivos-paso-1");
+                var ContenedorBtnMovePasos = document.getElementById("Contenedor-Btn-Paso-Siguiente-Anterior");
+                var BtnIrPasoAnterior = document.getElementById("BtnPasoAnterior");
+                var BtnIrPasoSiguiente = document.getElementById("BtnPasoSiguiente");
 
             //Descargar Imagen Topologia
             BtnDescargarImagenTopologia.onclick = function(){
@@ -442,7 +427,12 @@
             function Titulo_Cuando_Seleccion_Dispositivo(){
                 TituloVentanaConfiguracion.textContent = "Comandos";
             }
-            Titulo_Inicial()
+            VentanaConfig.addEventListener('mouseenter',function(){
+                Titulo_Inicial()
+            })
+            /* VentanaConfig.addEventListener('mouseleave',function(){
+                TituloVentanaConfiguracion.textContent = "Seccion ver comandos de configuracion";
+            }) */
             //Fin Cambio tirulo configuracion
 
 
@@ -671,262 +661,188 @@
             }
             // Fin Funciones Expandir Imagen
             // SECCION DE DISPOSITIVOS DE RED
-            function Ocultar_Boton_Router(){
-                BtnOpenRouter.style.transitionProperty = "opacity";
-                BtnOpenRouter.style.transitionDuration = "0.5s";
-                BtnOpenRouter.style.pointerEvents = "none";
-                BtnOpenRouter.style.opacity= "0";
-
-                ConenedorBtnOpenRouter.style.transitionProperty = "width height";
-                ConenedorBtnOpenRouter.style.transitionDuration = "0.5s";
-                ConenedorBtnOpenRouter.style.height = "0%";
-                ConenedorBtnOpenRouter.style.width = "0%";
-            }
-            function Mostrar_Boton_Router(){
-                BtnOpenRouter.style.transitionProperty = "opacity";
-                BtnOpenRouter.style.transitionDuration = "0.5s";
-                BtnOpenRouter.style.opacity= "1";
-                BtnOpenRouter.style.pointerEvents = "all";
-                BtnOpenRouter.style.transitionProperty = "all"; //Esto para que despues se puedan aplicar otras transiciones, de lo contrario
-                                                                    //se aplicaran solo transiciones a la opacidad
-
-                ConenedorBtnOpenRouter.style.transitionProperty = "width height";
-                ConenedorBtnOpenRouter.style.transitionDuration = "0.5s";
-                ConenedorBtnOpenRouter.style.height = "40px";
-                ConenedorBtnOpenRouter.style.width = "90%";
-            }
-            function Ocultar_Ventana_Router(){
-                VentanaComandosRouter.style.transitionProperty = "height";
-                VentanaComandosRouter.style.transitionDuration = "1s";
-                VentanaComandosRouter.style.transitionTimingFunction = "ease";
-                VentanaComandosRouter.style.height = "0%";
-                VentanaComandosRouter.style.overflowY = "hidden";
-                VentanaComandosRouter.style.borderStyle = "none";
-                
-                Mostrar_Boton_Router()
-                Mostrar_Boton_Switch()
-
-                Ocultar_Boton_Router_R1()
-
-                Titulo_Inicial()
-            }
-            function Mostrar_Ventana_Router(){
-                VentanaComandosRouter.style.transitionProperty = "height";
-                VentanaComandosRouter.style.transitionDuration = "1s";
-                VentanaComandosRouter.style.transitionTimingFunction = "ease";
-                VentanaComandosRouter.style.height = "530px";
-                VentanaComandosRouter.style.overflowY = "hidden";
-                VentanaComandosRouter.style.borderColor = "black";
-                VentanaComandosRouter.style.borderWidth = "1pt";
-                VentanaComandosRouter.style.borderStyle = "solid";
-
-                Ocultar_Boton_Router()
-                Ocultar_Boton_Switch()
-
-                Titulo_Eleccion_Router()
-            }
-
-                function Ocultar_Boton_Router_R1(){
-                    BtnOpenR1.style.transitionProperty = "opacity";
-                    BtnOpenR1.style.transitionDuration = "0.8s";
-                    BtnOpenR1.style.transitionTimingFunction = "ease";
-                    BtnOpenR1.style.opacity = "0";
-
-                    ContenedorBtnOpenRn.style.transitionProperty = "height width";
-                    ContenedorBtnOpenRn.style.transitionDuration = "0.8s";
-                    ContenedorBtnOpenRn.style.transitionTimingFunction = "ease";
-                    ContenedorBtnOpenRn.style.width = "0%";
-                    ContenedorBtnOpenRn.style.height = "0%";
+            class Tipo_Dispositivo_Red{
+                constructor (IDBtnOpenVentana,IDBtnCloseVentana,IDContenedorBtn,IDVentana, EstadoBtn, TipoDispositivo){
+                    this.BtnOpenVentana = document.getElementById(IDBtnOpenVentana);
+                    this.BtnCloseVentana = document.getElementById(IDBtnCloseVentana);
+                    this.ContenedorBtn = document.getElementById(IDContenedorBtn);
+                    this.Ventana = document.getElementById(IDVentana);
+                    this.EstadoBtn = EstadoBtn;
+                    this.TipoDispositivo = TipoDispositivo;
                 }
-                function Mostrar_Boton_Router_R1(){
-                    BtnOpenR1.style.transitionProperty = "opacity";
-                    BtnOpenR1.style.transitionDuration = "0.8s";
-                    BtnOpenR1.style.transitionTimingFunction = "ease";
-                    BtnOpenR1.style.opacity = "1";
-                    BtnOpenR1.style.transitionProperty = "all";
+                Mostrar_Boton(){
+                    this.BtnOpenVentana.style.transitionProperty = "opacity";
+                    this.BtnOpenVentana.style.transitionDuration = "0.5s";
+                    this.BtnOpenVentana.style.opacity= "1";
+                    this.BtnOpenVentana.style.pointerEvents = "all";
+                    this.BtnOpenVentana.style.transitionProperty = "all"; /*Esto para que despues se puedan aplicar otras transiciones, de lo contrario
+                                                                            se aplicaran solo transiciones a la opacidad*/
 
-                    ContenedorBtnOpenRn.style.transitionProperty = "width";
-                    ContenedorBtnOpenRn.style.transitionDuration = "0.8s";
-                    ContenedorBtnOpenRn.style.transitionTimingFunction = "ease";
-                    ContenedorBtnOpenRn.style.width = "100%";
-                    ContenedorBtnOpenRn.style.height = "max-content";
+                    this.ContenedorBtn.style.transitionProperty = "width height";
+                    this.ContenedorBtn.style.transitionDuration = "0.5s";
+                    this.ContenedorBtn.style.height = "40px";
+                    this.ContenedorBtn.style.width = "90%";
+                    this.ContenedorBtn.style.transitionProperty = "all";
                 }
-                function Ocultar_Ventana_Router_R1(){
-                    VentanaRouter1.style.transitionProperty = "height";
-                    VentanaRouter1.style.transitionDuration = "0.8s";
-                    VentanaRouter1.style.transitionTimingFunction = "ease";
-                    VentanaRouter1.style.height = "0%";
-                    VentanaRouter1.style.overflowY = "hidden";
+                Ocultar_Boton(){
+                    this.BtnOpenVentana.style.transitionProperty = "opacity";
+                    this.BtnOpenVentana.style.transitionDuration = "0.5s";
+                    this.BtnOpenVentana.style.pointerEvents = "none";
+                    this.BtnOpenVentana.style.opacity= "0";
 
-                    Mostrar_Boton_Router_R1()
+                    this.ContenedorBtn.style.transitionProperty = "width height";
+                    this.ContenedorBtn.style.transitionDuration = "0.5s";
+                    this.ContenedorBtn.style.height = "0%";
+                    this.ContenedorBtn.style.width = "0%";
                 }
-                function Mostrar_Ventana_Router_R1(){
-                    VentanaRouter1.style.transitionProperty = "height";
-                    VentanaRouter1.style.transitionDuration = "0.8s";
-                    VentanaRouter1.style.transitionTimingFunction = "ease";
-                    VentanaRouter1.style.height = "480px";
-                    VentanaRouter1.style.overflowY = "hidden";
+                Mostrar_Ventana(){
+                    this.Ventana.style.transitionProperty = "all";
+                    this.Ventana.style.transitionDuration = "1s";
+                    this.Ventana.style.transitionTimingFunction = "ease";
+                    this.Ventana.style.height = "530px";
+                    this.Ventana.style.overflowY = "hidden";
+                    this.Ventana.style.borderColor = "black";
+                    this.Ventana.style.borderWidth = "1pt";
+                    this.Ventana.style.borderStyle = "solid";
 
-                    Mostrar_Boton_Router_R1()
+                    this.EstadoBtn = true;
 
-                    Titulo_Cuando_Seleccion_Dispositivo()
+                    if(this.TipoDispositivo == "Switch"){
+                        Titulo_Eleccion_Switch();
+                    }
+                    else if (this.TipoDispositivo == "Router"){
+                        Titulo_Eleccion_Router();
+                    }
                 }
-            
-            
-            function Ocultar_Boton_Switch(){
-                BtnOpenSwitch.style.transitionProperty = "opacity";
-                BtnOpenSwitch.style.transitionDuration = "0.5s";
-                BtnOpenSwitch.style.opacity = "0";
-                BtnOpenSwitch.style.pointerEvents = "none";
+                Ocultar_Ventana(){
+                    this.Ventana.style.transitionProperty = "all";
+                    this.Ventana.style.transitionDuration = "1s";
+                    this.Ventana.style.transitionTimingFunction = "ease";
+                    this.Ventana.style.height = "0%";
+                    this.Ventana.style.overflowY = "hidden";
+                    this.Ventana.style.borderStyle = "none";
 
-                ContenedorBtnOpenSwitch.style.transitionProperty = "widht height";
-                ContenedorBtnOpenSwitch.style.transitionDuration = "0.5s";
-                ContenedorBtnOpenSwitch.style.width = "0%";
-                ContenedorBtnOpenSwitch.style.height = "0%";
+                    this.EstadoBtn = false;
+
+                    Titulo_Inicial();
+                }
+
             }
-            function Mostrar_Boton_Switch(){
-                BtnOpenSwitch.style.transitionProperty = "opacity";
-                BtnOpenSwitch.style.transitionDuration = "0.5s";
-                BtnOpenSwitch.style.borderWidth = "1pt";
-                BtnOpenSwitch.style.opacity = "1";
-                BtnOpenSwitch.style.pointerEvents = "all";
-                BtnOpenSwitch.style.transitionProperty = "all";
+            class Numero_Dispositivo_Red{
+                constructor (IDBtnOpenVentana,IDBtnCloseVentana,IDVentana, EstadoBtn,IDContenedorComandos,IDContenedorSoloComandos, IDContenedorBtnOpen){
+                    this.BtnOpenVentana = document.getElementById(IDBtnOpenVentana);
+                    this.BtnCloseVentana = document.getElementById(IDBtnCloseVentana);
+                    this.Ventana = document.getElementById(IDVentana);
+                    this.EstadoBtn = EstadoBtn;
+                    this.ContenedorComandos = document.getElementById(IDContenedorComandos);
+                    this.ContenedorSoloComandos = document.getElementById(IDContenedorSoloComandos);
+                    this.ContenedorBtnOpen = document.getElementById(IDContenedorBtnOpen);
+                }
+                Mostrar_Boton(){
+                    this.BtnOpenVentana.style.transitionProperty = "all";
+                    this.BtnOpenVentana.style.transitionDuration = "0.8s";
+                    this.BtnOpenVentana.style.transitionTimingFunction = "ease";
+                    this.BtnOpenVentana.style.opacity = "1";
+                    this.BtnOpenVentana.style.width = "12%";
+                    this.BtnOpenVentana.style.height = "30px";
+                    this.BtnOpenVentana.style.overflow = "hidden";
+                    this.BtnOpenVentana.style.pointerEvents = "all";
 
-                ContenedorBtnOpenSwitch.style.transitionProperty = "widht height";
-                ContenedorBtnOpenSwitch.style.transitionDuration = "0.5s";
-                ContenedorBtnOpenSwitch.style.width = "90%";
-                ContenedorBtnOpenSwitch.style.height = "40px";
+                    this.ContenedorBtnOpen.style.transitionDuration = "0.8s";
+                    this.ContenedorBtnOpen.style.gap = "10px";
+                }
+                Ocultar_Boton(){
+                    this.BtnOpenVentana.style.transitionProperty = "all";
+                    this.BtnOpenVentana.style.transitionDuration = "0.8s";
+                    this.BtnOpenVentana.style.transitionTimingFunction = "ease";
+                    this.BtnOpenVentana.style.opacity = "0";
+                    this.BtnOpenVentana.style.width = "0%";
+                    this.BtnOpenVentana.style.height = "0%";
+                    this.BtnOpenVentana.style.overflow = "hidden";
+                    this.BtnOpenVentana.style.pointerEvents = "none";
+
+                    this.ContenedorBtnOpen.style.transitionDuration = "0.8s";
+                    this.ContenedorBtnOpen.style.gap = "0px";
+                }
+                Mostrar_Ventana(){
+                    this.Ventana.style.transitionProperty = "height";
+                    this.Ventana.style.transitionDuration = "0.8s";
+                    this.Ventana.style.transitionTimingFunction = "ease";
+                    this.Ventana.style.height = "480px";
+                    this.Ventana.style.overflowY = "auto";
+                    this.Ventana.style.paddingTop = "4px";
+
+                    this.EstadoBtn = true;
+
+                    Titulo_Cuando_Seleccion_Dispositivo();
+                }
+                Ocultar_Ventana(){
+                    this.Ventana.style.transitionProperty = "height";
+                    this.Ventana.style.transitionDuration = "0.8s";
+                    this.Ventana.style.transitionTimingFunction = "ease";
+                    this.Ventana.style.height = "0%";
+                    this.Ventana.style.overflowY = "hidden";
+                    this.Ventana.style.paddingTop = "0px";
+
+                    this.EstadoBtn = false;
+                }
+                Mostrar_Ventana_Comandos(){
+                    this.ContenedorComandos.style.transitionDuration = "0.6s";
+                    this.ContenedorComandos.style.opacity = "1";
+                    this.ContenedorComandos.style.height = "82%";
+                    this.ContenedorComandos.style.borderStyle = "solid";
+                    this.ContenedorComandos.style.overflowY = "auto";
+                }
+                Ocultar_Ventana_Comandos(){
+                    this.ContenedorComandos.style.transitionDuration = "0.3s";
+                    this.ContenedorComandos.style.opacity = "0";
+                    this.ContenedorComandos.style.height = "0%";
+                    this.ContenedorComandos.style.borderStyle = "hidden";
+                    this.ContenedorComandos.style.overflowY = "hidden";
+                }
+                Mostrar_Ventana_Solo_Comandos(){
+                    this.ContenedorSoloComandos.style.transitionDuration = "0.6s";
+                    this.ContenedorSoloComandos.style.opacity = "1";
+                    this.ContenedorSoloComandos.style.height = "82%";
+                    this.ContenedorSoloComandos.style.borderStyle = "solid";
+                    this.ContenedorSoloComandos.style.overflowY = "auto";
+                }
+                Ocultar_Ventana_Solo_Comandos(){
+                    this.ContenedorSoloComandos.style.transitionDuration = "0.3s";
+                    this.ContenedorSoloComandos.style.opacity = "0";
+                    this.ContenedorSoloComandos.style.height = "0%";
+                    this.ContenedorSoloComandos.style.borderStyle = "hidden";
+                    this.ContenedorSoloComandos.style.overflowY = "hidden";
+                }
             }
-            function Ocultar_Ventana_Switch(){
-                VentanaComandosSwitch.style.transitionProperty = "height";
-                VentanaComandosSwitch.style.transitionDuration = "1s";
-                VentanaComandosSwitch.style.height = "0%";
-                VentanaComandosSwitch.style.overflowY = "hidden";
-                VentanaComandosSwitch.style.borderStyle = "none";
+            var Router = new Tipo_Dispositivo_Red('BtnRouter','BtnCloseVRouter','ContenedorBtnRouter','ventana-router',false, "Router");
+            var Switch = new Tipo_Dispositivo_Red('BtnSwitch','BtnCloseVSwitch','ContenedorBtnSwitch','ventana-switch',false, "Switch");
 
-                Mostrar_Boton_Switch()
-                Mostrar_Boton_Router()
+                var R1 = new Numero_Dispositivo_Red('BtnOpenR1','BtnCloseR1','Ventana-R1',false,'ContenedorComandosR1','ContenedorSoloComandosR1','ContenedorBtnOpenRn');
+                var R2 = new Numero_Dispositivo_Red('BtnOpenR2','BtnCloseR2','Ventana-R2',false,'ContenedorComandosR2','ContenedorSoloComandosR2','ContenedorBtnOpenRn');
 
-                Ocultar_Ventana_Switch_S1()
+                var S1 = new Numero_Dispositivo_Red('BtnOpenS1','BtnCloseS1','Ventana-S1',false,'ContenedorComandosS1','ContenedorSoloComandosS1');
 
-                Titulo_Inicial()
-            }
-            function Mostrar_Ventana_Switch(){
-                VentanaComandosSwitch.style.transitionProperty = "height";
-                VentanaComandosSwitch.style.transitionDuration = "1s";
-                VentanaComandosSwitch.style.height= "530px";
-                VentanaComandosSwitch.style.overflowY = "hidden";
-                VentanaComandosSwitch.style.borderColor = "black";
-                VentanaComandosSwitch.style.borderWidth = "1pt";
-                VentanaComandosSwitch.style.borderStyle = "solid";
-
-                Ocultar_Boton_Router()
-                Ocultar_Boton_Switch()
-                
-                Titulo_Eleccion_Switch()
-            }
-            
-                function Ocultar_Boton_Switch_S1(){
-                    BtnOpenS1.style.transitionProperty = "opacity";
-                    BtnOpenS1.style.transitionDuration = "0.8s";
-                    BtnOpenS1.style.transitionTimingFunction = "ease";
-                    BtnOpenS1.style.opacity = "0";
-
-                    ContenedorBtnOpenSn.style.transitionProperty = "height width";
-                    ContenedorBtnOpenSn.style.transitionDuration = "0.8s";
-                    ContenedorBtnOpenSn.style.transitionTimingFunction = "ease";
-                    ContenedorBtnOpenSn.style.width = "0%";
-                    ContenedorBtnOpenSn.style.height = "0%";
-
-
-                }
-                function Mostrar_Boton_Switch_S1(){
-                    BtnOpenS1.style.transitionProperty = "opacity";
-                    BtnOpenS1.style.transitionDuration = "0.8s";
-                    BtnOpenS1.style.transitionTimingFunction = "ease";
-                    BtnOpenS1.style.opacity = "1";
-                    BtnOpenS1.style.transitionProperty = "all";
-
-                    ContenedorBtnOpenSn.style.transitionProperty = "width";
-                    ContenedorBtnOpenSn.style.transitionDuration = "0.8s";
-                    ContenedorBtnOpenSn.style.transitionTimingFunction = "ease";
-                    ContenedorBtnOpenSn.style.width = "100%";
-                    ContenedorBtnOpenSn.style.height = "max-content";
-                }
-                function Ocultar_Ventana_Switch_S1(){
-                    VentanaSwitch1.style.transitionProperty = "height";
-                    VentanaSwitch1.style.transitionDuration = "0.8s";
-                    VentanaSwitch1.style.transitionTimingFunction = "ease";
-                    VentanaSwitch1.style.height = "0%";
-                    VentanaSwitch1.style.overflowY = "hidden";
-
-                    Mostrar_Boton_Switch_S1()
-                }
-                function Mostrar_Ventana_Switch_S1(){
-                    VentanaSwitch1.style.transitionProperty = "height";
-                    VentanaSwitch1.style.transitionDuration = "0.8s";
-                    VentanaSwitch1.style.transitionTimingFunction = "ease";
-                    VentanaSwitch1.style.height = "480px";
-                    VentanaSwitch1.style.overflowY = "hidden";
-
-                    Titulo_Cuando_Seleccion_Dispositivo()
-                }
+                var ArrayRn = [R1,R2];
             //FIN SECCION DE DISPOSITIVOS DE RED
 
 
             //Mostrar/Ocultar Comandos
-            function Mostrar_Solo_Comandos(){
-                ContenedorComandosR1.style.transitionDuration = "0.3s";
-                ContenedorComandosR1.style.opacity = "0";
-                ContenedorComandosR1.style.height = "0%";
-                ContenedorComandosR1.style.borderStyle = "hidden";
-                ContenedorComandosR1.style.overflowY = "hidden";
-
-                ContenedorComandosS1.style.transitionDuration = "0.3s";
-                ContenedorComandosS1.style.opacity = "0";
-                ContenedorComandosS1.style.height = "0%";
-                ContenedorComandosS1.style.borderStyle = "hidden";
-                ContenedorComandosS1.style.overflowY = "hidden";
-
-
-                ContenedorSoloComandosR1.style.transitionDuration = "0,6s";
-                ContenedorSoloComandosR1.style.opacity = "1";
-                ContenedorSoloComandosR1.style.height = "82%";
-                ContenedorSoloComandosR1.style.borderStyle = "solid";
-                ContenedorSoloComandosR1.style.overflowY = "auto";
-
-                ContenedorSoloComandosS1.style.transitionDuration = "0.6s";
-                ContenedorSoloComandosS1.style.opacity = "1";
-                ContenedorSoloComandosS1.style.height = "82%";
-                ContenedorSoloComandosS1.style.borderStyle = "solid";
-                ContenedorSoloComandosS1.style.overflowY = "auto";
+            function Mostrar_Ventana_Solo_Comandos(){
+                for (let n=0;n<ArrayRn.length;n++){
+                    ArrayRn[n].Ocultar_Ventana_Comandos();
+                    ArrayRn[n].Mostrar_Ventana_Solo_Comandos();
+                }
+                S1.Ocultar_Ventana_Comandos();
+                S1.Mostrar_Ventana_Solo_Comandos();
             }
-            function No_Mostrar_Solo_Comandos(){
-                ContenedorComandosR1.style.transitionDuration = "0.6s";
-                ContenedorComandosR1.style.opacity = "1";
-                ContenedorComandosR1.style.height = "82%";
-                ContenedorComandosR1.style.borderStyle = "solid";
-                ContenedorComandosR1.style.overflowY = "auto";
-
-                ContenedorComandosS1.style.transitionDuration = "0.6s";
-                ContenedorComandosS1.style.opacity = "1";
-                ContenedorComandosS1.style.height = "82%";
-                ContenedorComandosS1.style.borderStyle = "solid";
-                ContenedorComandosS1.style.overflowY = "auto";
-
-
-                ContenedorSoloComandosR1.style.transitionDuration = "0,3s";
-                ContenedorSoloComandosR1.style.opacity = "0";
-                ContenedorSoloComandosR1.style.height = "0%";
-                ContenedorSoloComandosR1.style.borderStyle = "hidden";
-                ContenedorSoloComandosR1.style.overflowY = "hidden";
-
-
-                ContenedorSoloComandosS1.style.transitionDuration = "0.3s";
-                ContenedorSoloComandosS1.style.opacity = "0";
-                ContenedorSoloComandosS1.style.height = "0%";
-                ContenedorSoloComandosS1.style.borderStyle = "hidden";
-                ContenedorSoloComandosS1.style.overflowY = "hidden";
+            function No_Mostrar_Ventana_Solo_Comandos(){
+                for (let n=0;n<ArrayRn.length;n++){
+                    ArrayRn[n].Mostrar_Ventana_Comandos();
+                    ArrayRn[n].Ocultar_Ventana_Solo_Comandos();
+                }
+                S1.Mostrar_Ventana_Comandos();
+                S1.Ocultar_Ventana_Solo_Comandos();
             }
             //FIN Mostrar/Ocultar Comandos
 
@@ -946,9 +862,95 @@
             //FIN Funciones ventana configuraciones
 
 
+
             //Seccion Explicacion Configuracion
+
+            function Mostrar_Btn_Move_Pasos(){
+                ContenedorBtnMovePasos.style.transitionDuration = "0.4s";
+                ContenedorBtnMovePasos.style.width = "90%";
+                ContenedorBtnMovePasos.style.height = "50px";
+
+                BtnIrPasoAnterior.style.transitionDuration = "0.2s";
+                BtnIrPasoAnterior.style.opacity = "1";
+
+                BtnIrPasoSiguiente.style.transitionDuration = "0.2s";
+                BtnIrPasoSiguiente.style.opacity = "1";
+            }
+            function Ocultar_Btn_Move_Pasos(){
+                ContenedorBtnMovePasos.style.transitionDuration = "0.4s";
+                ContenedorBtnMovePasos.style.width = "0%";
+                ContenedorBtnMovePasos.style.height = "0%";
+
+                BtnIrPasoAnterior.style.transitionDuration = "0.2s";
+                BtnIrPasoAnterior.style.opacity = "0";
+
+                BtnIrPasoSiguiente.style.transitionDuration = "0.2s";
+                BtnIrPasoSiguiente.style.opacity = "0";
+            }
+
+            class Seccion_Paso_N{
+                constructor (IDBtnOpen, IDBtnCerrarVentana, IDContenedorBtnOpen, IDVentana, IDContenedorTextoExplicacion, EstadoBtn){
+                    this.BtnOpen = document.getElementById(IDBtnOpen);
+                    this.BtnCloseVentana = document.getElementById(IDBtnCerrarVentana);
+                    this.ContenedorBtnOpen = document.getElementById(IDContenedorBtnOpen);
+                    this.Ventana = document.getElementById(IDVentana);
+                    this.ContenedorTextoExplicacion = document.getElementById(IDContenedorTextoExplicacion);
+                    this.EstadoBtn = EstadoBtn;
+                }
+                Ocultar_Boton(){
+                    this.BtnOpen.style.transitionDuration = "0.4s";
+                    this.BtnOpen.style.transitionTimingFunction = "ease-in-out";
+                    this.BtnOpen.style.opacity = "0";
+                    this.BtnOpen.style.pointerEvents = "none";
+
+                    this.ContenedorBtnOpen.style.transitionDuration = "0.4s";
+                    this.ContenedorBtnOpen.style.transitionTimingFunction = "ease-in-out";
+                    this.ContenedorBtnOpen.style.width = "0%";
+                    this.ContenedorBtnOpen.style.height = "0%";
+                }
+                Mostrar_Boton(){
+                    this.BtnOpen.style.transitionDuration = "0.4s";
+                    this.BtnOpen.style.transitionTimingFunction = "ease-in-out";
+                    this.BtnOpen.style.opacity = "1";
+                    this.BtnOpen.style.pointerEvents = "all";
+
+                    this.ContenedorBtnOpen.style.transitionDuration = "0.4s";
+                    this.ContenedorBtnOpen.style.transitionTimingFunction = "ease-in-out";
+                    this.ContenedorBtnOpen.style.width = "90%";
+                    this.ContenedorBtnOpen.style.height = "50px";
+                }
+                Ocultar_Ventana(){
+                    this.Ventana.style.transitionDuration = "0.6s";
+                    this.Ventana.style.transitionTimingFunction = "ease-in-out";
+                    this.Ventana.style.height = "0%";
+                    this.Ventana.style.borderStyle = "hidden";
+
+                    this.ContenedorTextoExplicacion.style.overflowY = "hidden";
+
+                    this.BtnOpen.style.pointerEvents = "all";
+
+                    this.EstadoBtn = false;
+
+                    Ocultar_Btn_Move_Pasos();
+                }
+                Mostrar_Ventana(){
+                    this.Ventana.style.transitionDuration = "0.6s";
+                    this.Ventana.style.transitionTimingFunction = "ease-in-out";
+                    this.Ventana.style.height = "540px";
+                    this.Ventana.style.borderStyle = "solid";
+
+                    this.ContenedorTextoExplicacion.style.overflowY = "auto";
+
+                    this.BtnOpen.style.pointerEvents = "none";
+
+                    this.EstadoBtn = true;
+
+                    Mostrar_Btn_Move_Pasos();
+                }
+            }
+
             function Mostrar_Ventana_Explicacion(){
-                VentanaExplicacion.style.transitionDuration = "0.4s";
+                VentanaExplicacion.style.transitionDuration = "0.6s";
                 VentanaExplicacion.style.transitionTimingFunction = "ease";
                 VentanaExplicacion.style.width = "50%";
 
@@ -962,7 +964,7 @@
                 Ocultar_Ventana_Comandos()
             }
             function Ocultar_Ventana_Explicacion(){
-                VentanaExplicacion.style.transitionDuration = "0.4s";
+                VentanaExplicacion.style.transitionDuration = "0.6s";
                 VentanaExplicacion.style.width = "0%";
 
                 CloseModal.style.transitionDuration = "0.2s";
@@ -975,147 +977,42 @@
 
                 Mostrar_Ventana_Comandos()
             }
-                function Ocultar_Boton_Paso_1(){
-                    BtnExplicacionPaso1.style.transitionDuration = "0.4s";
-                    BtnExplicacionPaso1.style.opacity = "0";
-                    BtnExplicacionPaso1.style.pointerEvents = "none";
 
-                    ContenedorBtnExplicacionPaso1.style.transitionDuration = "0.4s";
-                    ContenedorBtnExplicacionPaso1.style.width = "0%";
-                    ContenedorBtnExplicacionPaso1.style.height = "0%";
+            var Paso_1 = new Seccion_Paso_N('BtnExplicacion-paso1','BtnCloseVentanaPaso1','ContenedorBtnExplicacion-paso1','VentanaExplicacionPaso1','ContenedorTextoExplicacionConfiguracionPaso1',false);
+            var Paso_2 = new Seccion_Paso_N('BtnExplicacion-paso2','BtnCloseVentanaPaso2','ContenedorBtnExplicacion-paso2','VentanaExplicacionPaso2','ContenedorTextoExplicacionConfiguracionPaso2',false);
+            var Paso_3 = new Seccion_Paso_N('BtnExplicacion-paso3','BtnCloseVentanaPaso3','ContenedorBtnExplicacion-paso3','VentanaExplicacionPaso3','ContenedorTextoExplicacionConfiguracionPaso3',false);
+            var Paso_4 = new Seccion_Paso_N('BtnExplicacion-paso4','BtnCloseVentanaPaso4','ContenedorBtnExplicacion-paso4','VentanaExplicacionPaso4','ContenedorTextoExplicacionConfiguracionPaso4',false);
+            var Paso_5 = new Seccion_Paso_N('BtnExplicacion-paso5','BtnCloseVentanaPaso5','ContenedorBtnExplicacion-paso5','VentanaExplicacionPaso5','ContenedorTextoExplicacionConfiguracionPaso5',false);
+            var ArrayBtnPasos = [Paso_1,Paso_2,Paso_3,Paso_4,Paso_5];
+            function Ocultar_Botones_Pasos(Btn_Paso_Establecer_Activo=0){
+                if (Btn_Paso_Establecer_Activo>0){
+                    Btn_Paso_Establecer_Activo--;
+                    ArrayBtnPasos[Btn_Paso_Establecer_Activo].EstadoBtn = true;
                 }
-                function Mostrar_Boton_Paso_1(){
-                    BtnExplicacionPaso1.style.transitionDuration = "0.4s";
-                    BtnExplicacionPaso1.style.transitionTimingFunction = "ease";
-                    BtnExplicacionPaso1.style.opacity = "1";
-                    BtnExplicacionPaso1.style.pointerEvents = "all";
-
-                    ContenedorBtnExplicacionPaso1.style.transitionDuration = "0.4s";
-                    ContenedorBtnExplicacionPaso1.style.width = "90%";
-                    ContenedorBtnExplicacionPaso1.style.height = "50px";
+                for (let n=0;n<ArrayBtnPasos.length;n++){
+                    if (!ArrayBtnPasos[n].EstadoBtn){
+                        ArrayBtnPasos[n].Ocultar_Boton();
+                    }
+                    else{
+                        ArrayBtnPasos[n].Mostrar_Boton();
+                    }
                 }
-                function Ocultar_Boton_Paso_2(){
-                    BtnExplicacionPaso2.style.transitionDuration = "0.4s";
-                    BtnExplicacionPaso2.style.opacity = "0";
-                    BtnExplicacionPaso2.style.pointerEvents = "none";
-
-                    ContenedorBtnExplicacionPaso2.style.transitionDuration = "0.4s";
-                    ContenedorBtnExplicacionPaso2.style.width = "0%";
-                    ContenedorBtnExplicacionPaso2.style.height = "0%";
+            }
+            function Mostrar_Botones_Pasos(Btn_Paso_Establecer_Inactivo=0){
+                if (Btn_Paso_Establecer_Inactivo>0){
+                    Btn_Paso_Establecer_Inactivo--;
+                    ArrayBtnPasos[Btn_Paso_Establecer_Inactivo].EstadoBtn = false;
                 }
-                function Mostrar_Boton_Paso_2(){
-                    BtnExplicacionPaso2.style.transitionDuration = "0.4s";
-                    BtnExplicacionPaso2.style.transitionTimingFunction = "ease";
-                    BtnExplicacionPaso2.style.opacity = "1";
-                    BtnExplicacionPaso2.style.pointerEvents = "all";
-
-                    ContenedorBtnExplicacionPaso2.style.transitionDuration = "0.4s";
-                    ContenedorBtnExplicacionPaso2.style.width = "90%";
-                    ContenedorBtnExplicacionPaso2.style.height = "50px";
+                for (let n=0;n<ArrayBtnPasos.length;n++){
+                    if(!ArrayBtnPasos[n].EstadoBtn){
+                        ArrayBtnPasos[n].Mostrar_Boton();
+                    }
                 }
-                function Ocultar_Boton_Paso_3(){
-                    BtnExplicacionPaso3.style.transitionDuration = "0.4s";
-                    BtnExplicacionPaso3.style.opacity = "0";
-                    BtnExplicacionPaso3.style.pointerEvents = "none";
-
-                    ContenedorBtnExplicacionPaso3.style.transitionDuration = "0.4s";
-                    ContenedorBtnExplicacionPaso3.style.width = "0%";
-                    ContenedorBtnExplicacionPaso3.style.height = "0%";
-                }
-                function Mostrar_Boton_Paso_3(){
-                    BtnExplicacionPaso3.style.transitionDuration = "0.4s";
-                    BtnExplicacionPaso3.style.transitionTimingFunction = "ease";
-                    BtnExplicacionPaso3.style.opacity = "1";
-                    BtnExplicacionPaso3.style.pointerEvents = "all";
-
-                    ContenedorBtnExplicacionPaso3.style.transitionDuration = "0.4s";
-                    ContenedorBtnExplicacionPaso3.style.width = "90%";
-                    ContenedorBtnExplicacionPaso3.style.height = "50px";
-                }
-                function Ocultar_Boton_Paso_4(){
-                    BtnExplicacionPaso4.style.transitionDuration = "0.4s";
-                    BtnExplicacionPaso4.style.opacity = "0";
-                    BtnExplicacionPaso4.style.pointerEvents = "none";
-
-                    ContenedorBtnExplicacionPaso4.style.transitionDuration = "0.4s";
-                    ContenedorBtnExplicacionPaso4.style.width = "0%";
-                    ContenedorBtnExplicacionPaso4.style.height = "0%";
-                }
-                function Mostrar_Boton_Paso_4(){
-                    BtnExplicacionPaso4.style.transitionDuration = "0.4s";
-                    BtnExplicacionPaso4.style.transitionTimingFunction = "ease";
-                    BtnExplicacionPaso4.style.opacity = "1";
-                    BtnExplicacionPaso4.style.pointerEvents = "all";
-
-                    ContenedorBtnExplicacionPaso4.style.transitionDuration = "0.4s";
-                    ContenedorBtnExplicacionPaso4.style.width = "90%";
-                    ContenedorBtnExplicacionPaso4.style.height = "50px";
-                }
-                function Ocultar_Ventana_Paso_1(){
-                    VentanaExplicacionPaso1.style.transitionDuration = "1s";
-                    VentanaExplicacionPaso1.style.transitionTimingFunction = "ease";
-                    VentanaExplicacionPaso1.style.height = "0%";
-                    VentanaExplicacionPaso1.style.borderStyle = "hidden";
-
-                    ContenedorTextoExplicacionConfiguracionPaso1.style.overflowY = "hidden";
-                }
-                function Mostrar_Ventana_Paso_1(){
-                    VentanaExplicacionPaso1.style.transitionDuration = "1s";
-                    VentanaExplicacionPaso1.style.transitionTimingFunction = "ease";
-                    VentanaExplicacionPaso1.style.height = "540px";
-                    VentanaExplicacionPaso1.style.borderStyle = "solid";
-
-                    ContenedorTextoExplicacionConfiguracionPaso1.style.overflowY = "auto";
-                }
-                function Ocultar_Ventana_Paso_2(){
-                    VentanaExplicacionPaso2.style.transitionDuration = "1s";
-                    VentanaExplicacionPaso2.style.transitionTimingFunction = "ease";
-                    VentanaExplicacionPaso2.style.height = "0%";
-                    VentanaExplicacionPaso2.style.borderStyle = "hidden";
-
-                    ContenedorTextoExplicacionConfiguracionPaso2.style.overflowY = "hidden";
-                }
-                function Mostrar_Ventana_Paso_2(){
-                    VentanaExplicacionPaso2.style.transitionDuration = "1s";
-                    VentanaExplicacionPaso2.style.transitionTimingFunction = "ease";
-                    VentanaExplicacionPaso2.style.height = "530px";
-                    VentanaExplicacionPaso2.style.borderStyle = "solid";
-
-                    ContenedorTextoExplicacionConfiguracionPaso2.style.overflowY = "auto";
-                }
-                function Ocultar_Ventana_Paso_3(){
-                    VentanaExplicacionPaso3.style.transitionDuration = "1s";
-                    VentanaExplicacionPaso3.style.transitionTimingFunction = "ease";
-                    VentanaExplicacionPaso3.style.height = "0%";
-                    VentanaExplicacionPaso3.style.borderStyle = "hidden";
-
-                    ContenedorTextoExplicacionConfiguracionPaso3.style.overflowY = "hidden";
-                }
-                function Mostrar_Ventana_Paso_3(){
-                    VentanaExplicacionPaso3.style.transitionDuration = "1s";
-                    VentanaExplicacionPaso3.style.transitionTimingFunction = "ease";
-                    VentanaExplicacionPaso3.style.height = "530px";
-                    VentanaExplicacionPaso3.style.borderStyle = "solid";
-
-                    ContenedorTextoExplicacionConfiguracionPaso3.style.overflowY = "auto";
-                }
-                function Ocultar_Ventana_Paso_4(){
-                    VentanaExplicacionPaso4.style.transitionDuration = "1s";
-                    VentanaExplicacionPaso4.style.transitionTimingFunction = "ease";
-                    VentanaExplicacionPaso4.style.height = "0%";
-                    VentanaExplicacionPaso4.style.borderStyle = "hidden";
-
-                    ContenedorTextoExplicacionConfiguracionPaso4.style.overflowY = "hidden";
-                }
-                function Mostrar_Ventana_Paso_4(){
-                    VentanaExplicacionPaso4.style.transitionDuration = "1s";
-                    VentanaExplicacionPaso4.style.transitionTimingFunction = "ease";
-                    VentanaExplicacionPaso4.style.height = "530px";
-                    VentanaExplicacionPaso4.style.borderStyle = "solid";
-
-                    ContenedorTextoExplicacionConfiguracionPaso4.style.overflowY = "auto";
-                }
+            }
             
+            /*
+                SECCION CARRUSEL
+            */
             class Carrusel_Class{
                 constructor (ID,IDBtnSiguiente, IDBtnAnterior,IDTituloImagenes,N_Imagenes_Carrusel, Titulos_Imagenes_Carrusel){
                     this.Carrusel = document.getElementById(ID);
@@ -1169,89 +1066,44 @@
                 "Conectamos los dispositivos, al conectar los telefonos VoIP con el switch usamos el puerto especial del telefono llamado \"Switch\".",
                 "Finalmente conectamos el telefono VoIP a la PC 1, para ello, usamos el puerto especial del telefono llamado \"PC\"."
             ];
-            const Carrusel_1 = new Carrusel_Class('Carrusel','BtnCarruselImagenSiguiente','BtnCarruselImagenAnterior',Titulos_Imagenes_Carrusel_1.length,Titulos_Imagenes_Carrusel_1);
+            var Carrusel_1 = new Carrusel_Class('Carrusel','BtnCarruselImagenSiguiente','BtnCarruselImagenAnterior','colocacion-dispositivos-paso-1',Titulos_Imagenes_Carrusel_1.length,Titulos_Imagenes_Carrusel_1);
             /*
                 Crear una instancia de la clase pasando los IDs de los elementos
                 let miCarrusel = new Carrusel('miCarruselID', 'btnSiguiente', 'btnAnterior', 'tituloImagenes');
 
                 No te olvides de usar "this" para referirte a las variables que pertenecen a la clase
             */
-            var Carrusel = document.getElementById("Carrusel");
-            var BtnCarruselImagenAnterior = document.getElementById("BtnCarruselImagenAnterior");
-            var BtnCarruselImagenSiguiente = document.getElementById("BtnCarruselImagenSiguiente");
-
-            //Cambio titulos carrusel pasos configuracion
-            function Titulo_Colocacion_Dispositivos_1(){
-                TextoColocacionDispositivosPaso1.textContent = "Insertamos los dispositivos que usaremos dentro del espacio en blanco";
-            }
-            function Titulo_Colocacion_Dispositivos_2(){
-                TextoColocacionDispositivosPaso1.textContent = "Conectamos los dispositivos, al conectar los telefonos VoIP con el switch usamos el puerto especial del telefono llamado \"Switch\"."
-            }
-            function Titulo_Colocacion_Dispositivos_3(){
-                TextoColocacionDispositivosPaso1.textContent = "Finalmente conectamos el telefono VoIP a la PC 1, para ello, usamos el puerto especial del telefono llamado \"PC\"."             
-            }
-
-            /*  Botones Anterior y Siguiente Carrusel 1*/
-            function Mostrar_Titulos_Carrusel(Position){
-                switch(Position){
-                    case 1: Titulo_Colocacion_Dispositivos_1();
-                        break;
-                    case 2: Titulo_Colocacion_Dispositivos_2();
-                        break;
-                    case 3: Titulo_Colocacion_Dispositivos_3();
-                        break;
-                }
-            }
-            setTimeout(Mostrar_Titulos_Carrusel(1),50);
-            var Position = 1;
-                BtnCarruselImagenAnterior.onclick = function(){
+            var Position = 1; //Indicara el titulo de imagen a mostrar.
+                Carrusel_1.BtnAnterior.onclick = function(){
                     Position--;
                     if (Position<1){
                         Position = 1;
                     }
-                    Moverse_Imagen_Anterior_Carrusel();
-                    Mostrar_Titulos_Carrusel(Position);
+                    Carrusel_1.Mostrar_Imagen_Anterior();
+                    Carrusel_1.Mostrar_Titulos_Carrusel(Position);
                 }
-                BtnCarruselImagenSiguiente.onclick = function(){
+                Carrusel_1.BtnSiguiente.onclick = function(){
                     Position++;
-                    if (Position>3){
+                    if (Position>Carrusel_1.get_N_Imagenes_Carrusel){
                         Position = 3
                     }
-                    Moverse_Imagen_Siguiente_Carrusel();
-                    Mostrar_Titulos_Carrusel(Position);
+                    Carrusel_1.Mostrar_Imagen_Siguiente();
+                    Carrusel_1.Mostrar_Titulos_Carrusel(Position);
                 }
-            //FIN titulos carrusel pasos configuracion
-            //Mover imagen carrusel
-            function Moverse_Imagen_Siguiente_Carrusel(){
-                const ImagenSiguiente = Carrusel.scrollLeft + Carrusel.clientWidth; // valor en px.
-                /*
-                    scrollLeft -> cantidad de desplazamiento en x (en px) que ha ocurrio en el carrusel.
 
-                    clientWidht -> Ancho de banda visible de un elemento, es decir, el ancho que muestra el elemento sin contar bordes ni barras de desplazamiento.
-                */
-                Carrusel.scrollTo({
-                    left: ImagenSiguiente, // Posicion a la que se debe dezplazar el elemento carrusel.
-                    behavior: 'smooth' // Indica que el desplazamiento debe ser suave.
-                })
-                /*
-                    scrollTo -> desplaza el contenido de un elemento de manera suave
-                */
-                Mostrar_Titulos_Carrusel()
-            }
-            function Moverse_Imagen_Anterior_Carrusel(){
-                const ImagenAnterior = Carrusel.scrollLeft - Carrusel.clientWidth;
+                Carrusel_1.Funcion_Inicial();
+                Carrusel_1.Carrusel.onclick = function(){
+                    Carrusel_1.Mostrar_Imagen_Siguiente();
+                    Position++;
+                    if (Position>Carrusel_1.get_N_Imagenes_Carrusel){
+                        Position = Carrusel_1.get_N_Imagenes_Carrusel
+                    }
+                    Carrusel_1.Mostrar_Titulos_Carrusel(Position);
+                }
 
-                Carrusel.scrollTo({
-                    left: ImagenAnterior,
-                    behavior: 'smooth'
-                })
-                Mostrar_Titulos_Carrusel()
-            }
-            //FIN Mover imagen carrusel
-            /*  Moverse a la imagen siguiente cuando hacemos clic en las imagenes del carrusel*/
-            Carrusel.style.cursor = "pointer";
-            Carrusel.addEventListener('click',Moverse_Imagen_Siguiente_Carrusel);
-
+            /*
+                FIN SECCION CARRUSEL
+            */
             //FIN Seccion Explicacion Configuracion
 
 
@@ -1340,117 +1192,227 @@
 
 
             //Ventana configuraciones router
-            BtnOpenRouter.onclick = function(){
-                Mostrar_Ventana_Router()
+            function Ocultar_Botones_Dispositivos_Red(){
+                Router.Ocultar_Boton();
+
+                Switch.Ocultar_Boton();
             }
-            BtnCloseVentanaRouter.onclick = function(){
-                Ocultar_Ventana_Router()
+            function Mostrar_Botones_Dispositivos_Red(){
+                Router.Mostrar_Boton();
 
-                Ocultar_Ventana_Router_R1()
+                Switch.Mostrar_Boton();
+            }
+            function Ocultar_Botones_Numero_Dispositivo_Router(){
+                for (let n=0;n<ArrayRn.length;n++){
+                    if (!ArrayRn[n].EstadoBtn){
+                        ArrayRn[n].Ocultar_Boton();
+                    }
+                }
+            }
+            function Mostrar_Botones_Numero_Dispositivos_Router(){
+                for (let n=0;n<ArrayRn.length;n++){
+                    if (!ArrayRn[n].EstadoBtn){
+                        ArrayRn[n].Mostrar_Boton();
+                    }
+                }
+            }
+            Router.BtnOpenVentana.onclick = function(){
+                Router.Mostrar_Ventana();
+                Ocultar_Botones_Dispositivos_Red();
+            }
+            Router.BtnCloseVentana.onclick = function(){
+                Router.Ocultar_Ventana();
+
+                Mostrar_Botones_Dispositivos_Red();
+
+                for(n=0;n<ArrayRn.length;n++){
+                    ArrayRn[n].Ocultar_Ventana();
+                }
+                Mostrar_Botones_Numero_Dispositivos_Router();
             }
 
-                //Ventana R1
-                BtnOpenR1.onclick = function() {
-                    Mostrar_Ventana_Router_R1()
-                }
-                BtnCloseR1.onclick = function(){
-                    Ocultar_Ventana_Router_R1()
+                //Ventana Rn
+                R1.BtnOpenVentana.onclick = function() {
+                    R1.Mostrar_Ventana();
 
-                    Titulo_Eleccion_Router()
+                    Ocultar_Botones_Numero_Dispositivo_Router();
                 }
-                //Fin ventana R1
+                R1.BtnCloseVentana.onclick = function(){
+                    R1.Ocultar_Ventana();
+
+                    Mostrar_Botones_Numero_Dispositivos_Router();
+
+                    Titulo_Eleccion_Router();
+                }
+
+                R2.BtnOpenVentana.onclick = function(){
+                    R2.Mostrar_Ventana();
+
+                    Ocultar_Botones_Numero_Dispositivo_Router();
+                }
+                R2.BtnCloseVentana.onclick = function(){
+                    R2.Ocultar_Ventana();
+
+                    Mostrar_Botones_Numero_Dispositivos_Router();
+
+                    Titulo_Eleccion_Router();
+                }
+                //Fin ventana Rn
             //Fin Ventana configuraciones router
 
 
             //Ventana configuraciones Switch
-            BtnOpenSwitch.onclick = function(){
-                Mostrar_Ventana_Switch()
+            Switch.BtnOpenVentana.onclick = function(){
+                Switch.Mostrar_Ventana();
+                Ocultar_Botones_Dispositivos_Red()
             }
-            BtnCloseSwitch.onclick = function(){
-                Ocultar_Ventana_Switch()
-            }
-                //Ventana S1
-                BtnOpenS1.onclick = function(){
-                    Mostrar_Ventana_Switch_S1()
-                }
-                BtnCloseS1.onclick = function(){
-                    Ocultar_Ventana_Switch_S1()
+            Switch.BtnCloseVentana.onclick = function(){
+                Switch.Ocultar_Ventana();
+                Mostrar_Botones_Dispositivos_Red();
 
-                    Titulo_Eleccion_Switch()
+                S1.Ocultar_Ventana();
+            }
+                //Ventana Sn
+                S1.BtnOpenVentana.onclick = function(){
+                    S1.Mostrar_Ventana();
                 }
-                //Fin Ventana S1
+                S1.BtnCloseVentana.onclick = function(){
+                    S1.Ocultar_Ventana();
+
+                    Titulo_Eleccion_Switch();
+                }
+                //Fin Ventana Sn
             //Fin Ventana configuraciones Switch
-
 
             //Mostrar/ocultar Solo comandos
             CheckBox.addEventListener('change', function(){
                 if(CheckBox.checked){
-                    Mostrar_Solo_Comandos()
+                    Mostrar_Ventana_Solo_Comandos();
                 }
                 else{
-                    No_Mostrar_Solo_Comandos()
+                    No_Mostrar_Ventana_Solo_Comandos();
                 }
             })
             //Fin Mostrar/ocultar Solo comandos
 
-            //ventana explicacion configuraciones
+
+            //Ventana explicacion configuraciones
+            var Paso_Actual;
+
             BtnOpenVentanaExplicacion.onclick = function(){
-                Mostrar_Ventana_Explicacion()
+                Mostrar_Ventana_Explicacion();
+
+                Ocultar_Btn_Move_Pasos();
             }
             BtnCloseExplicacion.onclick = function(){
-                Ocultar_Ventana_Explicacion()
+                Ocultar_Ventana_Explicacion();
 
-                Mostrar_Boton_Paso_1()
-                Mostrar_Boton_Paso_2()
-                Mostrar_Boton_Paso_3()
-                Mostrar_Boton_Paso_4()
+                Ocultar_Btn_Move_Pasos();
 
-                Ocultar_Ventana_Paso_1()
-                Ocultar_Ventana_Paso_2()
-                Ocultar_Ventana_Paso_3()
-                Ocultar_Ventana_Paso_4()
+                for(let n=0;n<ArrayBtnPasos.length;n++){
+                    ArrayBtnPasos[n].Mostrar_Boton();
+                    ArrayBtnPasos[n].Ocultar_Ventana();
+                    ArrayBtnPasos[n].EstadoBtn = false;
+                }
 
                 Titulo_Inicial_Explicacion_Configuracion()
             }
 
-                //Ventana Paso1
-                BtnExplicacionPaso1.onclick = function(){
-                    Ocultar_Boton_Paso_2()
-                    Ocultar_Boton_Paso_3()
-                    Ocultar_Boton_Paso_4()
-
-                    Mostrar_Ventana_Paso_1()
-
-                    Titulo_Pasos()
+            function Comprobar_Btn_Anterior(Paso_Actual){
+                if (Paso_Actual==1){
+                    BtnIrPasoAnterior.style.transitionProperty = "none";
+                    BtnIrPasoAnterior.style.backgroundColor = "gray";
+                    BtnIrPasoAnterior.style.pointerEvents = "none";
                 }
-                BtnCloseVentanaPaso1.onclick = function(){
-                    Mostrar_Boton_Paso_2()
-                    Mostrar_Boton_Paso_3()
-                    Mostrar_Boton_Paso_4()
+                else{
+                    BtnIrPasoAnterior.style.transitionProperty = "all";
+                    BtnIrPasoAnterior.style.transitionDuration = "0.2s";
+                    BtnIrPasoAnterior.style.backgroundColor = "darkslategrey";
+                    BtnIrPasoAnterior.style.pointerEvents = "all";
+                }
+            }
+            function Comprobar_Btn_Siguiente(Paso_Actual){
+                if (Paso_Actual==ArrayBtnPasos.length){
+                    BtnIrPasoSiguiente.style.transitionProperty = "none";
+                    BtnIrPasoSiguiente.style.backgroundColor = "gray";
+                    BtnIrPasoSiguiente.style.pointerEvents = "none";
+                }
+                else{
+                    BtnIrPasoSiguiente.style.transitionProperty = "all";
+                    BtnIrPasoSiguiente.style.transitionDuration = "0.2s";
+                    BtnIrPasoSiguiente.style.backgroundColor = "darkslategrey";
+                    BtnIrPasoSiguiente.style.pointerEvents = "all";
+                }
+            }
+            function Ir_Paso_Siguiente(Actual) //Actual es vatiable local, esto luego se actualiza a la variable global Pasos_Actual mediante el return
+            {
+                if(Actual<ArrayBtnPasos.length){
+                    ArrayBtnPasos[Actual-1].Ocultar_Ventana();
+                    ArrayBtnPasos[Actual].Mostrar_Ventana();
 
-                    Ocultar_Ventana_Paso_1()
+                    Ocultar_Botones_Pasos(Actual+1);
+                
+                    Actual++;
+                }
+                Comprobar_Btn_Anterior(Actual);
+                Comprobar_Btn_Siguiente(Actual);
 
-                    Titulo_Inicial_Explicacion_Configuracion()
+                return Actual;
+            }
+            function Ir_Paso_Anterior(Actual){
+                if(Actual>1){
+                    ArrayBtnPasos[Actual-1].Ocultar_Ventana();
+                    ArrayBtnPasos[Actual-2].Mostrar_Ventana();
+
+                    Ocultar_Botones_Pasos(Actual-1);
+
+                    Actual--;
+                }
+                Comprobar_Btn_Anterior(Actual);
+                Comprobar_Btn_Siguiente(Actual);
+
+                return Actual;
+            }
+                //Ventana Paso1
+                Paso_1.BtnOpen.onclick = function(){
+                    Ocultar_Botones_Pasos(1);
+
+                    Paso_1.Mostrar_Ventana();
+
+                    Titulo_Pasos();
+
+                    Paso_Actual = 1;
+
+                    Comprobar_Btn_Anterior(Paso_Actual);
+                    Comprobar_Btn_Siguiente(Paso_Actual);
+                }
+                Paso_1.BtnCloseVentana.onclick = function(){
+                    Mostrar_Botones_Pasos(1);
+
+                    Paso_1.Ocultar_Ventana();
+
+                    Titulo_Inicial_Explicacion_Configuracion();
                 }
                 //Fin Ventana Paso1
 
 
                 //Ventana Paso2
-                BtnExplicacionPaso2.onclick = function(){
-                    Ocultar_Boton_Paso_1()
-                    Ocultar_Boton_Paso_3()
-                    Ocultar_Boton_Paso_4()
+                Paso_2.BtnOpen.onclick = function(){
+                    Ocultar_Botones_Pasos(2);
 
-                    Mostrar_Ventana_Paso_2()
+                    Paso_2.Mostrar_Ventana()
 
                     Titulo_Pasos()
-                }
-                BtnCloseVentanaPaso2.onclick = function(){
-                    Mostrar_Boton_Paso_1()
-                    Mostrar_Boton_Paso_3()
-                    Mostrar_Boton_Paso_4()
 
-                    Ocultar_Ventana_Paso_2()
+                    Paso_Actual = 2;
+
+                    Comprobar_Btn_Anterior(Paso_Actual);
+                    Comprobar_Btn_Siguiente(Paso_Actual);
+                }
+                Paso_2.BtnCloseVentana.onclick = function(){
+                    Mostrar_Botones_Pasos(2);
+
+                    Paso_2.Ocultar_Ventana();
 
                     Titulo_Inicial_Explicacion_Configuracion()
                 }
@@ -1458,48 +1420,58 @@
 
 
                 //Ventana Paso3
-                BtnExplicacionPaso3.onclick = function(){
-                    Ocultar_Boton_Paso_1()
-                    Ocultar_Boton_Paso_2()
-                    Ocultar_Boton_Paso_4()
+                Paso_3.BtnOpen.onclick = function(){
+                    Ocultar_Botones_Pasos(3);
 
-                    Mostrar_Ventana_Paso_3()
+                    Paso_3.Mostrar_Ventana();
 
                     Titulo_Pasos()
-                }
-                BtnCloseVentanaPaso3.onclick = function(){
-                    Mostrar_Boton_Paso_1()
-                    Mostrar_Boton_Paso_2()
-                    Mostrar_Boton_Paso_4()
 
-                    Ocultar_Ventana_Paso_3()
+                    Paso_Actual = 3;
+
+                    Comprobar_Btn_Anterior(Paso_Actual);
+                    Comprobar_Btn_Siguiente(Paso_Actual);
+                }
+                Paso_3.BtnCloseVentana.onclick = function(){
+                    Mostrar_Botones_Pasos(3);
+
+                    Paso_3.Ocultar_Ventana()
+
                     Titulo_Inicial_Explicacion_Configuracion()
                 }
                 //Fin Ventana Paso3
 
 
                 //Ventana Paso4
-                BtnExplicacionPaso4.onclick = function(){
-                    Ocultar_Boton_Paso_1()
-                    Ocultar_Boton_Paso_2()
-                    Ocultar_Boton_Paso_3()
+                Paso_4.BtnOpen.onclick = function(){
+                    Ocultar_Botones_Pasos(4);
 
-                    Mostrar_Ventana_Paso_4()
-                    Titulo_Pasos()
+                    Paso_4.Mostrar_Ventana();
+
+                    Titulo_Pasos();
+
+                    Paso_Actual = 4;
+
+                    Comprobar_Btn_Anterior(Paso_Actual);
+                    Comprobar_Btn_Siguiente(Paso_Actual);
                 }
-                BtnCloseVentanaPaso4.onclick = function(){
-                    Mostrar_Boton_Paso_1()
-                    Mostrar_Boton_Paso_2()
-                    Mostrar_Boton_Paso_3()
+                Paso_4.BtnCloseVentana.onclick = function(){
+                    Mostrar_Botones_Pasos(4);
 
-                    Ocultar_Ventana_Paso_4()
-                    Titulo_Inicial_Explicacion_Configuracion()
+                    Paso_4.Ocultar_Ventana();
+
+                    Titulo_Inicial_Explicacion_Configuracion();
                 }
                 //Fin Ventana Paso4
 
-                //Botones ir paso siguiente
-                
-                //Fin Botones ir paso siguiente
+                //Boton ir paso siguiente
+                BtnIrPasoSiguiente.onclick = function(){
+                    Paso_Actual = Ir_Paso_Siguiente(Paso_Actual);
+                }
+                BtnIrPasoAnterior.onclick = function(){
+                    Paso_Actual = Ir_Paso_Anterior(Paso_Actual);
+                }
+                //Fin Boton ir paso siguiente
             // FIN ventana explicacion configuraciones
         </script>
     </body>

@@ -58,6 +58,7 @@
     border-radius: 15px;
     overflow: hidden;
     display: flex;
+    justify-content: space-between;
     flex-direction: column;
 }
 .subseccion-principal{
@@ -65,7 +66,7 @@
     height: max-content;
     display: flex;
     flex-direction: row;
-    grid-gap: 10px;
+    gap: 10px;
     justify-content: center;
     align-items: center;
     margin: 0 auto;
@@ -117,13 +118,14 @@
     border-radius: 15px;
     overflow: hidden;
     display: flex;
+    justify-content: space-between;
     flex-direction: column;
 }
 
 .contenedor-comandos-configuracion{
     width: 90%;
     height: 82%;
-    overflow-y: hidden;
+    overflow-y: auto;
     border-radius: 15px;
     border-color: black;
     border-width: 1pt;
