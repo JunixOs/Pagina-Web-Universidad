@@ -60,6 +60,7 @@
     display: flex;
     justify-content: space-between;
     flex-direction: column;
+    scroll-behavior: smooth;
 }
 .subseccion-principal{
     width: 100%;

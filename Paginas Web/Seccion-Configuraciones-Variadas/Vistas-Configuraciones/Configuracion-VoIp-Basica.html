@@ -209,7 +209,7 @@
                     <!--Ventana Explicacion Paso 1-->
                     <div class="ventana-comandos" id="VentanaExplicacionPaso1">
                         <div class="VECR-contenedor-texto" id="ContenedorTextoExplicacionConfiguracionPaso1">
-                            <p class="estilo-texto-descripcion-configuracion" id="colocacion-dispositivos-paso-1"></p>
+                            <p class="estilo-texto-descripcion-configuracion" style="height: 25px;" id="colocacion-dispositivos-paso-1"></p>
                             <div class="contenedor-carrusel">
                                 <div class="carrusel-explicacion" id="Carrusel">
                                     <img src="/Images/Configuraciones Variadas/Configuracion-Basica-VoIP/img-1.png" alt="Imagen 1" class="imagenes-carrusel-explicacion">
@@ -275,6 +275,9 @@
                     <div class="ventana-comandos" id="VentanaExplicacionPaso3">
                         <div class="VECR-contenedor-texto" id="ContenedorTextoExplicacionConfiguracionPaso3">
                             <p class="estilo-texto-descripcion-configuracion">
+                                Comenzamos a configurar R1
+                            </p>
+                            <p class="estilo-texto-descripcion-configuracion">
                                 Configuramos el direccionamiento IP del router y creamos un pool DHCP, el cual brindara direcciones IP a todos los hosts de nuetra
                                 red, adicionalmente, dentro del DHCP configuraremos la opcion 150, el cual corresponde al servicio de TFTP. 
                             </p>
@@ -310,6 +313,49 @@
                     <div class="ventana-comandos" id="VentanaExplicacionPaso4">
                         <div class="VECR-contenedor-texto" id="ContenedorTextoExplicacionConfiguracionPaso4">
                             <p class="estilo-texto-descripcion-configuracion">
+                                Configuramos el servicio telefónico Call Manager Express CME (Communications Manager Express) en R1.
+                            </p>
+                            <p class="estilo-texto-explicacion-configuracion">  
+                                R1>enable <br>
+                                R1#configure terminal <br>
+                                <br>
+                                // Configurando el servicio telefonico CME
+                                <br>
+                                R1(config)#telephony-service <br>
+                                <br>
+                                // Establecemos el número máximo de números
+                                <br>
+                                R1(config-telephony)#max-dn 3 <br>
+                                <br>
+                                // Establecemos el número máximo de teléfonos
+                                <br>
+                                R1(config-telephony)#max-ephones 3 <br>
+                                <br>
+                                // Indicamos cual será el Router que entregue la configuracion a los teléfonos IP (aqui es R1), incluyendo el puerto (default 2000).
+                                <br>
+                                R1(config-telephony)#ip source address 192.168.10.1 port 2000 <br>
+                                <br>
+                                // Asignamos automáticamente extensiones a los botones
+                                <br>
+                                R1(config-telephony)#auto assign 1 to 3 <br>
+
+                            </p>
+                            <p class="estilo-texto-descripcion-configuracion">
+                                Despues de haber configurado el CME en R1, encendemos los telefonos VoIP 1, VoIP 2 y VoIP 3.
+                            </p>
+                            <p class="estilo-texto-descripcion-configuracion" style="height: 33px;" id="Texto-Encendido-VoIP-paso4"></p>
+                            <div class="contenedor-carrusel">
+                                <div class="carrusel-explicacion" id="Carrusel-2-VoIP">
+                                    <img src="/Images/Configuraciones Variadas/Configuracion-Basica-VoIP/img-1.png" alt="Imagen 1" class="imagenes-carrusel-explicacion">
+                                    <img src="/Images/Configuraciones Variadas/Configuracion-Basica-VoIP/img-2.png" alt="Imagen 2" class="imagenes-carrusel-explicacion">
+                                    <img src="/Images/Configuraciones Variadas/Configuracion-Basica-VoIP/img-3.png" alt="Imagen 3" class="imagenes-carrusel-explicacion">
+                                </div>
+                                <div class="contenedor-botones-carrusel">
+                                    <button class="estilo-boton-carrusel-anterior" id="BtnCarrusel2ImagenAnterior">Anterior</BUtton>
+                                    <button class="estilo-boton-carrusel-siguiente" id="BtnCarrusel2ImagenSiguiente">Siguiente</button>
+                                </div>
+                            </div>
+                            <p class="estilo-texto-explicacion-configuracion">
 
                             </p>
                         </div>
@@ -339,20 +385,17 @@
                         </div>
                     </div>
                     <!--FIN Ventana Explicacion Paso 5-->
-                    <div style="padding-top: 8px; width: 300px;">
-                        <div class="seccion" style="gap: 20px" id="Contenedor-Btn-Paso-Siguiente-Anterior">
+                    <div style="padding-top: 8px; width: 100%;">
+                        <div class="seccion" style="column-gap:20px;padding-bottom: 5px;border-top: black 2pt solid;width: 100%;" id="Contenedor-Btn-Paso-Siguiente-Anterior">
                             <button class="botones-navegacion" style="width: 100px; height: 35px;" id="BtnPasoAnterior">Paso Anterior</button>
                             <button class="botones-navegacion" style="width: 100px; height: 35px;" id="BtnPasoSiguiente">Paso Siguiente</button>
-                        </div>
-                        <div class="subseccion-boton-cerrar">
-                            <button class="botones-cerrar-ventanas" style="width: 10vw;" id="BtnCloseExplicacion">Salir de la explicacion</button>
                         </div>
                     </div>
                 </div>
             </div>
             <!--FIN Ventana Explicacion Configuracion-->
         </div>
-        <div class="foot">
+        <div class="foot" id="pie-de-pagina">
             <div class="foot-text">
                 <p>Todas las configuraciones son resultado del material de los cursos de Redes I y II</p>
                 <p>Si tienes dudas, consultas o requieres de apoyo en un examen practico enviame un mensaje</p>
@@ -371,9 +414,17 @@
                     <a href="https://www.gmail.com"><img src="/Images/gmail.png" alt="gmail" style="width: 100%;height: 100%;"></a>
                     Gmail
                 </div>
+            </div>
         </div>
         <script>
-            
+            /* 
+                LEYENDA:
+                # : Indica Seccion Completa
+                = : Indica pequeña descripcion de la funcion de la seccion
+                // : Indica comentario
+                * : Indica una subseccion
+                + : Indica pequeña descripcion de la funcion de la subseccion
+            */
             var OpenModal = document.getElementById("OpenModal");
             var Modal = document.getElementById("myModal");
             var CloseModal = document.getElementById("CloseModal");
@@ -400,7 +451,6 @@
             var BtnOpenVentanaExplicacion = document.getElementById("BtnOpenVentanaExplicacion");
             var VentanaExplicacion = document.getElementById("VentanaExplicacion");
             var TituloVentanaExplicacion = document.getElementById("titulo-ventana-explicacion");
-            var BtnCloseExplicacion = document.getElementById("BtnCloseExplicacion");
                 var ContenedorBtnMovePasos = document.getElementById("Contenedor-Btn-Paso-Siguiente-Anterior");
                 var BtnIrPasoAnterior = document.getElementById("BtnPasoAnterior");
                 var BtnIrPasoSiguiente = document.getElementById("BtnPasoSiguiente");
@@ -533,10 +583,19 @@
             //Fin Funcion Ruleta
 
 
-            // SECCION INDICACIONES PREVIAS
-            var Verificar_Ventana_Lvl_Config_Abierto
-            var Verificar_Ventana_Dispositivos_Usados_Aierto
+            // #################### SECCION INDICACIONES PREVIAS ####################
+            /*
+                ======================================================
+                AQUI SE ENCUENTRA TODA LA LOGICA QUE HACE POSIBLE LA
+                VISUALIZACION DE LAS VENTANAS QUE CONFORMAN LA 
+                SECCION DE INDICACIONES PREVIAS (EN LA PARTE SUPERIOR
+                IZQUIERDA DE LA PAGINA)
+                ======================================================
+            */
+            var Verificar_Ventana_Lvl_Config_Abierto // Me permite saber si se ha abierto la ventana de "Niveles de Configuracion".
+            var Verificar_Ventana_Dispositivos_Usados_Aierto // Me permite saber si se ha abierto la ventana de "Dispositivos Usados".
 
+            // ************ Subseccion Mostrar/Ocultar Botones ************
             function Ocultar_Boton_Lvl_Dificultad(){
                 NivelConfiguracion.style.transitionProperty = "all";
                 NivelConfiguracion.style.transitionDuration = "0.4s";
@@ -585,6 +644,9 @@
                 BtnDispUsados.style.width = "70%";
                 BtnDispUsados.style.height = "60px";
             }
+            // ************ Fin Subseccion Mostrar/Ocultar Botones ************
+
+            // ************ Subseccion Mostrar/Ocultar Ventanas "Niveles de Configuracion" Y "Dispositivos Usados" ************
                 function Ocultar_Ventana_Lvl_Configuracion(){
                     VentanaLvlDificultad.style.transitionDuration = "0.4s";
                     VentanaLvlDificultad.style.transitionTimingFunction = "ease";
@@ -634,10 +696,20 @@
 
                     Verificar_Ventana_Dispositivos_Usados_Aierto = true;
                 }
-            // FIN SECCION INDICACIONES PREVIAS
+            // ************ Fin Subseccion Mostrar/Ocultar Ventanas "Niveles de Configuracion" Y "Dispositivos Usados" ************
+
+            // #################### FIN SECCION INDICACIONES PREVIAS ####################
 
 
-            // Funciones Expandir Imagen
+            // #################### FUNCIONES EXPANDIR IMAGEN ####################
+            /* 
+                ======================================================
+                FUNCIONES USADAS CUANDO LA VENTANA EXPLICACION DE LA 
+                CONFIGURACION SE ENCUENTRA ABIERTA. MODIFICA EL TAMAÑO
+                DE LA VENTANA DE LA IMAGEN TOPOLOGIA, LA VENTANA DE LA
+                IZQUIERDA Y LA VENTANA EXPLICACION.
+                ======================================================
+            */
             function Expandir_Ventana_Imagen(){
                 Modal.style.transitionProperty = "width";
                 Modal.style.transitionTimingFunction = "ease";
@@ -648,6 +720,11 @@
                 VentanaLeft.style.transitionDuration = "0.6s";
                 VentanaLeft.style.transitionTimingFunction = "ease";
                 VentanaLeft.style.width = "0%";
+
+                VentanaExplicacion.style.transitionProperty = "width";
+                VentanaExplicacion.style.transitionDuration = "0.6s";
+                VentanaExplicacion.style.transitionTimingFunction = "ease";
+                VentanaExplicacion.style.width = "50vw";
             }
             function Ocultar_Ventana_Imagen(){
                 Modal.style.transitionProperty = "width";
@@ -658,9 +735,25 @@
                 VentanaLeft.style.transitionProperty = "width";
                 VentanaLeft.style.transitionDuration = "0.7s";
                 VentanaLeft.style.width = "29%";
+
+                VentanaExplicacion.style.transitionProperty = "width";
+                VentanaExplicacion.style.transitionDuration = "0.6s";
+                VentanaExplicacion.style.transitionTimingFunction = "ease";
+                VentanaExplicacion.style.width = "70vw";
             }
-            // Fin Funciones Expandir Imagen
-            // SECCION DE DISPOSITIVOS DE RED
+            
+            // #################### FIN FUNCIONES EXPANDIR IMAGEN ####################
+
+
+            // #################### SECCION DE DISPOSITIVOS DE RED ####################
+            /* 
+                ======================================================
+                AQUI SE ENCUENTRAN LAS CLASES BASE QUE SE USAN PARA
+                MODIFICAR LOS ASPECTOS DE LAS VENTANAS Y BOTONES DE LA
+                VENTANA CONFIGURACIONES. CADA VARIABLE TIENE EL NOMBRE
+                DE LA SUBSECCION A LA CUAL PERTENECEN.
+                ======================================================
+            */
             class Tipo_Dispositivo_Red{
                 constructor (IDBtnOpenVentana,IDBtnCloseVentana,IDContenedorBtn,IDVentana, EstadoBtn, TipoDispositivo){
                     this.BtnOpenVentana = document.getElementById(IDBtnOpenVentana);
@@ -824,10 +917,18 @@
                 var S1 = new Numero_Dispositivo_Red('BtnOpenS1','BtnCloseS1','Ventana-S1',false,'ContenedorComandosS1','ContenedorSoloComandosS1');
 
                 var ArrayRn = [R1,R2];
-            //FIN SECCION DE DISPOSITIVOS DE RED
+            // #################### FIN SECCION DE DISPOSITIVOS DE RED ####################
 
 
-            //Mostrar/Ocultar Comandos
+            // #################### MOSTRAR/OCULTAR COMANDOS CON MODO DE CONFIGURACION ####################
+            /*
+                ======================================================
+                FUNCIONES QUE SE ENCARGAN DE MOSTRAR/OCULTAR LAS
+                VENTANAS DE "SOLAMENTE COMANDOS" Y LAS VENTANAS DE
+                "COMANDOS + MODO CONFIGURACION" DE CADA DISPOSITIVO DE
+                RED.
+                ======================================================
+            */
             function Mostrar_Ventana_Solo_Comandos(){
                 for (let n=0;n<ArrayRn.length;n++){
                     ArrayRn[n].Ocultar_Ventana_Comandos();
@@ -844,9 +945,17 @@
                 S1.Mostrar_Ventana_Comandos();
                 S1.Ocultar_Ventana_Solo_Comandos();
             }
-            //FIN Mostrar/Ocultar Comandos
+            // #################### FIN MOSTRAR/OCULTAR COMANDOS CON MODO DE CONFIGURACION  ####################
 
-            //Funciones ventana configuraciones
+
+            // #################### FUNCIONES VENTANA CONFIGURACIONES ####################
+            /*
+                ======================================================
+                FUNCIONES ENCARGADAS DE MOSTRAR U OCULTAR LA VENTANA
+                CONFIGURACIONES. USADO AL MOMENTO DE MOSTRAR LA 
+                VENTANA EXPLICACION.
+                ======================================================
+            */
             function Ocultar_Ventana_Comandos(){
                 VentanaConfig.style.transitionProperty = "width";
                 VentanaConfig.style.transitionDuration = "0.9s";
@@ -859,12 +968,11 @@
                 VentanaConfig.style.transitionTimingFunction = "ease";
                 VentanaConfig.style.width = "70%";
             }
-            //FIN Funciones ventana configuraciones
+            // #################### FIN FUNCIONES VENTANA CONFIGURACIONES ####################
 
 
 
-            //Seccion Explicacion Configuracion
-
+            //SECCION VENTANA EXPLICACION CONFIGURACION
             function Mostrar_Btn_Move_Pasos(){
                 ContenedorBtnMovePasos.style.transitionDuration = "0.4s";
                 ContenedorBtnMovePasos.style.width = "90%";
@@ -950,32 +1058,21 @@
             }
 
             function Mostrar_Ventana_Explicacion(){
-                VentanaExplicacion.style.transitionDuration = "0.6s";
+                VentanaExplicacion.style.transitionDuration = "0.8s";
                 VentanaExplicacion.style.transitionTimingFunction = "ease";
-                VentanaExplicacion.style.width = "50%";
+                VentanaExplicacion.style.width = "70vw";
 
-                CloseModal.style.transitionDuration = "0.2s";
-                CloseModal.style.opacity = "0";
-                CloseModal.style.width = "0%";
-                CloseModal.style.height = "0%";
-                CloseModal.style.pointerEvents = "none";
+                BtnOpenVentanaExplicacion.textContent = "Ocultar explicacion paso a paso";
 
-                Expandir_Ventana_Imagen()
-                Ocultar_Ventana_Comandos()
+                Ocultar_Ventana_Comandos();
             }
             function Ocultar_Ventana_Explicacion(){
-                VentanaExplicacion.style.transitionDuration = "0.6s";
+                VentanaExplicacion.style.transitionDuration = "0.8s";
                 VentanaExplicacion.style.width = "0%";
 
-                CloseModal.style.transitionDuration = "0.2s";
-                CloseModal.style.opacity = "1";
-                CloseModal.style.width = "12vw";
-                CloseModal.style.height = "5vh";
-                CloseModal.style.pointerEvents = "all";
+                BtnOpenVentanaExplicacion.textContent = "Mostrar explicacion paso a paso";
 
-                Ocultar_Ventana_Imagen()
-
-                Mostrar_Ventana_Comandos()
+                Mostrar_Ventana_Comandos();
             }
 
             var Paso_1 = new Seccion_Paso_N('BtnExplicacion-paso1','BtnCloseVentanaPaso1','ContenedorBtnExplicacion-paso1','VentanaExplicacionPaso1','ContenedorTextoExplicacionConfiguracionPaso1',false);
@@ -1033,7 +1130,7 @@
 
 
                 Mostrar_Imagen_Anterior(){
-                    const ImagenAnterior = this.Carrusel.scrollLeft - this.Carrusel.clientWidth;
+                    const ImagenAnterior = this.Carrusel.scrollLeft - this.Carrusel.clientWidth; //En px
 
                     this.Carrusel.scrollTo({
                         left: ImagenAnterior,
@@ -1061,12 +1158,19 @@
                     }, 50);
                 }
             }
-            var Titulos_Imagenes_Carrusel_1 = [
-                "Insertamos los dispositivos que usaremos dentro del espacio en blanco",
-                "Conectamos los dispositivos, al conectar los telefonos VoIP con el switch usamos el puerto especial del telefono llamado \"Switch\".",
-                "Finalmente conectamos el telefono VoIP a la PC 1, para ello, usamos el puerto especial del telefono llamado \"PC\"."
+            var Titulos_Imagenes_Carrusel_1_PutDispositivos = [
+                "1.- Insertamos los dispositivos que usaremos dentro del espacio en blanco",
+                "2.- Conectamos los dispositivos, al conectar los telefonos VoIP con el switch usamos el puerto especial del telefono llamado \"Switch\".",
+                "3.- Finalmente conectamos el telefono VoIP a la PC 1, para ello, usamos el puerto especial del telefono llamado \"PC\"."
             ];
-            var Carrusel_1 = new Carrusel_Class('Carrusel','BtnCarruselImagenSiguiente','BtnCarruselImagenAnterior','colocacion-dispositivos-paso-1',Titulos_Imagenes_Carrusel_1.length,Titulos_Imagenes_Carrusel_1);
+            var Carrusel_1_PutDispositivos = new Carrusel_Class('Carrusel','BtnCarruselImagenSiguiente','BtnCarruselImagenAnterior','colocacion-dispositivos-paso-1',Titulos_Imagenes_Carrusel_1_PutDispositivos.length,Titulos_Imagenes_Carrusel_1_PutDispositivos);
+            
+            var Titulos_Imagenes_Carrusel_2_VoIP = [
+                "1.- Dentro del telefono VoIP, en la seccion \"Phisical\" dentro de \"Modules\", seleccionamos el unico conector disponible.",
+                "2.- Luego, insertamos ese conector dentro de la ranura indicada en la imagen.",
+                "3.- Finalmente, esperamos a que encienda y tome una direccion IP y la extension que acabamos de asignarle al ephone-dn 1, debido a que es el primer dispositivo encendido y registrado."
+            ]
+            var Carrusel_2_voip = new Carrusel_Class('Carrusel-2-VoIP','BtnCarrusel2ImagenSiguiente','BtnCarrusel2ImagenAnterior','Texto-Encendido-VoIP-paso4',Titulos_Imagenes_Carrusel_2_VoIP.length,Titulos_Imagenes_Carrusel_2_VoIP);
             /*
                 Crear una instancia de la clase pasando los IDs de los elementos
                 let miCarrusel = new Carrusel('miCarruselID', 'btnSiguiente', 'btnAnterior', 'tituloImagenes');
@@ -1074,33 +1178,57 @@
                 No te olvides de usar "this" para referirte a las variables que pertenecen a la clase
             */
             var Position = 1; //Indicara el titulo de imagen a mostrar.
-                Carrusel_1.BtnAnterior.onclick = function(){
+                Carrusel_1_PutDispositivos.BtnAnterior.onclick = function(){
                     Position--;
                     if (Position<1){
                         Position = 1;
                     }
-                    Carrusel_1.Mostrar_Imagen_Anterior();
-                    Carrusel_1.Mostrar_Titulos_Carrusel(Position);
+                    Carrusel_1_PutDispositivos.Mostrar_Imagen_Anterior();
+                    Carrusel_1_PutDispositivos.Mostrar_Titulos_Carrusel(Position);
                 }
-                Carrusel_1.BtnSiguiente.onclick = function(){
+                Carrusel_1_PutDispositivos.BtnSiguiente.onclick = function(){
                     Position++;
-                    if (Position>Carrusel_1.get_N_Imagenes_Carrusel){
+                    if (Position>Carrusel_1_PutDispositivos.get_N_Imagenes_Carrusel){
                         Position = 3
                     }
-                    Carrusel_1.Mostrar_Imagen_Siguiente();
-                    Carrusel_1.Mostrar_Titulos_Carrusel(Position);
+                    Carrusel_1_PutDispositivos.Mostrar_Imagen_Siguiente();
+                    Carrusel_1_PutDispositivos.Mostrar_Titulos_Carrusel(Position);
                 }
 
-                Carrusel_1.Funcion_Inicial();
-                Carrusel_1.Carrusel.onclick = function(){
-                    Carrusel_1.Mostrar_Imagen_Siguiente();
+                Carrusel_1_PutDispositivos.Funcion_Inicial();
+                Carrusel_1_PutDispositivos.Carrusel.onclick = function(){
+                    Carrusel_1_PutDispositivos.Mostrar_Imagen_Siguiente();
                     Position++;
-                    if (Position>Carrusel_1.get_N_Imagenes_Carrusel){
-                        Position = Carrusel_1.get_N_Imagenes_Carrusel
+                    if (Position>Carrusel_1_PutDispositivos.get_N_Imagenes_Carrusel){
+                        Position = Carrusel_1_PutDispositivos.get_N_Imagenes_Carrusel
                     }
-                    Carrusel_1.Mostrar_Titulos_Carrusel(Position);
+                    Carrusel_1_PutDispositivos.Mostrar_Titulos_Carrusel(Position);
+                }
+            var Position_Carrusel_2 = 1;
+                Carrusel_2_voip.BtnAnterior.onclick = function(){
+                    Position_Carrusel_2--;
+                    if(Position_Carrusel_2<1){
+                        Position_Carrusel_2=1;
+                    }
+                    Carrusel_2_voip.Mostrar_Imagen_Anterior();
+                    Carrusel_2_voip.Mostrar_Titulos_Carrusel(Position_Carrusel_2);
+                }
+                Carrusel_2_voip.BtnSiguiente.onclick = function(){
+                    Position_Carrusel_2++;
+                    if(Position_Carrusel_2>Carrusel_2_voip.get_N_Imagenes_Carrusel){Position_Carrusel_2=Carrusel_2_voip.get_N_Imagenes_Carrusel}
+
+                    Carrusel_2_voip.Mostrar_Imagen_Siguiente();
+                    Carrusel_2_voip.Mostrar_Titulos_Carrusel(Position_Carrusel_2);
                 }
 
+                Carrusel_2_voip.Funcion_Inicial();
+                Carrusel_2_voip.Carrusel.onclick = function(){
+                    Carrusel_2_voip.Mostrar_Imagen_Siguiente();
+                    Position_Carrusel_2++;
+                    if (Position_Carrusel_2>Carrusel_2_voip.get_N_Imagenes_Carrusel){Position_Carrusel_2=Carrusel_2_voip.get_N_Imagenes_Carrusel}
+
+                    Carrusel_2_voip.Mostrar_Titulos_Carrusel(Position_Carrusel_2);
+                }
             /*
                 FIN SECCION CARRUSEL
             */
@@ -1114,15 +1242,21 @@
                 Modal.style.transitionDuration = "0.8s";
                 Modal.style.width= "49%";
 
-                VentanaConfig.style.transitionProperty = "width";
-                VentanaConfig.style.transitionDuration = "0.9s";
-                VentanaConfig.style.transitionTimingFunction = "ease";
-                VentanaConfig.style.width = "50%";
-                
-                VentanaLeft.style.transitionProperty = "width";
-                VentanaLeft.style.transitionDuration = "0.6s";
-                VentanaLeft.style.transitionTimingFunction = "ease";
-                VentanaLeft.style.width = "0%";
+                if(BtnOpenVentanaExplicacion.textContent == "Mostrar explicacion paso a paso")
+                {
+                    VentanaConfig.style.transitionProperty = "width";
+                    VentanaConfig.style.transitionDuration = "0.9s";
+                    VentanaConfig.style.transitionTimingFunction = "ease";
+                    VentanaConfig.style.width = "50%";
+                    
+                    VentanaLeft.style.transitionProperty = "width";
+                    VentanaLeft.style.transitionDuration = "0.6s";
+                    VentanaLeft.style.transitionTimingFunction = "ease";
+                    VentanaLeft.style.width = "0%";
+                }
+                if(BtnOpenVentanaExplicacion.textContent == "Ocultar explicacion paso a paso"){
+                    Expandir_Ventana_Imagen();
+                }
             }
 
             CloseModal.onclick = function(){
@@ -1131,14 +1265,20 @@
                 Modal.style.transitionDuration = "0.6s";
                 Modal.style.width= "0%";
 
-                VentanaConfig.style.transitionProperty = "width";
-                VentanaConfig.style.transitionDuration = "1s";
-                VentanaConfig.style.transitionTimingFunction = "ease";
-                VentanaConfig.style.width = "70%";
-                
-                VentanaLeft.style.transitionProperty = "width";
-                VentanaLeft.style.transitionDuration = "0.7s";
-                VentanaLeft.style.width = "29%";
+                if(BtnOpenVentanaExplicacion.textContent == "Mostrar explicacion paso a paso"){
+                    VentanaConfig.style.transitionProperty = "width";
+                    VentanaConfig.style.transitionDuration = "1s";
+                    VentanaConfig.style.transitionTimingFunction = "ease";
+                    VentanaConfig.style.width = "70%";
+                    
+                    VentanaLeft.style.transitionProperty = "width";
+                    VentanaLeft.style.transitionDuration = "0.7s";
+                    VentanaLeft.style.width = "29%";
+                }
+                if(BtnOpenVentanaExplicacion.textContent == "Ocultar explicacion paso a paso"){
+                    Ocultar_Ventana_Imagen();
+                }
+
             }
             //Fin Expandir imagen
             
@@ -1298,24 +1438,31 @@
 
             //Ventana explicacion configuraciones
             var Paso_Actual;
-
+            var Mostrar_Explicacion=false; // Comprueba que la ventana de los pasos de configuracion este cerrado o abierto
             BtnOpenVentanaExplicacion.onclick = function(){
-                Mostrar_Ventana_Explicacion();
+                if(Mostrar_Explicacion){
+                    Ocultar_Ventana_Explicacion();
 
-                Ocultar_Btn_Move_Pasos();
-            }
-            BtnCloseExplicacion.onclick = function(){
-                Ocultar_Ventana_Explicacion();
+                    Ocultar_Btn_Move_Pasos();
 
-                Ocultar_Btn_Move_Pasos();
+                    for(let n=0;n<ArrayBtnPasos.length;n++){
+                        ArrayBtnPasos[n].Mostrar_Boton();
+                        ArrayBtnPasos[n].Ocultar_Ventana();
+                        ArrayBtnPasos[n].EstadoBtn = false;
+                    }
 
-                for(let n=0;n<ArrayBtnPasos.length;n++){
-                    ArrayBtnPasos[n].Mostrar_Boton();
-                    ArrayBtnPasos[n].Ocultar_Ventana();
-                    ArrayBtnPasos[n].EstadoBtn = false;
+                    Titulo_Inicial_Explicacion_Configuracion();
+
+                    Mostrar_Explicacion = false;
+                }
+                else{
+                    Mostrar_Ventana_Explicacion();
+
+                    Ocultar_Btn_Move_Pasos();
+
+                    Mostrar_Explicacion = true;
                 }
 
-                Titulo_Inicial_Explicacion_Configuracion()
             }
 
             function Comprobar_Btn_Anterior(Paso_Actual){
