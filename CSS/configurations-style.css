@@ -1,0 +1,784 @@
+:root{
+    color-scheme: light;
+}
+body{
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    gap: 30px;
+    margin: 10px;
+    position: relative;
+    background-color: black;
+}
+
+
+/* ####################### SECCION IZQUIERDA ####################### */
+.titles-style{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 15px;
+    text-align: center;
+}
+.left-section{
+    max-width: 400px;
+    height: 96vh;
+    position: relative;
+    display: grid;
+    gap: 30px;
+    grid-template-rows: 2fr 3fr 1fr;
+
+    position: relative;
+}
+    /* *************** Subseccion Indicaciones Previas *************** */
+    .left-section .section-prev-indications{
+        background-color: bisque;
+        width: 100%; /* no es necesario colocar una altura, ya que esta se define sola con grid */
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+
+        position: relative;
+        overflow: hidden;
+    }
+
+        .title-prev-indications{
+            width: 90%;
+            height: 15%;
+            border-bottom: 1pt black solid;
+        }
+        .content-prev-indications{
+            width: 95%;
+            height: 80%;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 35px;
+
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 5px;
+        }
+            .content-prev-indications .btn-prev-indications{
+                appearance: none;
+                text-decoration: none;
+                color: black;
+                font-size: 20px;
+
+                width: fit-content;
+
+                position: relative;
+                z-index: 1;
+
+                transition: all 400ms;
+                top: 0%; /* Se coloca para dar el efecto de animacion */
+
+                font-family: 'Times New Roman', Times, serif;
+                font-weight: 400;
+            }
+            .btn-prev-indications::before{
+                content: "";
+                width: 8%;
+                height: 100%;
+                position: absolute;
+
+                left: -12%;
+
+                clip-path: polygon(0% 5% , 100% 50% , 0% 95%);
+                z-index: 0;
+                background-color: black;
+
+                transition: all 400ms;
+            }
+            .btn-prev-indications.modified::before{
+                clip-path: polygon(0% 15% , 100% 15% , 50% 100%); /* Estilo que se usara para modificar en JS */
+            }
+            .btn-prev-indications:hover{
+                text-decoration-line: underline;
+            }
+        .hidden-window-prev-indications{
+            width: 90%;
+            height: 60%;
+            background-color: aquamarine;
+            border-radius: 15px;
+            border: 1pt black solid;
+
+            position: absolute;
+            top: 100%;
+            z-index: 1;
+        }
+    /* *************** Fin Subseccion Indicaciones Previas *************** */
+
+    /* *************** Subseccion Imagen de la Topologia *************** */
+    .left-section .section-img-topology{
+        background-color:bisque;
+        width: 100%;
+        border-radius: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+        .image{
+            width: 100%;
+            height: 80%;
+            border-radius: 20px 20px 0 0; /* top-right top-left bottom-right bottom-left */
+        }
+        .image img{
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            transition: 600ms ease-in-out;
+        }
+        .image img:hover{
+            border-radius: 20px 20px 0 0;
+            border-bottom: 2pt black solid;
+        }
+        .container-btn-expand-image{
+            width: 100%;
+            height: 20%;
+            border-radius: 0px 0px 20px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+            .style-btn-expand-image{
+                background-color: darkolivegreen;
+                width: 50%;
+                max-width: 300px;
+                height: 50%;
+
+                border-radius: 20px;
+                color: white;
+                cursor: pointer;
+
+                transform: scale(1);
+                transition: 400ms ease-in-out;
+
+                animation: pulses 2.5s infinite ease-in-out;
+            }
+            .style-btn-expand-image:hover{
+                background-color: yellow;
+                color: black;
+            }
+            @keyframes pulses {
+            0%{
+                transform: scale(1);
+            }
+            50%{
+                transform: scale(1.2,1.2);
+            }
+            100%{
+                transform: scale(1);
+            }
+        }
+        /* ///////////////////////// Modal Imagen Topologia ///////////////////////// */
+        .window-modal-topology-image{
+            position: absolute;
+            width: 85%;
+            height: 90%;
+            top: -100%;
+            left: 50%;
+            translate: -50% -50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            z-index: 5;
+        }
+        .window-modal-topology-image::after,
+        .window-modal-topology-image::before{
+            content: "";
+            width: 100%;
+            height: 100%;
+            background-color: greenyellow;
+            padding: 5px;
+            position: absolute;
+            border-radius: 30px;
+
+            z-index: -1;
+        }
+        .window-modal-topology-image::before{
+            filter: blur(2rem);
+
+        }
+            .window-modal-topology-image .title-modal{
+                width: 100%;
+                height: 8%;
+                background-color: rgba(0, 0, 0, 0.8);
+                border-radius: 30px 30px 0 0;
+                z-index: 0; /* Respecto a el Modal (z-index = 5) */
+                border-bottom: 2pt white solid;
+            }
+                .title-modal p{
+                    font-family: 'Times New Roman', Times, serif;
+                    font-size: 20px;
+                    font-weight: 300;
+                    color: white;
+                    text-align: center;
+                }
+            .window-modal-topology-image .content-modal{
+                width: 100%;
+                height: 92%;
+                background-color: rgba(0, 0, 0, 0.8);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-between;
+                padding-top: 25px;
+                border-radius: 0 0 30px 30px;
+                overflow: hidden;
+                z-index: 0; /* Modifica esto cuando tengas que trabajar con z-index en los elementos hijo */
+            }
+                .content-modal .image-topology{
+                    width: 90%;
+                    height: 82%;
+                    object-fit: cover;
+
+                    position: relative;
+                }
+                    @property --angulo-rotacion{
+                        syntax: "<angle>";
+                        initial-value: 0deg;
+                        inherits: false;
+                    }
+                    .image-topology::after,
+                    .image-topology::before{
+                        content: "";
+                        width: 100%;
+                        height: 100%;
+
+                        position: absolute;
+                        background-image: conic-gradient(from var(--angulo-rotacion), transparent 50%, blue);
+
+                        left: 50%;
+                        top: 50%;
+                        translate: -50% -50%;
+                        border-radius: 15px;
+                        padding: 4px;
+
+                        z-index: -1;
+
+                        animation: rotate 1.5s linear infinite;
+                    }
+                    .image-topology::before{
+                        filter: blur(2rem);
+                    }
+                    @keyframes rotate {
+                        from{
+                            --angulo-rotacion : 0deg;
+                        }
+                        to{
+                            --angulo-rotacion : 360deg;
+                        }
+                    }
+                    .image-topology img{
+                        width: 100%;
+                        height: 100%;
+                        aspect-ratio: 16/9;
+                        object-fit: contain;
+                        background-color: #000;
+                        border-radius: 15px;
+                    }
+                .content-modal .container-btn-modal{
+                    width: 60%;
+                    height: 18%;
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 40px;
+                }
+                    .container-btn-modal a{
+                        appearance: none;
+                        width: 45%;
+                        height: 30px;
+                    }
+                    .container-btn-modal a .btn-modal,
+                    .container-btn-modal .btn-modal{
+                        appearance: none;
+                        background-color: black;
+                        color: white;
+                        border-radius: 15px;
+
+                        font-family: Arial, Helvetica, sans-serif;
+                        font-weight: 400;
+
+                        position: relative;
+                        cursor: pointer;
+                    }
+                    .container-btn-modal a .btn-modal{
+                        width: 100%;
+                        height: 100%;
+                    }
+                    .container-btn-modal .btn-modal{
+                        width: 45%;
+                        height: 30px;
+                    }
+                    .container-btn-modal #BtnCloseModal::after,
+                    .container-btn-modal #BtnCloseModal::before,
+                    .container-btn-modal #BtnDownloadTopologyImg::after,
+                    .container-btn-modal #BtnDownloadTopologyImg::before{
+                        content: "";
+                        width: 100%;
+                        height: 100%;
+                        position: absolute;
+
+                        top: 50%;
+                        left: 50%;
+                        translate: -50% -50%;
+                        z-index: -1;
+                        border-radius: 15px;
+                        padding: 3px;
+                        animation: rotate 2.0s linear infinite; 
+                    }
+                    .container-btn-modal #BtnCloseModal::after{
+                        background-image: conic-gradient(from var(--angulo-rotacion), transparent 50%, red);
+                    }
+                    .container-btn-modal #BtnCloseModal::before{
+                        background-image: conic-gradient(from var(--angulo-rotacion), transparent 50%, red);
+                        filter: blur(2rem);
+                    }
+                    .container-btn-modal #BtnDownloadTopologyImg::after{
+                        background-image: conic-gradient(from var(--angulo-rotacion), transparent 50%, yellow, greenyellow, green, orange, red);
+                    }
+                    .container-btn-modal #BtnDownloadTopologyImg::before{
+                        background-image: conic-gradient(from var(--angulo-rotacion), transparent 50%, yellow, greenyellow, green, orange, red);
+                        filter: blur(2rem);
+                    }
+                    /* Estilos Hover */
+
+                    /* Fin Estilos Hover */
+        /* ///////////////////////// FIN Imagen Modal Topologia ///////////////////////// */
+
+    /* *************** Fin Subseccion Imagen de la Topologia *************** */
+
+
+    /* *************** Subseccion Botones *************** */
+    .left-section .section-buttons{
+        background-color: bisque;
+        width: 100%;
+        border-radius: 20px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        column-gap: 15px;
+    }
+        .section-buttons .btn-section-buttons{
+            background-color: darkgrey;
+            width: 160px;
+            max-width: 270px;
+            height: 30%;
+            border-radius: 20px;
+
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 14px;
+            text-wrap: wrap;
+            box-shadow: 0px 0px;
+            cursor: pointer;
+
+            transition: 400ms ease-in-out;
+        }
+        .section-buttons .btn-section-buttons:hover{
+            background-color:lightgray;
+            transform: scale(1.1);
+            box-shadow: 5px 5px;
+        }
+    /* *************** Fin Subseccion Botones *************** */
+
+/* ####################### FIN SECCION IZQUIERDA ####################### */
+
+
+/* ####################### SECCION DERECHA  #######################*/
+.right-section{
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 100%;
+    gap: 10px;
+
+    position: relative;
+    overflow: hidden;
+}
+.section-configurations-commands{
+    display: grid;
+    grid-template-rows: 1fr 14fr;
+}
+    .title-configurations-commands{
+        background-color: aquamarine;
+        border-radius: 20px 20px 0px 0px;
+        border-bottom: 2pt black solid;
+    }
+    .title-configurations-commands h1{
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 20px;
+        text-align: center;
+    }
+    .type-network-devices{
+        background-color:cadetblue;
+        border-radius: 0px 0px 20px 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+
+        overflow: hidden;
+        position: relative;
+    }
+        /* Contenedor Numero de dispositivo de red */
+        .type-network-devices .container-subsection-number-network-device{
+            width: 90%;
+            height: 80%;
+            background-color: antiquewhite;
+            position: absolute;
+            top: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+
+            border-radius: 20px;
+            overflow: hidden;
+        }
+        .type-network-devices .container-btn{
+            padding-top: 15px;
+            width: 100%;
+            height: max-content;
+            max-height: 540px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 25px;
+        }
+            .container-btn .btn-type-network-devices{
+                width: 300px;
+                max-width: 300px;
+                height: 30px;
+                border-radius: 15px;
+                background-color: cornflowerblue;
+                box-shadow: 10px 10px;
+
+                font-family: 'Times New Roman', Times, serif;
+                font-size: 15px;
+                font-style: italic;
+
+                transform: scale(1);
+                opacity: 1;
+                pointer-events: all;
+                cursor: pointer;
+
+                transition: all 600ms ease-in-out;
+
+                position: relative;
+                top: 0%;
+            }
+            .container-btn .btn-type-network-devices:hover{
+                background-color: cyan;
+                transform: scale(1.2);
+                box-shadow: 5px 10px;
+            }
+        .type-network-devices .others{
+            width: 100%;
+            height: 7%;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            background-color: cadetblue;
+
+            position: relative;
+            z-index: 1; /* Esto para estar por encima de la ventana n° de dispositivo de red */
+        }
+            .others input{
+                appearance: none;
+                width: 20px;
+                height: 20px;
+                border-radius: 50%;
+                background-color: aquamarine;
+                cursor: pointer;
+                transform: 400ms;
+            }
+            .others input:checked{
+                background-color: brown;
+            }
+
+        /* ******************* Subseccion Ventana Numero de Dispositivo de Red (R1,R2,...; S1,S2,...; ETC) ******************* */
+        /*  
+            ===============================================================
+            En esta subseccion se encuentran los botones para acceder a 
+            cada dispositivo individual (R1,S1,R2, etc.) para ver los 
+            comandos de configuracion; tambien se encuentra el boton de
+            cerrar la ventana de la subseccion actual y la propia ventana
+            que muetra los comandos de configuracion mas el modo de 
+            configuracion o solamente los comandos de configuracion.
+            ===============================================================
+        */
+        .container-subsection-number-network-device .container-btn{
+            padding-top: 10px;
+            width: 90%;
+            padding-top: 15px;
+            height: max-content;
+            max-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 25px;
+        }
+
+            .container-btn .btn-number-network-device{
+                width: 20%;
+                height: 35px;
+                border-radius: 20px;
+                background-color: palevioletred;
+
+                font-family: 'Times New Roman', Times, serif;
+                font-size: 15px;
+                font-style: normal;
+
+                box-shadow: 10px 10px black;
+                transition: all 400ms ease-in-out;
+                cursor: pointer;
+
+                transform: scale(1);
+                color: black;
+
+                overflow: hidden;
+                position: relative; /* Para usar el before el elemento base debe estar en relative */
+                z-index: 0;
+                top: 0%;
+            }
+            .container-btn .btn-number-network-device::before{
+                content: ""; /* Para que se muetre el elemento es obligatorio el contenido */
+                height: 100%;
+                width: 100%;
+                top: 0%;
+                left: 0%;
+                position: absolute; /* Posicion absoluta para el elemento before */
+                z-index: -1;
+                background-color: pink;
+                transform: translateX(-100%);
+                transition: all 400ms ease-in-out;
+            }
+            .container-btn .btn-number-network-device:hover::before{
+                transform: translateX(0%);
+            }
+            .container-btn .btn-number-network-device:hover{
+                box-shadow: 5px 10px black;
+                color: white;
+                transform: scale(1.1);
+            }
+
+
+        .window-n-network-device-commands-modeconfiguration,
+        .window-n-network-device-only-commands{
+            width: 90%;
+            height: 85%;
+            background-color: greenyellow;
+            position: absolute;
+            /* left: 5%; */
+            left: -100%;
+            top: 13%;
+            border-radius: 15px;
+            border: 1pt solid;
+            z-index: 1;
+        }
+        .window-n-network-device-commands-modeconfiguration p,
+        .window-n-network-device-only-commands p{
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 16px;
+            padding-left: 30px;
+            padding-top: 15px;
+            color: black;
+        }
+        .window-n-network-device-commands-modeconfiguration p::selection,
+        .window-n-network-device-only-commands p::selection{
+            background-color: yellow;
+            color: red;
+        }
+
+        /* ******************* FIN Subseccion Ventana Numero de Dispositivo de Red (R1,R2,...; S1,S2,...; ETC) ******************* */
+    
+
+/* ####################### FIN SECCION DERECHA ####################### */
+
+
+/* ####################### SECCION EXPLICACION CONFIGURACION ####################### */
+/*  
+    ===============================================================
+    ESTA VENTANA SE ENCUENTRA OCULTA MAS A LA DERECHA DE LA SECCION
+    DERECHA, SOLO SE MUESTRA AL PERSIONAR EL BOTON "MOSTRAR 
+    EXPLICACION PASO A PASO".
+    LA VENTANA ESTA EN Z-INDEX=3
+    ===============================================================
+*/
+.section-configuration-explain{
+    display: grid;
+    grid-template-rows: 1fr 14fr;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 102%;
+    z-index: 3;
+    transition: 400ms ease-in-out;
+}
+    .title-configuration-explain{
+        background-color: aquamarine;
+        border-radius: 20px 20px 0px 0px;
+    }
+        .title-configuration-explain h1{
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 20px;
+            text-align: center;
+        }
+    .content-configuration-explain{
+        background-color: cadetblue;
+        border-radius: 0px 0px 20px 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        position: relative;
+    }
+
+        .content-configuration-explain .container-pasos{
+            width: 100%;
+            height: max-content;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 25px;
+            padding-top: 25px;
+        }
+            .container-pasos .btn-pasos{
+                width: 200px;
+                max-width: 300px;
+                height: 30px;
+                border-radius: 15px;
+                background-color: darkmagenta;
+                border-radius: 15px;
+                box-shadow: 10px 10px;
+
+                font-family: 'Times New Roman', Times, serif;
+                font-size: 15px;
+                font-style: italic;
+
+                transition: 450ms ease-in-out;
+
+                position: relative;
+                top: 0%;
+            }
+            .btn-pasos:hover{
+                background-color: magenta;
+                transform: scale(1.2);
+                box-shadow: 5px 10px;
+            }
+        .content-configuration-explain .others{
+            width: 100%;
+            height: 10%;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            background-color: cadetblue;
+
+            position: relative;
+            z-index: 1;
+
+            gap: 30px;
+
+            transition: all 400ms ease-in-out;
+        }
+            .content-configuration-explain .others .btn-previous-step,
+            .content-configuration-explain .others .btn-next-step{
+                width: 20%;
+                height: 50%;
+                background-color: gray /* chartreuse */;
+                border-radius: 10px;
+                position: relative;
+                z-index: 0;
+                overflow: hidden;
+                pointer-events: none;
+            }
+            .content-configuration-explain .others .btn-previous-step::before,
+            .content-configuration-explain .others .btn-next-step::before{
+                content: "";
+                width: 100%;
+                height: 100%;
+                background-color: chartreuse;
+
+                position: absolute;
+                top: 200%;
+                left: 50%;
+                translate: -50% -50%;
+                z-index: -1;
+
+                transition: all 400ms ease-in-out;
+            }
+            .content-configuration-explain .others .btn-previous-step.previous::before{
+                top: 50%;
+            }
+            .content-configuration-explain .others .btn-next-step.next::before{
+                top: 50%;
+            }
+        /* ####################### Subseccion Ventana Pasos ####################### */
+        .window-step{
+            width: 90%;
+            height: 78%;
+            background-color: pink;
+            border-radius: 15px;
+            border: 1pt black solid;
+        
+            position: absolute;
+        
+            top: 100%;
+            left: 5%;
+            z-index: 0;
+        }
+        /* ####################### Fin Subseccion Ventana Pasos ####################### */
+/* ####################### FIN SECCION EXPLICACION CONFIGURACION #######################*/
+
+/* #######################Estilos para texto de comandos o descripcion ####################### */
+.style-text-configuration-description{
+    width: 90%;
+    height: max-content;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.style-text-commands{
+    width: 90%;
+    height: max-content;
+    border: 1pt black solid;
+    border-radius: 15px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 16px;
+    font-weight: 100;
+    text-align: center;
+    margin: 0 auto;
+    position: relative;
+    background-color: greenyellow;
+}
+.style-text-commands::after,
+.style-text-commands::before{
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-image: linear-gradient( violet, pink, red, orange);
+    opacity: 1;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    border-radius: 15px;
+    padding: 3px;
+    z-index: -1;
+}
+.style-text-commands::before{
+    filter: blur(.5rem);
+}
+/* ####################### FIN Estilos para texto de comandos o descripcion ####################### */
+
+/* ####################### Estilos Carrusel de imagenes ####################### */
+
+/* ####################### Fin Estilos Carrusel de Imagenes ####################### */
