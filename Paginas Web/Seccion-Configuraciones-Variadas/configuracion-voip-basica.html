@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>Pag 1</title>
+        <link rel="stylesheet" href="/CSS/configurations-style.css">
+    </head>
+    <body>
+        <!-- Modal Imagen Topologia -->
+        <div class="window-modal-topology-image" id="ModalTopology">
+            <div class="title-modal">
+                <p>Topologia</p>
+            </div>
+            <div class="content-modal">
+                <div class="image-topology">
+                    <img src="/Images/Configuraciones Variadas/Topologia-VoIP-1.png" alt="Topology">
+                </div>
+                <div class="container-btn-modal">
+                    <button class="btn-modal" id="BtnCloseModal">Cerrar</button>
+                    <a href="/Images/Configuraciones Variadas/Topologia-VoIP-1.png" download><button class="btn-modal" id="BtnDownloadTopologyImg">Descargar Imagen</button></a>
+                    <a href="/Topologias pkt/Practica Individual Configuracion-VoIP Basica 4-1-25.pkt" download><button class="btn-modal" id="BtnDownloadTopologyPkt">Descargar Topologia</button></a>
+                </div>
+            </div>
+        </div>
+        <!-- FIN Modal Imagen Topologia -->
+
+
+        <div class="left-section">
+            <div class="section-prev-indications">
+                <div class="title-prev-indications">
+                    <h1 class="titles-style">Indicaciones Previas</h1>
+                </div>
+                <div class="content-prev-indications">
+                    <a href="#" class="btn-prev-indications" id="LevelConfiguration">Nivel de Configuracion</a>
+                    <a href="#" class="btn-prev-indications" id="UsedDevices">Dispositivos Usados</a>
+                </div>
+                <div class="hidden-window-prev-indications" id="WindowLvlConfiguration">
+                    <p>Principiante</p>
+                </div>
+                <div class="hidden-window-prev-indications" id="WindowUsedDevices">
+                    <ul>
+                        <li></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="section-img-topology">
+                <div class="image">
+                    <img src="/Images/Configuraciones Variadas/Topologia-VoIP-1.png" alt="Topology">
+                </div>
+                <div class="container-btn-expand-image">
+                    <button class="style-btn-expand-image" id="BtnOpenModal">Expandir</button>
+                </div>
+            </div>
+            <div class="section-buttons">
+                <button class="btn-section-buttons">Volver</button>
+                <button class="btn-section-buttons">Ir a la pagina principal</button>
+                <button class="btn-section-buttons" id="BtnDisplayExplain">Mostrar explicacion paso a paso</button>
+            </div>
+        </div>
+        <div class="right-section">
+            <div class="section-configurations-commands" id="ConfigurationWindow">
+                <div class="title-configurations-commands">
+                    <h1>Elige el tipo de dispositivo de red</h1>
+                </div>
+                <div class="type-network-devices">
+                    <div class="container-btn">
+                        <button class="btn-type-network-devices" id="BtnRouters">Routers</button>
+                        <button class="btn-type-network-devices" id="BtnSwitches">Switches</button>
+                    </div>
+
+                    <!-- 
+                        La direccion de desplazamiento de estas ventanas es de  abajo hacia arriba 
+                    -->
+                    <!-- Ventana Routers -->
+                    <div class="container-subsection-number-network-device" id="WindowSelectionN°Router">
+                        <!-- Ventana R1 -->
+                        <div class="window-n-network-device-commands-modeconfiguration" id="WindowCommandsPlusModeR1">
+                            <p>
+
+                            </p>
+                        </div>
+
+                        <div class="window-n-network-device-only-commands" id="WindowOnlyCommandsR1">
+                            <p>
+                                enable <br>
+                                configure terminal <br>
+                                <br>
+                                <br>
+                                // Configuramos la interfaz Fa0/1 
+                                <br>
+                                interface fa0/1 <br>
+                                ip address 192.168.10.1 255.255.255.0 <br>
+                                no shutdown <br>
+                                exit <br>
+                                <br>
+                                <br>
+                                // Creamos un pool DHCP para brindar direccionamiento a nuestros equipos en la red
+                                <br>
+                                ip dhcp pool LAN_A <br>
+                                network 192.168.10.0 255.255.255.0 <br>
+                                default-router 192.168.10.1 <br>
+                                dns 8.8.8.8 <br>
+                                exit <br>
+                                <br>
+                                <br>
+                                // Configuramos el servicio telefonico CME
+                                <br>
+                                telephony-service <br>
+                                max-dn 3 <br>
+                                max-ephones 3 <br>
+                                ip source-address 192.168.10.1 port 2010 <br>
+                                auto assign 1 to 3 <br>
+                                <br>
+
+                            </p>
+                        </div>
+                        <!-- FIN Ventana R1  -->
+
+                        <div class="container-btn">
+                            <button class="btn-number-network-device" id="BtnR1">R1</button>
+                        </div>
+                    </div>
+                    <!-- FIN Ventana Routers -->
+
+
+                    <!-- Ventana Switches -->
+                    <div class="container-subsection-number-network-device" id="WindowSelectionN°Switch">
+                        <!-- Ventana S1 -->
+                        <div class="window-n-network-device-commands-modeconfiguration" id="WindowCommandsPlusModeS1">
+
+                        </div>
+
+                        <div class="window-n-network-device-only-commands" id="WindowOnlyCommandsS1">
+
+                        </div>
+                        <!-- FIN Ventana S1 -->
+
+                        <div class="container-btn">
+                            <button class="btn-number-network-device" id="BtnS1">S1</button>
+                        </div>
+                    </div>
+                    <!-- FIN Ventana Switches -->
+                    
+
+                    <div class="others">
+                        <input type="checkbox" name="DisplayJustCommands" id="checkbox"><label for="DisplayJustCommands">Mostrar Solo Comandos</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ventana Explicacion configuracion -->
+            <div class="section-configuration-explain" id="ExplainWindows">
+                <div class="title-configuration-explain">
+                    <h1>Elige un paso</h1>
+                </div>
+                <div class="content-configuration-explain">
+                    <div class="container-pasos">
+                        <button class="btn-pasos" id="BtnPaso1">Paso 1</button>
+                        <button class="btn-pasos" id="BtnPaso2">Paso 2</button>
+                        <button class="btn-pasos" id="BtnPaso3">Paso 3</button>
+                        <button class="btn-pasos" id="BtnPaso4">Paso 4</button>
+                        <button class="btn-pasos" id="BtnPaso5">Paso 5</button>
+                    </div>
+                    <div class="others">
+                        <button class="btn-previous-step" id="BtnPreviousStep">Paso Anterior</button>
+                        <button class="btn-next-step" id="BtnNextStep">Paso Siguiente</button>
+                    </div>
+
+                    <!-- Ventana Paso 1 -->
+                    <div class="window-step" id="WindowStep1">
+                        <p class="style-text-configuration-description">
+                            Inserte descripcion aqui
+                        </p>
+                        <p class="style-text-commands">
+                            Comando 1 ip nat inside source list 10 pool 10 overload <br>
+                            Comando 2 crypto ipsec transform-set SET-VPN esp-aes esp-hmac-sha 
+                        </p>
+                    </div>
+                    <!-- Fin Ventana Paso 1 -->
+
+
+                    <!-- Ventana Paso 2 -->
+                    <div class="window-step" id="WindowStep2">
+                        2
+                    </div>
+                    <!-- Fin Ventana Paso 3 -->
+
+                    
+                    <!-- Ventana Paso 3 -->
+                    <div class="window-step" id="WindowStep3">
+                        3
+                    </div>
+                    <!-- Fin Ventana Paso 3 -->
+
+
+                    <!-- Ventana Paso 4 -->
+                    <div class="window-step" id="WindowStep4">
+                        4
+                    </div>
+                    <!-- Fin Ventana Paso 4 -->
+
+
+                    <!-- Ventana Paso 5 -->
+                    <div class="window-step" id="WindowStep5">
+                        5
+                    </div>
+                    <!-- Fin Ventana Paso 5 -->
+                </div>
+            </div>
+            <!-- FIN Ventana Explicacion configuracion -->
+        </div>
+
+        <!-- 
+            Para poder usar el codigo js, usamos src y colocamos ".." al inicio para indicar que esta en una carpeta superior,
+            colocamos type="module", para indicar que el html puede usar modulos importados del js. Ademas colocamos "defer" para
+            indicar que todo el codigo JS se cargara despues del HTML, es util cuando en el JS manipulamos el DOM del HTML.
+        -->
+        <script src="../../JS/JS_Core/Core_Views/JS-action-buttons.js" defer></script>
+        <script type="module" src="../../JS/JS_Views/Various_Configurations/basic_voip_configuration.js"></script>
+    </body>
+</html>

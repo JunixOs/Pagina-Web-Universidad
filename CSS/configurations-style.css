@@ -317,7 +317,9 @@ body{
                     .container-btn-modal #BtnCloseModal::after,
                     .container-btn-modal #BtnCloseModal::before,
                     .container-btn-modal #BtnDownloadTopologyImg::after,
-                    .container-btn-modal #BtnDownloadTopologyImg::before{
+                    .container-btn-modal #BtnDownloadTopologyImg::before,
+                    .container-btn-modal #BtnDownloadTopologyPkt::after,
+                    .container-btn-modal #BtnDownloadTopologyPkt::before{
                         content: "";
                         width: 100%;
                         height: 100%;
@@ -338,10 +340,12 @@ body{
                         background-image: conic-gradient(from var(--angulo-rotacion), transparent 50%, red);
                         filter: blur(2rem);
                     }
-                    .container-btn-modal #BtnDownloadTopologyImg::after{
+                    .container-btn-modal #BtnDownloadTopologyImg::after,
+                    .container-btn-modal #BtnDownloadTopologyPkt::after{
                         background-image: conic-gradient(from var(--angulo-rotacion), transparent 50%, yellow, greenyellow, green, orange, red);
                     }
-                    .container-btn-modal #BtnDownloadTopologyImg::before{
+                    .container-btn-modal #BtnDownloadTopologyImg::before,
+                    .container-btn-modal #BtnDownloadTopologyPkt::before{
                         background-image: conic-gradient(from var(--angulo-rotacion), transparent 50%, yellow, greenyellow, green, orange, red);
                         filter: blur(2rem);
                     }
@@ -572,7 +576,7 @@ body{
         .window-n-network-device-only-commands{
             width: 90%;
             height: 85%;
-            background-color: greenyellow;
+            background-color: black;
             position: absolute;
             /* left: 5%; */
             left: -100%;
@@ -580,6 +584,7 @@ body{
             border-radius: 15px;
             border: 1pt solid;
             z-index: 1;
+            overflow: auto;
         }
         .window-n-network-device-commands-modeconfiguration p,
         .window-n-network-device-only-commands p{
@@ -587,7 +592,8 @@ body{
             font-size: 16px;
             padding-left: 30px;
             padding-top: 15px;
-            color: black;
+            padding-bottom: 15px;
+            color: white;
         }
         .window-n-network-device-commands-modeconfiguration p::selection,
         .window-n-network-device-only-commands p::selection{
@@ -745,6 +751,7 @@ body{
     font-weight: 300;
     padding-left: 20px;
     padding-right: 20px;
+    text-align: center;
 }
 .style-text-commands{
     width: 90%;
@@ -758,6 +765,7 @@ body{
     margin: 0 auto;
     position: relative;
     background-color: greenyellow;
+    padding: 15px 15px 15px 15px;
 }
 .style-text-commands::after,
 .style-text-commands::before{
@@ -765,7 +773,7 @@ body{
     width: 100%;
     height: 100%;
     position: absolute;
-    background-image: linear-gradient( violet, pink, red, orange);
+    background-image: linear-gradient( blue, orange, greenyellow, cadetblue);
     opacity: 1;
     top: 50%;
     left: 50%;

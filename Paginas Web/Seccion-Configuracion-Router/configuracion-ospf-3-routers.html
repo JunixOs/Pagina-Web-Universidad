@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="es">
     <head>
-        <title>Pag 1</title>
+        <title>NetConfig</title>
         <link rel="stylesheet" href="/CSS/configurations-style.css">
+
+        <link rel="icon" href="/Images/nube-icono.ico" type="image/x-icon">
     </head>
     <body>
         <!-- Modal Imagen Topologia -->
@@ -33,10 +35,12 @@
                     <a href="#" class="btn-prev-indications" id="UsedDevices">Dispositivos Usados</a>
                 </div>
                 <div class="hidden-window-prev-indications" id="WindowLvlConfiguration">
-                    <p></p>
+                    <p>Principiante</p>
                 </div>
                 <div class="hidden-window-prev-indications" id="WindowUsedDevices">
-                    <p></p>
+                    <ul>
+                        <li></li>
+                    </ul>
                 </div>
             </div>
             <div class="section-img-topology">
@@ -69,7 +73,7 @@
                     -->
                     <!-- Ventana Routers -->
                     <div class="container-subsection-number-network-device" id="WindowSelectionN°Router">
-                        <!-- R1 -->
+                        <!-- Ventana R1 -->
                         <div class="window-n-network-device-commands-modeconfiguration" id="WindowCommandsPlusModeR1">
                             <p>
                                 Commands
@@ -81,9 +85,9 @@
                                 OnlyConfig
                             </p>
                         </div>
-                        <!-- FIN R1  -->
+                        <!-- FIN Ventana R1  -->
 
-                        <!-- R2 -->
+                        <!-- Ventana R2 -->
                         <div class="window-n-network-device-commands-modeconfiguration" id="WindowCommandsPlusModeR2">
                             Commands
                         </div>
@@ -91,9 +95,9 @@
                         <div class="window-n-network-device-only-commands" id="WindowOnlyCommandsR2">
                             OnlyConfig
                         </div>
-                        <!-- FIN R2  -->
+                        <!-- FIN Ventana R2  -->
 
-                        <!-- R3 -->
+                        <!-- Ventana R3 -->
                         <div class="window-n-network-device-commands-modeconfiguration" id="WindowCommandsPlusModeR3">
 
                         </div>
@@ -101,7 +105,7 @@
                         <div class="window-n-network-device-only-commands" id="WindowOnlyCommandsR3">
                             OnlyConfig
                         </div>
-                        <!-- FIN R3  -->
+                        <!-- FIN Ventana R3  -->
 
                         <div class="container-btn">
                             <button class="btn-number-network-device" id="BtnR1">R1</button>
@@ -225,6 +229,7 @@
             colocamos type="module", para indicar que el html puede usar modulos importados del js. Ademas colocamos "defer" para
             indicar que todo el codigo JS se cargara despues del HTML, es util cuando en el JS manipulamos el DOM del HTML.
         -->
-        <script type="module" src="../JS/JS-config-VoIP.js" defer></script>
+        <script src="../../JS/JS_Core/Core_Views/JS-action-buttons.js" defer></script>
+        <script type="module" src="../../JS/JS_Views/Router_Configuration_Section/osfp_routing_medium.js" defer></script>
     </body>
 </html>
