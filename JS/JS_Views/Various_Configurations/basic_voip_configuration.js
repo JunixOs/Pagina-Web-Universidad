@@ -4,6 +4,10 @@ import {
     Group_Type_Network_Devices
 } from "../../JS_Core/Core_Views/buttons-configurations-base.js";
 
+import{
+    Preview_Image_Topology
+} from "../../JS_Core/Core_Views/buttons-configurations-base.js";
+
 var CheckBox = document.getElementById("checkbox");  // Checkbox "Mostrar solo configuraciones"
 
 var Routers = new Type_Network_Device('BtnRouters' , 'WindowSelectionN°Router'); /* Position = 1 */
@@ -20,6 +24,30 @@ var Hosts = new Type_Network_Device('BtnHosts' , 'WindowSelectionHost');
     var Group_end_devices = new Group_Network_Devices_Number( [PC , VoIP] );
 
 var Group_Type_NetD = new Group_Type_Network_Devices( [Routers , Switches , Hosts] );
+
+var Preview = new Preview_Image_Topology('ImgTopology' , 'WindowPreview' , "/Images/Configuraciones Variadas/Topologia-VoIP-1.png" , 'BtnPrevImgTopology' , '.section-prev-indications' , 'TextWindowPrev');
+
+/* Section Image Topology */
+var Click_Image = false;
+Preview.BtnPreview.addEventListener('click', () =>{
+    Preview.Function_EventListener();
+})
+Preview.ImageTopology.addEventListener('click', () =>{
+    if(!Click_Image){
+        Click_Image = true;
+        Preview.Display_Hidden_Text_Window_Preview(true);
+    }
+    else{
+        Click_Image = false;
+        Preview.Display_Hidden_Text_Window_Preview(false);
+    }
+})
+Preview.ImageTopology.addEventListener('mousemove', (e) =>{
+    Preview.Function_Mousemove(e, Click_Image);
+});
+Preview.ImageTopology.addEventListener('mouseout', ()=>{
+    Preview.Function_Mouseout();
+})
 
 Routers.Btn.addEventListener('click',()=>{
     Group_Type_NetD.Function_EventListener(1);

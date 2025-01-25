@@ -451,3 +451,87 @@ export class Group_Btn_Explain_Steps{
         this.Disable_Btn_Previous_Step();
     }
 }
+
+export class Preview_Image_Topology{
+    constructor ( IDImageTopology , IDWindowPreview , URLImageTopology , IDBtnPreview , ClassWindowPrevIndications , IDTextWindowPrev){
+        this.ImageTopology = document.getElementById(IDImageTopology);
+        this.WindowPreview = document.getElementById(IDWindowPreview);
+        this.URLImageTopology = URLImageTopology;
+        this.BtnPreview = document.getElementById(IDBtnPreview);
+        this.WindowPrevIndications = document.querySelector(ClassWindowPrevIndications);
+        this.Active = false;
+        this.TextBtn = "";
+        this.e = null;
+        this.TextWindowPrev = document.getElementById(IDTextWindowPrev);
+    }
+    Function_Mousemove(e, Click){
+        if(Click){
+            e = this.e;
+        }
+        else{
+            this.e = e;
+        }
+        let x = this.WindowPreview.offsetWidth / 110;
+        let y = this.WindowPreview.offsetHeight / 110;
+
+        this.WindowPreview.style.backgroundImage =
+        `image-set('${ this.URLImageTopology }')`;
+        this.WindowPreview.style.backgroundSize = this.ImageTopology.width * x +
+            "px " + this.ImageTopology.height * y + "px";
+
+        let posX = e.offsetX * (-1);
+        let posY = e.offsetY * (-1);
+
+        this.WindowPreview.style.backgroundPosition =
+            ((posX * x) + (170)) + "px " + ((posY * y) + (110)) + "px";
+    }
+    Function_Mouseout(){
+        this.Function_Mousemove(this.e); // Al salir el mause de la ventana el valor "e" ya no se modifica y queda constante, 
+                                         // por lo que dara el efecto de que la imagen se queda estatica en esa posicion
+    }
+    Function_EventListener(){
+        if(!this.Active){
+            this.WindowPreview.style.transition = "600ms ease-in-out";
+            this.WindowPreview.style.top = "0%";
+
+            this.WindowPrevIndications.style.transition = "500ms ease-in-out";
+            this.WindowPrevIndications.style.opacity = "0";
+            this.WindowPrevIndications.style.top = "-100%";
+
+            this.ImageTopology.style.cursor = "zoom-in";
+
+            this.TextBtn = this.BtnPreview.textContent;
+            const TextClose = "Cerrar ";
+            this.BtnPreview.textContent = TextClose + this.TextBtn;
+            this.Active = true;
+        }
+        else{
+            this.WindowPreview.style.transition = "500ms ease-in-out";
+            this.WindowPreview.style.top = "-100%";
+
+            this.WindowPrevIndications.style.transition = "400ms ease-in-out";
+            this.WindowPrevIndications.style.opacity = "1";
+            this.WindowPrevIndications.style.top = "0%";
+
+            this.ImageTopology.style.cursor = "default";
+
+            this.BtnPreview.textContent = this.TextBtn;
+
+            this.Active = false;
+        }
+    }
+    Display_Hidden_Text_Window_Preview(Fixed){
+        if(Fixed){
+            this.TextWindowPrev.textContent = "Fijado";
+
+            this.TextWindowPrev.style.transition = "800ms ease-in-out";
+            this.TextWindowPrev.style.opacity = "1";
+        }
+        else{
+            this.TextWindowPrev.textContent = "No Fijado";
+
+            this.TextWindowPrev.style.transition = "800ms ease-in-out";
+            this.TextWindowPrev.style.opacity = "0";
+        }
+    }
+}

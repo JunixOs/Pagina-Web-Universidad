@@ -17,7 +17,7 @@
                 <div class="container-btn-modal">
                     <button class="btn-modal" id="BtnCloseModal">Cerrar</button>
                     <a href="/Images/Configuraciones Variadas/Topologia-VoIP-1.png" download><button class="btn-modal" id="BtnDownloadTopologyImg">Descargar Imagen</button></a>
-                    <a href="/Topologias pkt/Practica Individual Configuracion-VoIP Basica 4-1-25.pkt" download><button class="btn-modal" id="BtnDownloadTopologyPkt">Descargar Topologia</button></a>
+                    <a href="/Topologias pkt/Practica Individual Configuracion-VoIP Basica 4-1-25.pkt" download><button class="btn-modal" id="BtnDownloadTopologyPkt">Descargar Topologia .pkt</button></a>
                 </div>
             </div>
         </div>
@@ -25,6 +25,11 @@
 
 
         <div class="left-section">
+
+            <!-- Seccion Prev Zoom Imagen Topologia -->
+            <div class="window-prev-topology-image" id="WindowPreview"><p id="TextWindowPrev"></p></div>
+            <!-- FIN Seccion Prev Zoom Imagen Topologia -->
+            
             <div class="section-prev-indications">
                 <div class="title-prev-indications">
                     <h1 class="titles-style">Indicaciones Previas</h1>
@@ -44,10 +49,11 @@
             </div>
             <div class="section-img-topology">
                 <div class="image">
-                    <img src="/Images/Configuraciones Variadas/Topologia-VoIP-1.png" alt="Topology">
+                    <img src="/Images/Configuraciones Variadas/Topologia-VoIP-1.png" alt="Topology" id="ImgTopology">
                 </div>
-                <div class="container-btn-expand-image">
-                    <button class="style-btn-expand-image" id="BtnOpenModal">Expandir</button>
+                <div class="container-btn-img-topology">
+                    <button class="style-btn-prev-image" id="BtnPrevImgTopology">Zoom</button>
+                    <button class="style-btn-download-elements" id="BtnOpenModal">Descargar Archivos</button>
                 </div>
             </div>
             <div class="section-buttons">

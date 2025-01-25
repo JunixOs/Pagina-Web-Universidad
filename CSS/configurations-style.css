@@ -38,6 +38,7 @@ body{
 
         position: relative;
         overflow: hidden;
+        top: 0%;
     }
 
         .title-prev-indications{
@@ -132,22 +133,26 @@ body{
             border-radius: 20px 20px 0 0;
             border-bottom: 2pt black solid;
         }
-        .container-btn-expand-image{
+        .container-btn-img-topology{
             width: 100%;
             height: 20%;
             border-radius: 0px 0px 20px 20px;
             display: flex;
             justify-content: center;
+            flex-direction: row;
             align-items: center;
+            gap: 35px;
         }
-            .style-btn-expand-image{
+            .style-btn-download-elements,
+            .style-btn-prev-image{
                 background-color: darkolivegreen;
-                width: 50%;
+                width: 40%;
                 max-width: 300px;
                 height: 50%;
 
                 border-radius: 20px;
                 color: white;
+                font-size: 13px;
                 cursor: pointer;
 
                 transform: scale(1);
@@ -155,7 +160,8 @@ body{
 
                 animation: pulses 2.5s infinite ease-in-out;
             }
-            .style-btn-expand-image:hover{
+            .style-btn-download-elements:hover,
+            .style-btn-prev-image:hover{
                 background-color: yellow;
                 color: black;
             }
@@ -164,11 +170,34 @@ body{
                 transform: scale(1);
             }
             50%{
-                transform: scale(1.2,1.2);
+                transform: scale(1.1,1.1);
             }
             100%{
                 transform: scale(1);
             }
+        }
+        /* ///////////////////////// Previsualizacion Imagen ///////////////////////// */
+        .window-prev-topology-image{
+            width: 99%;
+            height: 30.5%;
+            position: absolute;
+            border: 2pt solid white;
+            background-color: white;
+            border-radius: 20px;
+            z-index: 1;
+            top: -100%;
+
+            background-repeat: no-repeat;
+            background-size: contain;
+            overflow: hidden;
+        }
+        .window-prev-topology-image p{
+            text-align: center;
+            color: red;
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: 600;
+            font-size: 14px;
+            opacity: 0;
         }
         /* ///////////////////////// Modal Imagen Topologia ///////////////////////// */
         .window-modal-topology-image{

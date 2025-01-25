@@ -24,10 +24,12 @@ BtnOpenModal.addEventListener('click', () =>{
     LeftSection.style.transition = "400ms ease-in-out";
     LeftSection.style.opacity = ".3";
     LeftSection.style.transform = "scale(.7)";
+    LeftSection.style.pointerEvents = "none";
 
     RightSection.style.transition = "400ms ease-in-out";
     RightSection.style.opacity = ".3";
     RightSection.style.transform = "scale(.7)";
+    RightSection.style.pointerEvents = "none";
 
     BtnOpenModal.style.pointerEvents = "none";
 })
@@ -39,10 +41,12 @@ BtnCloseModal.addEventListener('click', () =>{
     LeftSection.style.transition = "800ms ease-in-out";
     LeftSection.style.opacity = "1";
     LeftSection.style.transform = "scale(1)";
+    LeftSection.style.pointerEvents = "all";
 
     RightSection.style.transition = "800ms ease-in-out";
     RightSection.style.opacity = "1";
     RightSection.style.transform = "scale(1)";
+    RightSection.style.pointerEvents = "all";
 
     BtnOpenModal.style.pointerEvents = "all";
 })
