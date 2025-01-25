@@ -28,7 +28,7 @@ export class Type_Network_Device{
     }
 
     Place_Button_on_Top(Btn_Position){
-        const Valor = 65;
+        const Valor = 10;
         this.Btn.style.transition = "550ms ease-in-out";
         this.Btn.style.top = `-${Valor * Btn_Position}%`;
     }
@@ -130,7 +130,7 @@ export class Network_Device_Number{
         this.Btn.style.top = "0%";
     }
     Place_Button_on_Top(N_Btn){
-        const Value = 38;
+        const Value = 15;
         this.Btn.style.transition = "400ms ease-in-out";
         this.Btn.style.top = `-${Value * N_Btn}%`;
     }
@@ -215,20 +215,31 @@ export class Group_Network_Devices_Number{
             }
         }
     }
-    Hidden_Window_Btn_Active(){
+    Hidden_Window_Btn_Active(End_Device=false){
         /* Esta funcion se usa para ocultar todas las ventanas abiertas cuando cerramos la ventana principal Routers o Switches etc. */
         for(let n=0;n<this.Devices.length;n++){
-            if(this.Devices[n].Active){
-                this.Devices[n].Hidden_Window_Commands(false); /* Oculta la ventana comandos y solo comandos */
-                this.Devices[n].Hidden_Window_Commands(true);
-                this.Devices[n].Place_Button_on_Original_Place();
+            if(End_Device){
+                if(this.Devices[n].Active){
+                    this.Devices[n].Hidden_Window_Commands(false);
+                    this.Devices[n].Place_Button_on_Original_Place();
+                }
+                else{
+                    this.Devices[n].Display_Button();
+                }
             }
             else{
-                this.Devices[n].Display_Button();
+                if(this.Devices[n].Active){
+                    this.Devices[n].Hidden_Window_Commands(false); /* Oculta la ventana comandos y solo comandos */
+                    this.Devices[n].Hidden_Window_Commands(true);
+                    this.Devices[n].Place_Button_on_Original_Place();
+                }
+                else{
+                    this.Devices[n].Display_Button();
+                }
             }
         }
     }
-    Function_EventListener(N_Device, Checked_CheckBox){
+    Function_EventListener(N_Device, Checked_CheckBox=false){
         N_Device--;
         if(!this.Devices[N_Device].Active){
             this.Devices[N_Device].Display_Window_Commands(Checked_CheckBox);

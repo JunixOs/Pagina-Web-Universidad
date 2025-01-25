@@ -435,7 +435,7 @@ body{
             height: 80%;
             background-color: antiquewhite;
             position: absolute;
-            top: 100%;
+            top: 100%; /* Al inicio esto esta oculto */
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -447,14 +447,16 @@ body{
         .type-network-devices .container-btn{
             padding-top: 15px;
             width: 100%;
-            height: max-content;
+            height: 93%;
             max-height: 540px;
             display: flex;
             flex-direction: column;
             align-items: center;
             gap: 25px;
+            overflow: auto;
         }
-            .container-btn .btn-type-network-devices{
+            .container-btn .btn-type-network-devices,
+            .container-btn .btn-type-end-device{
                 width: 300px;
                 max-width: 300px;
                 height: 30px;
@@ -476,7 +478,8 @@ body{
                 position: relative;
                 top: 0%;
             }
-            .container-btn .btn-type-network-devices:hover{
+            .container-btn .btn-type-network-devices:hover,
+            .container-btn .btn-type-end-device:hover{
                 background-color: cyan;
                 transform: scale(1.2);
                 box-shadow: 5px 10px;
@@ -520,15 +523,17 @@ body{
             padding-top: 10px;
             width: 90%;
             padding-top: 15px;
-            height: max-content;
+            height: 90%;
             max-height: 400px;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            align-items: center;
             gap: 25px;
+            overflow: auto;
         }
 
-            .container-btn .btn-number-network-device{
+            .container-btn .btn-number-network-device,
+            .container-btn .btn-number-end-device{
                 width: 20%;
                 height: 35px;
                 border-radius: 20px;
@@ -550,7 +555,8 @@ body{
                 z-index: 0;
                 top: 0%;
             }
-            .container-btn .btn-number-network-device::before{
+            .container-btn .btn-number-network-device::before,
+            .container-btn .btn-number-end-device::before{
                 content: ""; /* Para que se muetre el elemento es obligatorio el contenido */
                 height: 100%;
                 width: 100%;
@@ -562,10 +568,12 @@ body{
                 transform: translateX(-100%);
                 transition: all 400ms ease-in-out;
             }
-            .container-btn .btn-number-network-device:hover::before{
+            .container-btn .btn-number-network-device:hover::before,
+            .container-btn .btn-number-end-device:hover::before{
                 transform: translateX(0%);
             }
-            .container-btn .btn-number-network-device:hover{
+            .container-btn .btn-number-network-device:hover,
+            .container-btn .btn-number-end-device:hover{
                 box-shadow: 5px 10px black;
                 color: white;
                 transform: scale(1.1);
@@ -573,7 +581,8 @@ body{
 
 
         .window-n-network-device-commands-modeconfiguration,
-        .window-n-network-device-only-commands{
+        .window-n-network-device-only-commands,
+        .window-n-end-device{
             width: 90%;
             height: 85%;
             background-color: black;
@@ -587,16 +596,24 @@ body{
             overflow: auto;
         }
         .window-n-network-device-commands-modeconfiguration p,
-        .window-n-network-device-only-commands p{
+        .window-n-network-device-only-commands p,
+        .window-n-end-device p{
             font-family: 'Courier New', Courier, monospace;
             font-size: 16px;
             padding-left: 30px;
             padding-top: 15px;
             padding-bottom: 15px;
+        }
+        .window-n-network-device-commands-modeconfiguration p,
+        .window-n-network-device-only-commands p{
             color: white;
         }
+        .window-n-end-device p{
+            color: orange;
+        }
         .window-n-network-device-commands-modeconfiguration p::selection,
-        .window-n-network-device-only-commands p::selection{
+        .window-n-network-device-only-commands p::selection,
+        .window-n-end-device p::selection{
             background-color: yellow;
             color: red;
         }

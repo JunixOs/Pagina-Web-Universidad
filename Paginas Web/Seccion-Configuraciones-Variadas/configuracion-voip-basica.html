@@ -65,6 +65,7 @@
                     <div class="container-btn">
                         <button class="btn-type-network-devices" id="BtnRouters">Routers</button>
                         <button class="btn-type-network-devices" id="BtnSwitches">Switches</button>
+                        <button class="btn-type-end-device" id="BtnHosts">Hosts</button>
                     </div>
 
                     <!-- 
@@ -75,7 +76,50 @@
                         <!-- Ventana R1 -->
                         <div class="window-n-network-device-commands-modeconfiguration" id="WindowCommandsPlusModeR1">
                             <p>
-
+                                R1>enable <br>
+                                R1#configure terminal <br>
+                                <br>
+                                <br>
+                                !-- Configuramos la interfaz Fa0/1 
+                                <br>
+                                R1(config)#interface fa0/1 <br>
+                                R1(config-if)#ip address 192.168.10.1 255.255.255.0 <br>
+                                R1(config-if)#no shutdown <br>
+                                R1(config-if)#exit <br>
+                                <br>
+                                <br>
+                                !-- Creamos un pool DHCP para brindar direccionamiento a nuestros equipos en la red <br>
+                                !-- Tambien activamos la opcion 150
+                                <br>
+                                R1(config)#ip dhcp pool LAN_A <br>
+                                R1(dhcp-config)#network 192.168.10.0 255.255.255.0 <br>
+                                R1(dhcp-config)#default-router 192.168.10.1 <br>
+                                R1(dhcp-config)#dns 8.8.8.8 <br>
+                                R1(dhcp-config)#option 150 ip 192.168.10.1 <br>
+                                R1(dhcp-config)#exit <br>
+                                R1(config)#ip dhcp excluded-address 192.168.10.1 <br>
+                                <br>
+                                <br>
+                                !-- Configuramos el servicio telefonico CME
+                                <br>
+                                R1(config)#telephony-service <br>
+                                R1(config-telephony)#max-dn 3 <br>
+                                R1(config-telephony)#max-ephones 3 <br>
+                                R1(config-telephony)#ip source-address 192.168.10.1 port 2010 <br>
+                                R1(config-telephony)#auto assign 1 to 3 <br>
+                                <br>
+                                <br>
+                                !-- Configuramos el numero de extension de los telefonos
+                                <br>
+                                R1(config-telephony)#ephone-dn 1 <br>
+                                R1(config-ephone-dn)#number 1010 <br>
+                                <br>
+                                R1(config-ephone-dn)#ephone-dn 2 <br>
+                                R1(config-ephone-dn)#number 1020 <br>
+                                <br>
+                                R1(config-ephone-dn)#ephone-dn 3 <br>
+                                R1(config-ephone-dn)#number 1030 <br>
+                                <br>
                             </p>
                         </div>
 
@@ -84,16 +128,10 @@
                                 enable <br>
                                 configure terminal <br>
                                 <br>
-                                <br>
-                                // Configuramos la interfaz Fa0/1 
-                                <br>
                                 interface fa0/1 <br>
                                 ip address 192.168.10.1 255.255.255.0 <br>
                                 no shutdown <br>
                                 exit <br>
-                                <br>
-                                <br>
-                                // Creamos un pool DHCP para brindar direccionamiento a nuestros equipos en la red
                                 <br>
                                 ip dhcp pool LAN_A <br>
                                 network 192.168.10.0 255.255.255.0 <br>
@@ -101,16 +139,21 @@
                                 dns 8.8.8.8 <br>
                                 exit <br>
                                 <br>
-                                <br>
-                                // Configuramos el servicio telefonico CME
-                                <br>
                                 telephony-service <br>
                                 max-dn 3 <br>
                                 max-ephones 3 <br>
                                 ip source-address 192.168.10.1 port 2010 <br>
                                 auto assign 1 to 3 <br>
                                 <br>
-
+                                ephone-dn 1 <br>
+                                number 1010 <br>
+                                <br>
+                                ephone-dn 2 <br>
+                                number 1020 <br>
+                                <br>
+                                ephone-dn 3 <br>
+                                number 1030 <br>
+                                <br>
                             </p>
                         </div>
                         <!-- FIN Ventana R1  -->
@@ -126,11 +169,51 @@
                     <div class="container-subsection-number-network-device" id="WindowSelectionN°Switch">
                         <!-- Ventana S1 -->
                         <div class="window-n-network-device-commands-modeconfiguration" id="WindowCommandsPlusModeS1">
-
+                            <p>
+                                S1>enable <br>
+                                S1#configure terminal <br>
+                                <br>
+                                <br>
+                                !--Configuramos la VLAN 1 en los puertos Fa0/2 - Fa0/3 <br>
+                                !-- para que funcione como una VLAN de voz
+                                <br>
+                                S1(config)#interface range fa0/2-3 <br>
+                                S1(config-if)#switchport mode access <br>
+                                S1(config-if)#switchport voice vlan 1 <br>
+                                S1(config-if)#exit
+                                <br>
+                                <br>
+                                !-- En el puerto Fa0/4, deberemos configurar la VLAN 1 <br>
+                                !-- como VLAN de voz y de datos
+                                <br>
+                                S1(config)#interface fa0/4 <br>
+                                S1(config-if)#switchport mode access <br>
+                                S1(config-if)#switchport access vlan 1   #VLAN de datos para la PC<br>
+                                S1(config-if)#switchport voice vlan 1    #VLAN de voz para VoIP 3<br>
+                                <br>
+                                <br>
+                                !-- No es necesario configurar un enlace troncal en Fa0/1 <br>
+                                !-- ya que solo estamos trabajando con la VLAN por defecto (VLAN 1) <br>
+                                <br>
+                            </p>
                         </div>
 
                         <div class="window-n-network-device-only-commands" id="WindowOnlyCommandsS1">
-
+                            <p>
+                            enable <br>
+                            configure terminal <br>
+                            <br>
+                            interface range fa0/2-3 <br>
+                            switchport mode access <br>
+                            switchport voice vlan 1 <br>
+                            exit <br>
+                            <br>
+                            interface fa0/4 <br>
+                            switchport mode access <br>
+                            switchport access vlan 1 <br>
+                            switchport voice vlan 1 <br>
+                            <br>
+                            </p>
                         </div>
                         <!-- FIN Ventana S1 -->
 
@@ -140,6 +223,30 @@
                     </div>
                     <!-- FIN Ventana Switches -->
                     
+
+                    <!-- Ventana Hosts -->
+                    <div class="container-subsection-number-network-device" id="WindowSelectionHost">
+                        <!-- Ventana PC -->
+                        <div class="window-n-end-device" id="WindowPc">
+                            <p>
+                                Una vez realizadas todas las configuraciones de los dispositivos de red, <br>
+                                ingresar a PC1 y activar el direccionamiento IP por DHCP. <br>
+                            </p>
+                        </div>
+                        <!--  -->
+                        <!-- Ventana Telefono VoIP -->
+                        <div class="window-n-end-device" id="WindowVoip">
+                            <p>
+                                Una vez realizadas todas las configuraciones de los dispositivos de red, <br>
+                            </p>
+                        </div>
+                        <!--  -->
+                        <div class="container-btn">
+                            <button class="btn-number-end-device" id="BtnPC">PC</button>
+                            <button class="btn-number-end-device" id="BtnTelVoip">Telefono VoIP</button>
+                        </div>
+                    </div>
+                    <!-- FIN Ventana Hosts -->
 
                     <div class="others">
                         <input type="checkbox" name="DisplayJustCommands" id="checkbox"><label for="DisplayJustCommands">Mostrar Solo Comandos</label>

@@ -8,13 +8,18 @@ var CheckBox = document.getElementById("checkbox");  // Checkbox "Mostrar solo c
 
 var Routers = new Type_Network_Device('BtnRouters' , 'WindowSelectionN°Router'); /* Position = 1 */
 var Switches = new Type_Network_Device('BtnSwitches' , 'WindowSelectionN°Switch'); /* Position = 2 */
+var Hosts = new Type_Network_Device('BtnHosts' , 'WindowSelectionHost');
     var R1 = new Network_Device_Number('BtnR1' , 'WindowCommandsPlusModeR1' , 'WindowOnlyCommandsR1' , false);
     var Group_Rn = new Group_Network_Devices_Number( [R1] );
 
     var S1 = new Network_Device_Number('BtnS1' , 'WindowCommandsPlusModeS1' , 'WindowOnlyCommandsS1' , false);
     var Group_Sn = new Group_Network_Devices_Number( [S1] );
 
-var Group_Type_NetD = new Group_Type_Network_Devices( [Routers , Switches] );
+    var PC = new Network_Device_Number('BtnPC' , 'WindowPc' , '' , false); // Aqui solo usare una ventana, ya que solo sera descripcion e indicaciones
+    var VoIP = new Network_Device_Number('BtnTelVoip' , 'WindowVoip' , '' , false);
+    var Group_end_devices = new Group_Network_Devices_Number( [PC , VoIP] );
+
+var Group_Type_NetD = new Group_Type_Network_Devices( [Routers , Switches , Hosts] );
 
 Routers.Btn.addEventListener('click',()=>{
     Group_Type_NetD.Function_EventListener(1);
@@ -26,7 +31,6 @@ Routers.Btn.addEventListener('click',()=>{
         Group_Rn.Function_EventListener(1 , CheckBox.checked);
     })
 
-
 Switches.Btn.addEventListener('click', ()=>{
     Group_Type_NetD.Function_EventListener(2);
 
@@ -37,10 +41,24 @@ Switches.Btn.addEventListener('click', ()=>{
         Group_Sn.Function_EventListener(1 , CheckBox.checked );
     })
 
+Hosts.Btn.addEventListener('click', () =>{
+    Group_Type_NetD.Function_EventListener(3);
+
+    Group_end_devices.Hidden_Window_Btn_Active(true);
+})
+    PC.Btn.addEventListener('click', () =>{
+        Group_end_devices.Function_EventListener(1);
+    })
+    VoIP.Btn.addEventListener('click', ()=>{
+        Group_end_devices.Function_EventListener(2);
+    })
+
 CheckBox.addEventListener('change', () =>{
     /* 
         Si hay algun cambio en el check, se detecta y se busca el boton activo para que cuando se este viendo una ventana
-        se cambie de manera dinamica a la  otra ventana  sin necesidad de cerrar y volver a abrir. 
+        se cambie de manera dinamica a la  otra ventana  sin necesidad de cerrar y volver a abrir.
+        Se pueden excluir algunos tipos de dispositivo, esto cuando queremos que no cuente con 2 ventanas, solo con 1 donde se muestre informacion concreta
+        como indicaciones o descripciones
     */
     if(CheckBox.checked){
         // ROUTERS (R1, R2, R3, ...)
