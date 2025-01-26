@@ -156,9 +156,9 @@ body{
                 cursor: pointer;
 
                 transform: scale(1);
-                transition: 400ms ease-in-out;
+                transition: 200ms ease-in-out;
 
-                animation: pulses 2.5s infinite ease-in-out;
+                animation: pulses 1.5s infinite ease-in-out;
             }
             .style-btn-download-elements:hover,
             .style-btn-prev-image:hover{
@@ -360,7 +360,7 @@ body{
                         z-index: -1;
                         border-radius: 15px;
                         padding: 3px;
-                        animation: rotate 2.0s linear infinite; 
+                        animation: rotate 1.5s linear infinite; 
                     }
                     .container-btn-modal #BtnCloseModal::after{
                         background-image: conic-gradient(from var(--angulo-rotacion), transparent 50%, red);
@@ -411,7 +411,7 @@ body{
             box-shadow: 0px 0px;
             cursor: pointer;
 
-            transition: 400ms ease-in-out;
+            transition: 200ms ease-in-out;
         }
         .section-buttons .btn-section-buttons:hover{
             background-color:lightgray;
@@ -502,7 +502,7 @@ body{
                 pointer-events: all;
                 cursor: pointer;
 
-                transition: all 600ms ease-in-out;
+                transition: transform 200ms ease-in-out , background-color 200ms ease-in-out , box-shadow 200ms ease-in-out;
 
                 position: relative;
                 top: 0%;
@@ -531,7 +531,7 @@ body{
                 border-radius: 50%;
                 background-color: aquamarine;
                 cursor: pointer;
-                transform: 400ms;
+                transition: 400ms;
             }
             .others input:checked{
                 background-color: brown;
@@ -573,7 +573,7 @@ body{
                 font-style: normal;
 
                 box-shadow: 10px 10px black;
-                transition: all 400ms ease-in-out;
+                transition: transform 200ms ease-in-out , color 200ms ease-in-out , box-shadow 200ms ease-in-out;
                 cursor: pointer;
 
                 transform: scale(1);
@@ -595,7 +595,7 @@ body{
                 z-index: -1;
                 background-color: pink;
                 transform: translateX(-100%);
-                transition: all 400ms ease-in-out;
+                transition: transform 200ms ease-in-out;
             }
             .container-btn .btn-number-network-device:hover::before,
             .container-btn .btn-number-end-device:hover::before{
@@ -623,6 +623,7 @@ body{
             border: 1pt solid;
             z-index: 1;
             overflow: auto;
+            scrollbar-gutter: stable;
         }
         .window-n-network-device-commands-modeconfiguration p,
         .window-n-network-device-only-commands p,
@@ -693,12 +694,13 @@ body{
 
         .content-configuration-explain .container-pasos{
             width: 100%;
-            height: max-content;
+            height: 80%;
             display: flex;
             flex-direction: column;
             align-items: center;
             gap: 25px;
             padding-top: 25px;
+            overflow: auto;
         }
             .container-pasos .btn-pasos{
                 width: 200px;
@@ -713,7 +715,12 @@ body{
                 font-size: 15px;
                 font-style: italic;
 
-                transition: 450ms ease-in-out;
+                cursor: pointer;
+                pointer-events: all;
+                opacity: 1;
+                transform: scale(1);
+
+                transition: transform 150ms ease-in-out, background-color 150ms ease-in-out , box-shadow 150ms ease-in-out;                
 
                 position: relative;
                 top: 0%;
@@ -736,8 +743,6 @@ body{
             z-index: 1;
 
             gap: 30px;
-
-            transition: all 400ms ease-in-out;
         }
             .content-configuration-explain .others .btn-previous-step,
             .content-configuration-explain .others .btn-next-step{
@@ -749,6 +754,14 @@ body{
                 z-index: 0;
                 overflow: hidden;
                 pointer-events: none;
+
+                transition: transform 200ms ease-in-out , border-radius 200ms ease-in-out;
+                transform: scale(1);
+            }
+            .content-configuration-explain .others .btn-previous-step:hover,
+            .content-configuration-explain .others .btn-next-step:hover{
+                transform: scale(1.1);
+                border-radius: 15px;
             }
             .content-configuration-explain .others .btn-previous-step::before,
             .content-configuration-explain .others .btn-next-step::before{
@@ -763,8 +776,9 @@ body{
                 translate: -50% -50%;
                 z-index: -1;
 
-                transition: all 400ms ease-in-out;
+                transition: top 200ms ease-in-out;
             }
+            /* Estilos para poner el boton de color verde */
             .content-configuration-explain .others .btn-previous-step.previous::before{
                 top: 50%;
             }
@@ -784,6 +798,8 @@ body{
             top: 100%;
             left: 5%;
             z-index: 0;
+            overflow: auto;
+            scrollbar-gutter: auto;
         }
         /* ####################### Fin Subseccion Ventana Pasos ####################### */
 /* ####################### FIN SECCION EXPLICACION CONFIGURACION #######################*/
@@ -799,22 +815,26 @@ body{
     padding-right: 20px;
     text-align: center;
 }
-.style-text-commands{
-    width: 90%;
-    height: max-content;
+.window-text-commands-steps{
+    width: 88%;
+    height: 40%;
     border: 1pt black solid;
     border-radius: 15px;
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 16px;
-    font-weight: 100;
-    text-align: center;
     margin: 0 auto;
     position: relative;
-    background-color: greenyellow;
-    padding: 15px 15px 15px 15px;
+    background-color: black;
+    color: orange;
+    scrollbar-gutter: stable;
 }
-.style-text-commands::after,
-.style-text-commands::before{
+    .window-text-commands-steps p{
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 16px;
+        font-weight: 100;
+        padding-left: 15px;
+        overflow-y: auto;
+    }
+.window-text-commands-steps::after,
+.window-text-commands-steps::before{
     content: "";
     width: 100%;
     height: 100%;
@@ -828,7 +848,7 @@ body{
     padding: 3px;
     z-index: -1;
 }
-.style-text-commands::before{
+.window-text-commands-steps::before{
     filter: blur(.5rem);
 }
 /* ####################### FIN Estilos para texto de comandos o descripcion ####################### */

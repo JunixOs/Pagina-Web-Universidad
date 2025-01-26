@@ -1,11 +1,7 @@
 import {
     Type_Network_Device , Network_Device_Number , Group_Network_Devices_Number , 
     Explain_Steps , Group_Btn_Explain_Steps,
-    Group_Type_Network_Devices
-} from "../../JS_Core/Core_Views/buttons-configurations-base.js";
-
-import{
-    Preview_Image_Topology
+    Group_Type_Network_Devices, Preview_Image_Topology
 } from "../../JS_Core/Core_Views/buttons-configurations-base.js";
 
 var CheckBox = document.getElementById("checkbox");  // Checkbox "Mostrar solo configuraciones"
@@ -135,38 +131,6 @@ var Paso4 = new Explain_Steps('BtnPaso4' , 'WindowStep4');
 var Paso5 = new Explain_Steps('BtnPaso5' , 'WindowStep5');
 
     var Group_Steps = new Group_Btn_Explain_Steps( [Paso1,Paso2,Paso3,Paso4,Paso5] , 'BtnPreviousStep', 'BtnNextStep');
-
-var BtnDisplayExplain_Active = false;
-BtnDisplayExplain.addEventListener('click',() =>{
-    if(BtnDisplayExplain_Active){
-        ExplainWindows.style.transitionDuration = "0.6s";
-        ExplainWindows.style.transitionTimingFunction = "ease-in-out";
-        ExplainWindows.style.left = "102%";
-
-        ConfigurationWindow.style.transitionDuration = "1.2s";
-        ConfigurationWindow.style.transitionTimingFunction = "ease-in-out";
-        ConfigurationWindow.style.transform = "scale(1,1)";
-        ConfigurationWindow.style.filter = "blur(0px) brightness(100%)";
-
-        BtnDisplayExplain_Active = false;
-        BtnDisplayExplain.textContent = "Mostrar explicacion paso a paso";
-
-        Group_Steps.Hidden_Window_Btn_Active();
-    }
-    else{
-        ExplainWindows.style.transitionDuration = "0.8s";
-        ExplainWindows.style.transitionTimingFunction = "ease-in-out";
-        ExplainWindows.style.left = "0%";
-
-        ConfigurationWindow.style.transitionDuration = "0.6s";
-        ConfigurationWindow.style.transitionTimingFunction = "ease-in-out";
-        ConfigurationWindow.style.transform = "scale(0.9,0.9)";
-        ConfigurationWindow.style.filter = "blur(4px) brightness(50%)";
-
-        BtnDisplayExplain_Active = true;
-        BtnDisplayExplain.textContent = "Ocultar explicacion paso a paso";
-    }
-})
 
 Paso1.Btn.addEventListener('click', () => {
     Group_Steps.Function_EventListener(1);

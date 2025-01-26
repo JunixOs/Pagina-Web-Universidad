@@ -6,8 +6,22 @@
     ==========================================================
 */
 
-/* Clases Botones */
+/* Clases */
+/* 
+    =================================================================================================
+    Estas clases se encargan de modificar los botones y ventanas, tanto individualmente como en conjunto para
+    dar la ilusion de movimiento al realizar ciertas acciones.
+    =================================================================================================
+*/
 
+    /* 
+        ==================================================================
+        En las clases "Group" se agrupan todos los botones junto con las 
+        ventanas, estado, texto, etc., esto para hacer posible mostrar
+        y posicionar adecuadamente por encima de los demas el boton 
+        que hayamos seleccionado al igual que su ventana correspondiente.
+        ==================================================================
+    */
 export class Type_Network_Device{
     constructor (IDBtn , IDWindowSelectionDevice){
         this.Btn = document.getElementById(IDBtn);
@@ -16,34 +30,32 @@ export class Type_Network_Device{
         this.TextBtn = ""; // Declara todas las variables aunque sea con un valor vacio.
     }
     Display_Button(){
-        this.Btn.style.transition = "800ms ease-in-out";
+        this.Btn.style.transition = "opacity 300ms ease-in-out , transform 200ms ease-in-out , background-color 200ms ease-in-out , box-shadow 200ms ease-in-out";
         this.Btn.style.opacity = "1";
         this.Btn.style.pointerEvents = "all";
     }
 
     Hidden_Button(){
-        this.Btn.style.transition = "400ms ease-in-out";
+        this.Btn.style.transition = "opacity 300ms ease-in-out , transform 200ms ease-in-out , background-color 200ms ease-in-out , box-shadow 200ms ease-in-out";
         this.Btn.style.opacity = "0";
         this.Btn.style.pointerEvents = "none";
     }
 
     Place_Button_on_Top(Btn_Position){
         const Valor = 10;
-        this.Btn.style.transition = "550ms ease-in-out";
+        this.Btn.style.transition = "top 200ms ease-in-out , transform 200ms ease-in-out , background-color 200ms ease-in-out , box-shadow 200ms ease-in-out";
         this.Btn.style.top = `-${Valor * Btn_Position}%`;
     }
     Place_Button_on_Original_Place(){
-        this.Btn.style.transition = "600ms ease-in-out";
+        this.Btn.style.transition = "top 400ms ease-in-out , transform 200ms ease-in-out , background-color 200ms ease-in-out , box-shadow 200ms ease-in-out";
         this.Btn.style.top = "0%";
     }
     Display_Window(){
-        this.WindowSelectionDevice.style.transitionDuration = "0.6s";
-        this.WindowSelectionDevice.style.transitionTimingFunction = "ease-in-out";
+        this.WindowSelectionDevice.style.transition = "400ms ease-in-out";
         this.WindowSelectionDevice.style.top = "9%";
 
         this.Active = true;
 
-        
         this.TextBtn = this.Btn.textContent; /* Texto actual del boton */
         const TextoCerrar = "Cerrar Ventana "
         this.Btn.textContent = TextoCerrar + this.TextBtn; /* Nuevo texto del boton */
@@ -51,8 +63,7 @@ export class Type_Network_Device{
     } 
 
     Hidden_Window(){
-        this.WindowSelectionDevice.style.transitionDuration = "0.6s";
-        this.WindowSelectionDevice.style.transitionTimingFunction = "ease-in-out";
+        this.WindowSelectionDevice.style.transition = "400ms ease-in-out";
         this.WindowSelectionDevice.style.top = "100%";
 
         this.Active = false;
@@ -112,31 +123,27 @@ export class Network_Device_Number{
         this.TextBtn = "";
     }
     Display_Button(){
-        this.Btn.style.transitionProperty = "box-shadow, color, transform, opacity";
-        this.Btn.style.transitionDuration = "400ms";
-        this.Btn.style.transitionTimingFunction = "ease-in-out";
+        this.Btn.style.transition = "opacity 300ms ease-in-out , transform 200ms ease-in-out , color 200ms ease-in-out , box-shadow 200ms ease-in-out";
         this.Btn.style.opacity = "1";
         this.Btn.style.pointerEvents = "all";
     }
     Hidden_Button(){
-        this.Btn.style.transitionProperty = "box-shadow, color, opacity, transform";
-        this.Btn.style.transitionDuration = "400ms";
-        this.Btn.style.transitionTimingFunction = "ease-in-out";
+        this.Btn.style.transition = "opacity 300ms ease-in-out , transform 200ms ease-in-out , color 200ms ease-in-out , box-shadow 200ms ease-in-out";
         this.Btn.style.opacity = "0";
         this.Btn.style.pointerEvents = "none";
     }
     Place_Button_on_Original_Place(){
-        this.Btn.style.transition = "400ms ease-in-out";
+        this.Btn.style.transition = "top 400ms ease-in-out , transform 200ms ease-in-out , color 200ms ease-in-out , box-shadow 200ms ease-in-out";
         this.Btn.style.top = "0%";
     }
     Place_Button_on_Top(N_Btn){
         const Value = 15;
-        this.Btn.style.transition = "400ms ease-in-out";
+        this.Btn.style.transition = "top 200ms ease-in-out , transform 200ms ease-in-out , color 200ms ease-in-out , box-shadow 200ms ease-in-out";
         this.Btn.style.top = `-${Value * N_Btn}%`;
     }
     Display_Window_Commands(Checked_CheckBox){
         if(Checked_CheckBox){
-            this.WindowOnlyCommands.style.transition = "800ms ease-in-out";
+            this.WindowOnlyCommands.style.transition = "400ms ease-in-out";
             this.WindowOnlyCommands.style.left = "5%";
             this.WindowOnlyCommands.style.opacity = "1";
             this.WindowOnlyCommands.style.transform = "scale(1)";
@@ -148,7 +155,7 @@ export class Network_Device_Number{
             this.Active = true;
         }
         else{
-            this.WindowCommandsPlusMode.style.transition = "800ms ease-in-out";
+            this.WindowCommandsPlusMode.style.transition = "400ms ease-in-out";
             this.WindowCommandsPlusMode.style.left = "5%";
             this.WindowCommandsPlusMode.style.opacity = "1";
             this.WindowCommandsPlusMode.style.transform = "scale(1)";
@@ -162,7 +169,7 @@ export class Network_Device_Number{
     }
     Hidden_Window_Commands(Checked_CheckBox){
         if(Checked_CheckBox){
-            this.WindowOnlyCommands.style.transition = "600ms ease-in-out";
+            this.WindowOnlyCommands.style.transition = "500ms ease-in-out";
             this.WindowOnlyCommands.style.opacity = "0.5";
             this.WindowOnlyCommands.style.transform = "scale(.8)";
             this.WindowOnlyCommands.style.left = "-100%";
@@ -175,7 +182,7 @@ export class Network_Device_Number{
             this.Active = false;
         }
         else{
-            this.WindowCommandsPlusMode.style.transition = "600ms ease-in-out";
+            this.WindowCommandsPlusMode.style.transition = "500ms ease-in-out";
             this.WindowCommandsPlusMode.style.opacity = "0.5";
             this.WindowCommandsPlusMode.style.transform = "scale(.8)";
             this.WindowCommandsPlusMode.style.left = "-100%";
@@ -262,26 +269,26 @@ export class Explain_Steps{
         this.TextBtn = "";
     }
     Display_Button(){
-        this.Btn.style.transition = "400ms ease-in-out";
+        this.Btn.style.transition = "opacity 300ms ease-in-out , transform 150ms ease-in-out, background-color 150ms ease-in-out , box-shadow 150ms ease-in-out";
         this.Btn.style.opacity = "1";
         this.Btn.style.pointerEvents = "all";
     }
     Hidden_Button(){
-        this.Btn.style.transition = "400ms ease-in-out";
+        this.Btn.style.transition = "opacity 300ms ease-in-out , transform 150ms ease-in-out, background-color 150ms ease-in-out , box-shadow 150ms ease-in-out";
         this.Btn.style.opacity = "0";
         this.Btn.style.pointerEvents = "none";
     }
     Place_Button_on_Original_Place(){
-        this.Btn.style.transition = "500ms ease-in-out";
+        this.Btn.style.transition = "top 400ms ease-in-out , transform 150ms ease-in-out, background-color 150ms ease-in-out , box-shadow 150ms ease-in-out";
         this.Btn.style.top = "0%";
     }
     Place_Button_on_Top(N_Btn){
-        const Value = 23;
-        this.Btn.style.transition = "400ms ease-in-out";
+        const Value = 9.5;
+        this.Btn.style.transition = "top 300ms ease-in-out , transform 150ms ease-in-out, background-color 150ms ease-in-out , box-shadow 150ms ease-in-out";
         this.Btn.style.top = `-${Value * N_Btn}%`; /* Para colocar variables se usa otro tipo de comilla: backticks (`) */
     }
     Display_Window(){
-        this.WindowStep.style.transition = "600ms ease-in-out";
+        this.WindowStep.style.transition = "400ms ease-in-out";
         this.WindowStep.style.top = "10%";
 
         this.Active = true;
@@ -291,7 +298,7 @@ export class Explain_Steps{
         this.Btn.textContent = TextClose + this.TextBtn;
     }
     Hidden_Window(){
-        this.WindowStep.style.transition = "600ms ease-in-out";
+        this.WindowStep.style.transition = "400ms ease-in-out";
         this.WindowStep.style.top = "100%";
 
         this.Active = false;
@@ -316,8 +323,8 @@ export class Group_Btn_Explain_Steps{
                 this.ButtonsSteps[n].Hidden_Button();
             }
             else{
-                this.ButtonsSteps[n].Place_Button_on_Top(n);
                 this.ButtonsSteps[n].Display_Button();
+                this.ButtonsSteps[n].Place_Button_on_Top(n);
             }
         }
     }
@@ -396,7 +403,6 @@ export class Group_Btn_Explain_Steps{
             this.Activate_Btn_Next_Step();
             this.Activate_Btn_Previous_Step();
         }
-
     }
     Go_Previous_Step(){
         this.ButtonsSteps[this.Actual_Position].Hidden_Window();
@@ -467,9 +473,11 @@ export class Preview_Image_Topology{
     Function_Mousemove(e, Click){
         if(Click){
             e = this.e;
+            this.ImageTopology.style.cursor = "default";
         }
         else{
             this.e = e;
+            this.ImageTopology.style.cursor = "zoom-in";
         }
         let x = this.WindowPreview.offsetWidth / 110;
         let y = this.WindowPreview.offsetHeight / 110;

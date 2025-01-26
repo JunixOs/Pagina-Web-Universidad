@@ -18,7 +18,7 @@ var BtnUsedDevices = document.getElementById("UsedDevices");
 
 BtnOpenModal.addEventListener('click', () =>{
 
-    WindowModalTopology.style.transition = "800ms 200ms ease-in-out";
+    WindowModalTopology.style.transition = "600ms ease-in-out";
     WindowModalTopology.style.top = "50%";
 
     LeftSection.style.transition = "400ms ease-in-out";
@@ -35,15 +35,15 @@ BtnOpenModal.addEventListener('click', () =>{
 })
 BtnCloseModal.addEventListener('click', () =>{
 
-    WindowModalTopology.style.transition = "500ms ease-in-out";
+    WindowModalTopology.style.transition = "400ms ease-in-out";
     WindowModalTopology.style.top = "-100%";
 
-    LeftSection.style.transition = "800ms ease-in-out";
+    LeftSection.style.transition = "600ms ease-in-out";
     LeftSection.style.opacity = "1";
     LeftSection.style.transform = "scale(1)";
     LeftSection.style.pointerEvents = "all";
 
-    RightSection.style.transition = "800ms ease-in-out";
+    RightSection.style.transition = "600ms ease-in-out";
     RightSection.style.opacity = "1";
     RightSection.style.transform = "scale(1)";
     RightSection.style.pointerEvents = "all";
@@ -117,11 +117,11 @@ BtnUsedDevices.addEventListener('click', () => {
 var BtnDisplayExplain_Active = false;
 BtnDisplayExplain.addEventListener('click',() =>{
     if(BtnDisplayExplain_Active){
-        ExplainWindows.style.transitionDuration = "0.6s";
+        ExplainWindows.style.transitionDuration = "600ms";
         ExplainWindows.style.transitionTimingFunction = "ease-in-out";
         ExplainWindows.style.left = "102%";
 
-        ConfigurationWindow.style.transitionDuration = "1.2s";
+        ConfigurationWindow.style.transitionDuration = "800ms";
         ConfigurationWindow.style.transitionTimingFunction = "ease-in-out";
         ConfigurationWindow.style.transform = "scale(1,1)";
         ConfigurationWindow.style.filter = "blur(0px) brightness(100%)";
@@ -130,11 +130,11 @@ BtnDisplayExplain.addEventListener('click',() =>{
         BtnDisplayExplain.textContent = "Mostrar explicacion paso a paso";
     }
     else{
-        ExplainWindows.style.transitionDuration = "0.8s";
+        ExplainWindows.style.transitionDuration = "800ms";
         ExplainWindows.style.transitionTimingFunction = "ease-in-out";
         ExplainWindows.style.left = "0%";
 
-        ConfigurationWindow.style.transitionDuration = "0.6s";
+        ConfigurationWindow.style.transitionDuration = "600ms";
         ConfigurationWindow.style.transitionTimingFunction = "ease-in-out";
         ConfigurationWindow.style.transform = "scale(0.9,0.9)";
         ConfigurationWindow.style.filter = "blur(4px) brightness(50%)";
