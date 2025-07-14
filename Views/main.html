@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        background-color: cadetblue;
+        height: 99vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+    }
+    .style-for-content-for-topics-or-ev{
+        background-color: #FFFCF6;
+        border-radius: 15px;
+        width: 80%;
+        height: 80%;
+        position: absolute;
+        overflow-y: auto;
+        overflow-x: hidden;
+        transition: 400ms ease-in-out;
+
+        .principal-header{
+            font-family: 'Times New Roman', Times, serif;
+            font-size: clamp(20px , 22px , 26px);
+            font-weight: 600;
+            text-decoration-line: underline;
+            justify-self: center;
+            align-self: center;
+            text-align: center;
+        }
+        .primary-header{
+            font-family: 'Times New Roman', Times, serif;
+            font-size: clamp(18px , 20px , 24px);
+            font-weight: 600;
+            justify-self: start;
+            color: white;
+            position: relative;
+            left: 2%;
+        }
+        .secondary-header{
+            font-family: 'Times New Roman', Times, serif;
+            font-style: italic;
+            font-size: clamp(18px , 20px , 24px);
+            font-weight: 600;
+            justify-self: start;
+            position: relative;
+            left: 2%;
+        }
+        .terciary-header{
+            font-family: 'Times New Roman', Times, serif;
+            font-style: italic;
+            font-size: clamp(18px , 20px , 24px);
+            font-weight: 400;
+            justify-self: start;
+            position: relative;
+            left: 2%;
+        }
+        .cuaternary-header{
+            font-family: 'Times New Roman', Times, serif;
+            font-style: italic;
+            font-size: clamp(18px , 20px , 24px);
+            font-weight: 400;
+            justify-self: start;
+            position: relative;
+            left: 2%;
+        }
+        .text{
+            width: 90%;
+            text-align: center;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: clamp(12px , 1rem , 18px);
+            font-weight: 100;
+            margin: 0 auto;
+            padding-bottom: .5%;
+        }
+        p::selection{
+            background-color: #000000;
+            color: white;
+        }
+        .image{
+            display: block;
+            margin: auto;
+            width: 50vw;
+            height: 40vh;
+            box-shadow: 0px 0px 5px #000000;
+            border-radius: 10px;
+            border: 1pt double #000000;
+            justify-self: center;
+            align-self: center;
+            transition: 200ms ease-in-out;
+            object-fit: contain;
+        }
+        .image:hover{
+            scale: 1.05;
+        }
+        .group-of-images{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            column-gap: 20px;
+            img{
+                width: calc(50% - 20px);
+                height: 40vh;
+                box-shadow: 0px 0px 5px #000000;
+                border-radius: 10px;
+                border: 1pt double #000000;
+                justify-self: center;
+                align-self: center;
+                transition: 200ms ease-in-out;
+                object-fit: contain;
+            }
+            img:hover{
+                scale: 1.05;
+            }
+        }
+        .link{
+            text-decoration: none;
+            text-decoration-line: underline;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: clamp(12px , 14px , 18px);
+            font-weight: 100;
+            color: crimson;
+        }
+        .link:hover{
+            color: salmon;
+        }
+        .primary-ul{
+            list-style-type: circle;
+            padding-bottom: .5%;
+        }
+        .secondary-ul{
+            list-style-type: square;
+            padding-bottom: .5%;
+        }
+        .ul-list-in-principal-content{
+            display: flex; 
+            align-items: center; 
+            flex-direction: column;
+            width: calc(100% - 40px);
+            row-gap: 1px;
+            margin: 0;
+            padding-top: .5%;
+            p{
+                margin: 1% auto;
+                word-break: keep-all;
+            }
+        }
+        .ol-of-steps{
+            list-style: decimal;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: clamp(12px , 16px , 18px);
+            font-style: normal;
+            font-weight: 100;
+            padding-bottom: .5%;
+        }
+        .header-in-ul{
+            font-family: 'Times New Roman', Times, serif;
+            font-weight: 600;
+            font-size: clamp(12px , 16px , 18px);
+        }
+        .span-resalt-text{
+            font-family: 'Times New Roman', Times, serif;
+            font-weight: 600;
+            color: blueviolet;
+            font-size: clamp(12px , 16px , 18px);
+        }
+        .span-IP-address-text{
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: 600;
+            font-style: italic;
+            color: darkmagenta;
+            font-size: clamp(12px , 16px , 18px);
+        }
+        .span-command-text{
+            font-family: 'Courier New', Courier, monospace;
+            font-style: italic;
+            color: blueviolet;
+            font-size: clamp(12px , 16px , 18px);
+        }
+        .ol-primary-topics{
+            list-style: upper-roman;
+            font-family: 'Times New Roman', Times, serif;
+            font-weight: 600;
+            font-size: clamp(18px , 20px , 24px);
+            .primary-li{
+                position: relative;
+                z-index: 0;
+                h2{
+                    white-space: nowrap;
+                    overflow-y: auto;
+                }
+                p{
+                    width: 96%;
+                    font-family: 'Times New Roman', Times, serif;
+                    font-size: clamp(12px , 16px , 18px);
+                    justify-self: flex-start;
+                    font-weight: 100;
+                    padding-bottom: .5%;
+                }
+            }
+            .secondary-li{
+                position: relative;
+                z-index: 0;
+                p{
+                    width: 96%;
+                    font-family: 'Times New Roman', Times, serif;
+                    font-size: clamp(12px , 16px , 18px);
+                    font-style: normal;
+                    justify-self: flex-start;
+                    font-weight: 100;
+                    padding-bottom: .5%;
+                }
+            }
+            .terciary-li{
+                position: relative;
+                z-index: 0;
+                p{
+                    width: 96%;
+                    font-family: 'Times New Roman', Times, serif;
+                    font-size: clamp(12px , 16px , 18px);
+                    font-style: normal;
+                    justify-self: flex-start;
+                    font-weight: 100;
+                    padding-bottom: .5%;
+                }
+            }
+            .cuaternary-li{
+                position: relative;
+                z-index: 0;
+                p{
+                    width: 96%;
+                    font-family: 'Times New Roman', Times, serif;
+                    font-size: clamp(12px , 16px , 18px);
+                    font-style: normal;
+                    justify-self: flex-start;
+                    font-weight: 100;
+                    padding-bottom: .5%;
+                }
+            }
+            .ol-secondary-topics{
+                list-style: upper-latin;
+                font-family: 'Times New Roman', Times, serif;
+                font-style: italic;
+                font-weight: 600;
+                font-size: clamp(18px , 20px , 24px);
+            }
+            .ol-terciary-topics{
+                list-style: lower-latin;
+                font-family: 'Times New Roman', Times, serif;
+                font-style: italic;
+                font-weight: 400;
+                font-size: clamp(18px , 20px , 24px);
+            }
+            .ol-cuaternary-topics{
+                list-style: lower-greek;
+                font-family: 'Times New Roman', Times, serif;
+                font-style: italic;
+                font-weight: 400;
+                font-size: clamp(18px , 20px , 24px);
+            }
+        table{
+                margin: auto;
+                border-collapse: collapse;
+                font-style: normal;
+                font-size: clamp(12px , 16px , 18px);
+                width: 80vh;
+                height: 10vh;
+                th{
+                    padding: 1%;
+                    border: 1pt solid #000000;
+                    text-align: center;
+                    background-color: #4CAF50;
+                    color: white;
+                }
+                td{
+                    padding: .5%;
+                    border: 1pt solid #000000;
+                    text-align: center;
+                }
+                tr:nth-child(even) {
+                    background-color: #f2f2f2;
+                }
+                tr:hover{
+                    background-color: #ddd;
+                }
+            }
+        }
+    }
+.primary-li::before , 
+.secondary-li::before ,
+.terciary-li::before ,
+.cuaternary-li::before{
+    content: "";
+    position: absolute;
+    height: 24px;
+    width: 100%;
+    left: -37px;
+    z-index: -1;
+    border-radius: 15px;
+    border: 1pt solid #000000;
+}
+.primary-li::after ,
+.secondary-li::after ,
+.terciary-li::after ,
+.cuaternary-li::after{
+    content: "";
+    width: 0.4%;
+    height: 100%;
+    position: absolute;
+    z-index: -2;
+    top: 0%;
+    left: -30px;
+}
+.primary-li::before{
+    background-color: black;
+}
+.primary-li::after{
+    background-color: rgba(0, 0, 0, .5);
+    border-radius: 5px;
+}
+
+.secondary-li::before{
+    background-color: red;
+}
+.secondary-li::after{
+    background-color: rgba(100, 0, 0, .5);
+    border-radius: 5px;
+}
+
+.terciary-li::before{
+    background-color: violet;
+}
+.terciary-li::after{
+    background-color: rgba(49.8, 0, 100, .5);
+    border-radius: 5px;
+}
+
+.cuaternary-li::before{
+    background-color: greenyellow;
+}
+.cuaternary-li::after{
+    background-color: rgba(67.8, 100, 18.4, .5);
+    border-radius: 5px;
+}
+
+.style-for-content-for-topics-or-ev::-webkit-scrollbar{
+    width: 0px;
+}
+</style>
+<body>
+    <div class="style-for-content-for-topics-or-ev" id="unit2">
+        <h1 class="principal-header">Proxy</h1>
+        <p class="text">
+            Es un elemento de la infraestructura de red que actua como intermediario entre la computadora del cliente, usualmente en una red interna, y un servidor, en una red externa, o viceversa.
+        </p>
+        <p class="text">
+            Un proxy puede ser usado para:
+        </p>
+        <ul class="ul-list-in-principal-content primary-ul">
+            <li><p><span class="header-in-ul">Mejorar la Seguridad</span></p></li>
+            <li><p><span class="header-in-ul">Mejorar la Seguridad</span></p></li>
+            <li><p><span class="header-in-ul">Balancear la Carga en el Recurso Vigilado</span></p></li>
+        </ul>
+        <p class="text">
+            En el proceso de recibir y transamitir las solicitudes de un host a los servidores de destino, el cliente no se da cuenta de que se esta usando un servidor proxy.
+        </p>
+        <p class="text">El servidor proxy, al recibir las solicitudes puede:</p>
+        <ul class="ul-list-in-principal-content primary-ul">
+            <li><p>Transmitirlas directamente al destino del recurso solicitado.</p></li>
+            <li><p>Devolver al cliente el recurso solicitado directamente desde su cache, si es que el proxy ya posee el recurso.</p></li>
+            <li><p>Denegar el acceso al recurso solicitado.</p></li>
+        </ul>
+        <ol class="ol-primary-topics">
+            <li class="primary-li">
+                <h2 class="primary-header">Permitir el Acceso a Recursos Especificos (Incluidos los Bloqueados)</h2>
+                <p>
+                    Se puede usar un servidor proxy para bloquear el acceso a ciertos recursos, pero tambien se puede usar para acceder a un recurso bloqueado, 
+                    como el acceso directo hacia el proxy si esta permitido podemos enviarle una solicitud, y el proxy accedera al recurso bloqueado. Se debe tener en cuenta que la velocidad de 
+                    acceso dependera de la ubicacion geografica del proxy a usar.
+                </p>
+            </li>
+            <li class="primary-li">
+                <h2 class="primary-header">Tipos de Servidores Proxy</h2>
+                <ol class="ol-secondary-topics">
+                    <li class="secondary-li">
+                        <h3 class="secondary-header">Forward (Directo)</h3>
+                        <p>
+                            Este servidor se encarga de recibir la solicitud del cliente, el cual indica el servidor de destino y el recurso solicitado, el servidor proxy usa esta informacion para solicitar el mismo el recurso, y una vez cuenta con el recurso, se lo devuelve al cliente.
+                        </p>
+                        <p>
+                            Para hacer uso de este servidor proxy, el equipo del cliente debe configurarse especificamente con la direccion IP del servidor.
+                        </p>
+                    </li>
+                    <li class="secondary-li">
+                        <h3 class="secondary-header">Reverse (Inverso)</h3>
+                        <p>
+                            Para el cliente, se ve como un servidor mas, el servidor proxy recibe las solicitudes del cliente y, con la informacion brindada, el proxy se encarga de realizar la solicitud del recurso y se la devuelve al cliente como si el propio servidor
+                            proxy fuera el origen del recurso solicitado inicialmente.
+                        </p>
+                        <p>
+                            Para usar este servidor, no es necesaria la configuracion del equipo del cliente.
+                        </p>
+                    </li>
+                </ol>
+            </li>
+            <li class="primary-li">
+                <h2 class="primary-header">Usos del Proxy</h2>
+                <ol class="ol-secondary-topics">
+                    <li class="secondary-li">
+                        <h3 class="secondary-header">Fortalecer la Seguridad de la Infraestructura Corporativa</h3>
+                        <p>
+                            Muchas empresas tienen recursos expuestos a la red publica, el servidor proxy agrega un nivel de seguridad entre el recurso protegido
+                            y la red externa.
+                        </p>
+                        <p>
+                            De esta forma, un atacante podra acceder al servidor proxy pero no al servidor con el recurso protegido, reduciendo la probabilidad de pirateo.
+                        </p>
+                    </li>
+                    <li class="secondary-li">
+                        <h3 class="secondary-header">Control de Usuarios al Usar Internet</h3>
+                        <p>
+                            Los administradores de red pueden usar las capacidades de un servidor proxy para controlar facilmente que dispositivos tendran acceso a Internet y que
+                            sitios web podran visitar.
+                        </p>
+                        <p>
+                            Ademas, al activar el registro en el proxy, los administradores de red pueden rastrear cuando y a que contenido acceden los empleados para fines internos.
+                        </p>
+                    </li>
+                    <li class="secondary-li">
+                        <h3 class="secondary-header">Equilibrio de Carga en Recursos Compartidos</h3>
+                        <p>
+                            Para sitios web o recursos populares con varios servidores distribuidos y usuarios en diferentes lugares, un servidor proxy puede usarse para evitar la sobrecarga del servicio
+                            y la perdida de eficiencia, esto mediante la creacion de un unico recurso web en el proxy, que servira como un unico punto de acceso.
+                        </p>
+                        <p>
+                            El proxy equilibra las multiples solicitudes a cada servidor de destino para que ninguno se sobrecargue.
+                        </p>
+                        <p>
+                            Todo esto en segundo plano, para evitar la interrupcion del servicio.
+                        </p>
+                    </li>
+                </ol>
+            </li>
+        </ol>
+    </div>
+</body>
+</html>

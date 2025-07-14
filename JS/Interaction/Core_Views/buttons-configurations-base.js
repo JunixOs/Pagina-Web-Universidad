@@ -22,6 +22,422 @@
         que hayamos seleccionado al igual que su ventana correspondiente.
         ==================================================================
     */
+class ButtonForInformationTopology{
+    constructor(Button , pElementInButton , WindowForButton){
+        this.Button = Button;
+        this.pElementInButton = pElementInButton;
+        this.TextInButton = pElementInButton.textContent;
+        this.ActiveButton = false;
+        this.WindowForButton = WindowForButton;
+    }
+    Back_To_Normal_State(){
+        this.Hidden_Window_For_Button();
+        this.Button.classList.remove("btn-info-topology-active");
+        this.Button.classList.remove("inactive-btn-effect");
+        this.pElementInButton.classList.remove("text-btn-info-topology-active");
+        this.pElementInButton.textContent = this.TextInButton;
+    }
+    Change_State_Button(){
+        if(this.ActiveButton){
+            this.Button.classList.add("btn-info-topology-active");
+            this.pElementInButton.classList.add("text-btn-info-topology-active");
+
+            this.pElementInButton.textContent = "Cerrar " + this.pElementInButton.textContent;
+        }
+        else{
+            this.Button.classList.add("inactive-btn-effect");
+        }
+    }
+    Display_Window_For_Button(){
+        this.WindowForButton.style.top = "20%";
+    }
+    Hidden_Window_For_Button(){
+        this.WindowForButton.style.top = "120%";
+    }
+}
+
+class HandlerButtonsForInformationTopology{
+    constructor(CollectionButtonsInfoTopology){
+        this.CollectionButtonsInfoTopology = CollectionButtonsInfoTopology;
+    }
+    Add_Event_Listener(){
+        this.CollectionButtonsInfoTopology.forEach((button_info_class) => {
+            button_info_class.Button.addEventListener("click" , () => {
+                if(button_info_class.ActiveButton){
+                    button_info_class.ActiveButton = false;
+                    this.Change_State_All_Buttons(false);
+                    button_info_class.Hidden_Window_For_Button();
+                }
+                else{
+                    button_info_class.ActiveButton = true;
+                    this.Change_State_All_Buttons(true);
+                    button_info_class.Display_Window_For_Button();
+                }
+            })
+        })
+    }
+    Change_State_All_Buttons(IsAnySelected){
+        this.CollectionButtonsInfoTopology.forEach((button_info_class) =>{
+            IsAnySelected ? button_info_class.Change_State_Button() : button_info_class.Back_To_Normal_State();
+        })
+    }
+}
+
+export class ConstructorInformationTopologySection{
+    constructor(TitlesForInfoButtons , HTMLWithInfo){
+        this.TitlesForInfoButtons = TitlesForInfoButtons;
+        this.HTMLWithInfo = HTMLWithInfo;
+    }
+    Insert_HTML_In_DOM(SectionContainerContentInfoTopology){
+        setTimeout(() => {
+            this.TitlesForInfoButtons.forEach((title_button) => {
+                SectionContainerContentInfoTopology.innerHTML += `<button class="btn-info-topology" id="BtnInformationTopology"><p class="text-btn-info-topology" id="TextForBtnInfoTopology">${title_button}</p></button>`; 
+            });
+        }, 0);
+
+        setTimeout(() => {
+            this.HTMLWithInfo.forEach((html_content) => {
+                SectionContainerContentInfoTopology.innerHTML += `<div class="window-content-for-button-information-topology" id="WindowContentForButtonInformationTopology">${html_content}</div>`;
+            })
+        }, 0);
+    }
+    Catch_Inserted_Elements(SectionContainerContentInfoTopology){
+        let collection_buttons_info = [];
+        let buttons_info = SectionContainerContentInfoTopology.querySelectorAll("#BtnInformationTopology");
+        let p_elements_in_buttons_info = SectionContainerContentInfoTopology.querySelectorAll("#TextForBtnInfoTopology");
+        let windows_for_buttons = SectionContainerContentInfoTopology.querySelectorAll("#WindowContentForButtonInformationTopology");
+
+        buttons_info.forEach((button , index) => {
+            let button_info_class = new ButtonForInformationTopology(button , p_elements_in_buttons_info[index] , windows_for_buttons[index]);
+            collection_buttons_info.push(button_info_class);
+        });
+        
+        let ManagerButtonsInfoSection = new HandlerButtonsForInformationTopology(collection_buttons_info);
+        ManagerButtonsInfoSection.Add_Event_Listener();
+    }
+}
+
+
+class ButtonForSectionContentEachDevice{
+    constructor(Button , WindowConfigurationCommands , WindowOnlyCommands){
+        this.Button = Button;
+        this.TextInButton = this.Button.textContent;
+        this.ActiveButton = false;
+        this.WindowConfigurationCommands = WindowConfigurationCommands;
+        this.WindowOnlyCommands = WindowOnlyCommands;
+        this.IsActiveWindowOnlyCommands = false;
+    }
+    Back_To_Normal_State(){
+        this.Hidden_Windows_For_Button();
+        this.Button.classList.remove("btn-device-active");
+        this.Button.classList.remove("inactive-btn-effect");
+        this.Button.textContent = this.TextInButton;
+    }
+    Change_State_Button(){
+        if(this.ActiveButton){
+            this.Button.classList.add("btn-device-active");
+            this.Button.textContent = "Cerrar " + this.TextInButton;
+        }
+        else{
+            this.Button.classList.add("inactive-btn-effect");
+        }
+    }
+    Display_Windows_For_Button(DisplayOnlyCommands){
+        this.IsActiveWindowOnlyCommands = DisplayOnlyCommands;
+
+        if(this.IsActiveWindowOnlyCommands && this.ActiveButton){
+            this.WindowConfigurationCommands.style.right = "120%";
+            this.WindowOnlyCommands.style.right = "5%";
+        }
+        else if(this.ActiveButton){
+            this.WindowConfigurationCommands.style.right = "5%";
+            this.WindowOnlyCommands.style.right = "120%";
+        }
+    }
+    Hidden_Windows_For_Button(){
+        this.WindowConfigurationCommands.style.right = "120%";
+        this.WindowOnlyCommands.style.right = "120%";
+    }
+}
+
+class HandlerButtonsForSectionContentEachDevice{
+    constructor(CollectionButtonsEachDevice , CheckboxOnlyCommands){
+        this.CollectionButtonsEachDevice = CollectionButtonsEachDevice;
+        this.CheckboxOnlyCommands = CheckboxOnlyCommands;
+    }
+    Add_Event_Listener(){
+        this.CollectionButtonsEachDevice.forEach((button_each_device_class) => {
+            button_each_device_class.Button.addEventListener("click" , () => {
+                if(button_each_device_class.ActiveButton){
+                    button_each_device_class.ActiveButton = false;
+                    this.Change_State_All_Buttons(false);
+                    button_each_device_class.Display_Windows_For_Button(this.CheckboxOnlyCommands.checked);
+                }
+                else{
+                    button_each_device_class.ActiveButton = true;
+                    this.Change_State_All_Buttons(true);
+                    button_each_device_class.Display_Windows_For_Button(this.CheckboxOnlyCommands.checked);
+                }
+            })
+        })
+    }
+
+    Change_State_All_Buttons(IsAnySelected){
+        this.CollectionButtonsEachDevice.forEach((button_each_device_class) => {
+            IsAnySelected ? button_each_device_class.Change_State_Button() : button_each_device_class.Back_To_Normal_State();
+        }) 
+    }
+
+    Disable_All_Objets(){
+        this.CollectionButtonsEachDevice.forEach((button_each_device_class) => {
+            button_each_device_class.ActiveButton = false;
+            button_each_device_class.Back_To_Normal_State();
+        })
+    }
+
+    Switch_Windows(IsCheckedOnlyCommands){
+        this.CollectionButtonsEachDevice.forEach((button_each_device_class) => {
+            button_each_device_class.Display_Windows_For_Button(IsCheckedOnlyCommands);
+        })
+    }
+}
+
+export class ConstructorSectionContentForEachDevice{
+    constructor(TitlesForButtons , HTMLConfigurationCommands , HTMLOnlyCommands){
+        this.TitlesForButtons = TitlesForButtons;
+        this.HTMLConfigurationCommands = HTMLConfigurationCommands;
+        this.HTMLOnlyCommands = HTMLOnlyCommands;
+
+        this.html_buttons = ``;
+        this.html_content = ``;
+
+        this.IDSection = this.TitlesForButtons.join("_");
+
+        this.TitlesForButtons.forEach((title_button , index) => {
+            this.html_buttons += `<button class="btn-device" id="ButtonForDevice_${title_button}">${title_button}</button>`;
+            this.html_content += `<div class="container-for-configuration-commands" id="WindowForConfigurationCommands_${title_button}">${this.HTMLConfigurationCommands[index]}</div><div class="container-for-configuration-commands" id="WindowForOnlyCommands_${title_button}">${this.HTMLOnlyCommands[index]}</div>`;
+        })
+
+    }
+    Insert_HTML_In_DOM(SectionContentForDeviceType){
+        setTimeout(() => {
+            SectionContentForDeviceType.innerHTML += `<div class="container-content-for-each-device" id="SectionContainerContentForEachDevice${this.IDSection}"><div class="container-content" id="SectionContentForEachDevice">${this.html_buttons}${this.html_content}</div></div>`;
+        }, 0);
+    }
+
+    Catch_Inserted_Elements(CheckboxOnlyCommands){
+        let CollectionButtonsEachDevice = [];
+
+        this.TitlesForButtons.forEach((title_button) => {
+            let button_device = document.getElementById(`ButtonForDevice_${title_button}`);
+            let window_configuration_commands = document.getElementById(`WindowForConfigurationCommands_${title_button}`);
+            let window_only_commands = document.getElementById(`WindowForOnlyCommands_${title_button}`);
+
+            let button_each_device_class = new ButtonForSectionContentEachDevice(button_device , window_configuration_commands , window_only_commands);
+            CollectionButtonsEachDevice.push(button_each_device_class);
+        })
+
+        let SectionContainerContentForEachDevice = document.getElementById(`SectionContainerContentForEachDevice${this.IDSection}`);
+        
+        let ManagerButtonsDevices = new HandlerButtonsForSectionContentEachDevice(CollectionButtonsEachDevice , CheckboxOnlyCommands);
+        ManagerButtonsDevices.Add_Event_Listener();
+
+        return [SectionContainerContentForEachDevice , ManagerButtonsDevices];
+    }
+}
+
+export function Add_Event_Listener_Checkbox_Only_Commands(CheckboxOnlyCommands , CollectionManagersButtonsDevices){
+    CheckboxOnlyCommands.addEventListener("click" , () => {
+        CollectionManagersButtonsDevices.forEach((manager_button_device) => {
+            manager_button_device.Switch_Windows(CheckboxOnlyCommands.checked)
+        })
+    })
+}
+
+class ButtonForDeviceType{
+    constructor(Button , ManagerButtonsDevices , SectionContainerContentForEachDevice){
+        this.Button = Button;
+        this.ActiveButton = false;
+        this.ManagerButtonsDevices = ManagerButtonsDevices;
+        this.SectionContainerContentForEachDevice = SectionContainerContentForEachDevice;
+    }
+
+    Back_To_Normal_State(){
+        this.Button.classList.remove("btn-for-device-type-active");
+        this.Button.classList.remove("inactive-btn-effect");
+
+        this.ManagerButtonsDevices.Disable_All_Objets();
+    }
+
+    Change_State_Button(){
+        if(this.ActiveButton){
+            this.Button.classList.add("btn-for-device-type-active");
+        }
+        else{
+            this.Button.classList.add("inactive-btn-effect");
+        }
+    }
+
+    Display_Window_Devices(){
+        this.SectionContainerContentForEachDevice.style.top = "7%";
+    }
+
+    Hidden_Window_Devices(){
+        this.SectionContainerContentForEachDevice.style.top = "120%";
+    }
+}
+
+class HandlerButtonsForDeviceType{
+    constructor(CollectionButtonsForDeviceType){
+        this.CollectionButtonsForDeviceType = CollectionButtonsForDeviceType;
+    }
+
+    Add_Event_Listener(){
+        this.CollectionButtonsForDeviceType.forEach((button_device_type_class) => {
+            button_device_type_class.Button.addEventListener("click" , () => {
+                if(button_device_type_class.ActiveButton){
+                    button_device_type_class.ActiveButton = false;
+                    this.Change_State_All_Buttons(false);
+                    button_device_type_class.Hidden_Window_Devices();
+                }
+                else{
+                    button_device_type_class.ActiveButton = true;
+                    this.Change_State_All_Buttons(true);
+                    button_device_type_class.Display_Window_Devices();
+                }
+            })
+        })
+    }
+
+    Change_State_All_Buttons(IsAnySelected){
+        this.CollectionButtonsForDeviceType.forEach((button_device_type_class) => {
+            IsAnySelected ? button_device_type_class.Change_State_Button() : button_device_type_class.Back_To_Normal_State();
+        })
+    }
+}
+
+export class ConstructorSectionContentForDeviceType{
+    constructor(TitlesForButtons){
+        this.TitlesForButtons = TitlesForButtons;
+    }
+    Insert_HTML_In_DOM(SectionContentForDeviceType){
+        let html_buttons = ``;
+        this.TitlesForButtons.forEach((title_button) => {
+            html_buttons += `<button class="btn-for-device-type" id="BtnForDeviceType">${title_button}</button>`;
+        })
+
+        setTimeout(() => {
+            SectionContentForDeviceType.innerHTML += html_buttons;
+        }, 0);
+    }
+    Catch_Inserted_Elements(SectionContentForDeviceType , CollectionManagersButtonsDevices , CollectionSectionsContainerContentForEachDevice){
+        let collection_buttons_device_type = []; 
+
+        let buttons_devices = SectionContentForDeviceType.querySelectorAll("#BtnForDeviceType");
+        buttons_devices.forEach((button , index) => {
+            let button_device_type_class = new ButtonForDeviceType(button , CollectionManagersButtonsDevices[index] , CollectionSectionsContainerContentForEachDevice[index]);
+            collection_buttons_device_type.push(button_device_type_class);
+        })
+        let ManagerButtonsDeviceType = new HandlerButtonsForDeviceType(collection_buttons_device_type);
+        ManagerButtonsDeviceType.Add_Event_Listener();
+    }
+}
+
+
+export class ConstructorSectionMultimediaTopology{
+    constructor(ImageTopology , FileTopology = NaN , DocumentTopology = NaN){
+
+        this.HTMLImageTopology = `<img class="image-modal" src="${ImageTopology}" alt="Imagen de la Topologia">`;
+        this.HTMLButtonDownloadImageTopology = `<a class="btn-download-image-topology" id="BtnDownloadImageTopology" href="${ImageTopology}" download="ImagenTopologia">Descargar Imagen</a>`;
+
+        this.HTMLButtonDownloadFileTopology = ``;
+        this.HtMLButtonDownloadDocumentTopology = ``;
+
+        if(FileTopology){
+            this.HTMLButtonDownloadFileTopology += `<a class="btn-download-file-topology" id="BtnDownloadFileTopology" href="${FileTopology}" download="Topologia">Descargar Topologia</a>`;
+        }
+        if(DocumentTopology){
+            this.HtMLButtonDownloadDocumentTopology += `<a class="btn-download-document-topology" id="BtnDownloadDocumentTopology" href="${DocumentTopology}" download="DocumentoTopologia">Descargar Documento</a>`;
+        }
+
+        this.HTMLButtonCloseModal = `<button class="btn-close-modal" id="BtnCloseModal">Cerrar</button>`;
+
+        this.HTMLButtons = this.HTMLButtonDownloadImageTopology + this.HTMLButtonDownloadFileTopology + this.HtMLButtonDownloadDocumentTopology + this.HTMLButtonCloseModal;
+    }
+
+    Insert_HTML_In_DOM(SectionModalDownloadMultimedia){
+        setTimeout(() => {
+            SectionModalDownloadMultimedia.innerHTML += `<div class="content-section-modal-download-multimedia-topology">${this.HTMLImageTopology}<div class="container-buttons-modal">${this.HTMLButtons}</div></div>`;
+        }, 0);
+    }
+
+    Catch_Inserted_Elements(SectionModalDownloadMultimedia , LeftSection , RigthSection){
+        let button_close_modal = document.getElementById("BtnCloseModal");
+
+        button_close_modal.addEventListener("click" , () => {
+            SectionModalDownloadMultimedia.style.top = "120%";
+
+            LeftSection.classList.remove("inactive-section-effect");
+            RigthSection.classList.remove("inactive-section-effect");
+        })
+    }
+}
+
+
+export class ButtonDisplaySectionStepsForConfiguration{
+    constructor(Button , SectionCommandsConfiguration , SectionStepsForConfiguration){
+        this.Button = Button;
+        this.TextInButton = "Explicacion Paso a Paso";
+        this.ActiveButton = false;
+        this.SectionCommandsConfiguration = SectionCommandsConfiguration;
+        this.SectionStepsForConfiguration = SectionStepsForConfiguration;
+    }
+
+    
+    Add_Event_Listener(){
+        this.Button.addEventListener("click" , () => {
+            if(this.ActiveButton){
+                this.ActiveButton = false;
+                this.Button.textContent = "Mostrar " + this.TextInButton;
+            }
+            else{
+                this.ActiveButton = true;
+                this.Button.textContent = "Ocultar " + this.TextInButton;
+            }
+
+            this.Move_Sections();
+        })
+    }
+
+    Move_Sections(){
+        if(this.ActiveButton){
+            this.SectionCommandsConfiguration.classList.add("inactive-section-effect");
+            this.SectionStepsForConfiguration.style.left = "0%";
+        }
+        else{
+            this.SectionCommandsConfiguration.classList.remove("inactive-section-effect");
+            this.SectionStepsForConfiguration.style.left = "120%";
+        }
+    }
+}
+
+class ButtonStepsSection{
+    constructor(Button , WindowStep){
+        this.Button = Button;
+        this.ActiveButton = false;
+        this.WindowStep = WindowStep;
+    }
+
+    Change_State_Button(){
+        if(this.ActiveButton){
+            this.Button.classList.add("btn-step-active");
+        }
+        else{
+            this.Button.classList.add("");
+        }
+    }
+}
+
 export class Type_Network_Device{
     constructor (IDBtn , IDWindowSelectionDevice){
         this.Btn = document.getElementById(IDBtn);

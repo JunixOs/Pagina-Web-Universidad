@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>Config</title>
+        <link rel="stylesheet" href="../CSS/topology-configurations-style.css">
+    </head>
+    <body>
+        <section class="section-modal-download-multimedia-topology" id="SectionModalDownloadMultimedia" aria-label="Seccion Modal">
+            <header class="title-section-modal-download-multimedia-topology">
+                <h1>Descargar Recursos</h1>
+            </header>
+            <div class="content-section-modal-download-multimedia-topology">
+                <div class="container-buttons-modal"></div>
+            </div>
+        </section>
+
+        <section class="left-section" id="LeftSection" aria-label="Seccion Izquierda">
+            <div class="section-info-topology" id="SectionInfoAboutTopology">
+                <header class="title-section-info-topology">
+                    <h1>Informacion sobre la Topologia</h1>
+                </header>
+                <div class="container-content-info-topology" id="SectionContainerContentInfoTopology">
+                </div>
+            </div>
+            <div class="section-topology-multimedia" id="SectionTopologyMultimedia">
+                <img class="image-topology" src="https://www.cisco.com/content/dam/cisco-cdc/site/us/en/images/networking/Routing_Listing_Rendering_758x484_v2.png" alt="">
+                <div class="buttons-for-multimedia">
+                    <button id="BtnForZoomImageTopology">Zoom</button>
+                    <button id="BtnForDownloadContent">Descargar Archivos</button>
+                </div>
+                
+            </div>
+            <div class="section-container-buttons-nav" id="SectionContainerButtonsNav">
+                <button id="BtnBackHome">Volver a Inicio</button>
+                <button id="BtnBack">Volver Atras</button>
+                <button id="BtnDisplayWindowExplainStepByStep">Mostrar Explicacion Paso a Paso</button>
+            </div>
+        </section>
+
+        <main class="right-section" id="RightSection">
+            <section class="section-commands-configuration" id="SectionCommandsConfiguration">
+                <header class="title-for-section-commands-configuration"><h1>Elija el Dispositivo</h1></header>
+                <div class="container-content-section-commands" id="SectionContentForDeviceType"></div>
+                <div class="container-checkbox-only-commands">
+                    <input class="checkbox-only-commands" type="checkbox" name="OnlyCommands" id="CheckboxOnlyCommands"><label for="OnlyCommands">Mostrar solo comandos</label>
+                </div>
+            </section>
+
+            <section class="section-steps-configuration" id="SectionStepsForConfiguration">
+                <header class="title-for-section-steps-configuration"><h1>Elija el paso</h1></header>
+                <div class="container-content-section-steps-configuration">
+                    <button class="btn-step">Configurar STP</button>
+                    <button class="btn-step">Configurar HSRP</button>
+                    <button class="btn-step">Configurar OSPF</button>
+
+                    <div class="window-step"></div>
+                </div>
+                <div class="container-btn-previous-next-step">
+                    <button class="btn-prev-next">Paso Anterior</button>
+                    <button class="btn-prev-next">Paso Siguiente</button>
+                </div>
+            </section>
+        </main>
+    </body>
+    <script type="module" src="../JS/topology-configuration.js"></script>
+</html>

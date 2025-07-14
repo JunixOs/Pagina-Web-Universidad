@@ -2,7 +2,7 @@ import {
     Type_Network_Device , Network_Device_Number , Group_Network_Devices_Number , 
     Explain_Steps , Group_Btn_Explain_Steps,
     Group_Type_Network_Devices, Preview_Image_Topology
-} from "../../JS_Core/Core_Views/buttons-configurations-base.js";
+} from "../../Interaction/Core_Views/buttons-configurations-base.js";
 
 var CheckBox = document.getElementById("checkbox");  // Checkbox "Mostrar solo configuraciones"
 
@@ -29,20 +29,26 @@ Preview.BtnPreview.addEventListener('click', () =>{
     Preview.Function_EventListener();
 })
 Preview.ImageTopology.addEventListener('click', () =>{
-    if(!Click_Image){
-        Click_Image = true;
-        Preview.Display_Hidden_Text_Window_Preview(true);
-    }
-    else{
-        Click_Image = false;
-        Preview.Display_Hidden_Text_Window_Preview(false);
+    if(Preview.Active){
+        if(!Click_Image){
+            Click_Image = true;
+            Preview.Display_Hidden_Text_Window_Preview(true);
+        }
+        else{
+            Click_Image = false;
+            Preview.Display_Hidden_Text_Window_Preview(false);
+        }
     }
 })
 Preview.ImageTopology.addEventListener('mousemove', (e) =>{
-    Preview.Function_Mousemove(e, Click_Image);
+    if(Preview.Active){
+        Preview.Function_Mousemove(e, Click_Image);
+    }
 });
 Preview.ImageTopology.addEventListener('mouseout', ()=>{
-    Preview.Function_Mouseout();
+    if(Preview.Active){
+        Preview.Function_Mouseout();
+    }
 })
 
 Routers.Btn.addEventListener('click',()=>{
