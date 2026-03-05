@@ -1,0 +1,6 @@
+venv/
+venv_web_university_project/
+.vscode/
+__pycache__/
+migrations/
+.env
